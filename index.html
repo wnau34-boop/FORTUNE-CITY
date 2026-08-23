@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fortune City V7.8.1 Economy Rebalance</title>
+<title>Fortune City V7.8.2 Skill Info UX</title>
 <style>
 :root{
  --bg:#edf2f6;--panel:#f7fafc;--panel2:#eef4f8;--line:#a7bfd0;--text:#1d3850;--muted:#627d93;
@@ -56,6 +56,18 @@ button{font:inherit}.hidden{display:none!important}
 .grid{display:grid;gap:14px}.char-grid{grid-template-columns:repeat(4,1fr)}.map-grid{grid-template-columns:repeat(3,1fr)}.shop-grid{grid-template-columns:repeat(3,1fr)}
 .pick,.shop-item{background:linear-gradient(180deg,#ffffff,#f4faff);border:1px solid #d4e7f4;border-radius:24px;padding:16px;position:relative;overflow:hidden;box-shadow:0 14px 30px rgba(89,129,159,.08);transition:.18s}.pick:after,.shop-item:after{content:"";position:absolute;inset:auto -30px -30px auto;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(110,198,243,.12) 0,transparent 70%);pointer-events:none}
 .pick{cursor:pointer;transition:.18s}.pick:hover,.shop-item:hover{transform:translateY(-4px);box-shadow:0 20px 38px rgba(89,129,159,.14)}.pick.selected{outline:3px solid var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(243,198,93,.18),0 20px 38px rgba(89,129,159,.16)}.pick.locked{filter:grayscale(.22);opacity:.62;cursor:not-allowed}
+
+.skill-info-btn{position:absolute;right:12px;bottom:12px;z-index:5;border:1px solid #b9d7ea;background:linear-gradient(180deg,#ffffff,#edf7fd);color:#285a7c;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(64,112,145,.12);transition:.15s}
+.skill-info-btn:hover{transform:translateY(-1px);border-color:#72bfe7;box-shadow:0 9px 20px rgba(64,112,145,.18)}
+.pick.locked .skill-info-btn{opacity:1;filter:none;cursor:pointer}
+.skill-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px;text-align:left}
+.skill-detail-card{background:linear-gradient(180deg,#f7fbfe,#edf6fb);border:1px solid #cde1ee;border-radius:16px;padding:12px;color:#315a77}
+.skill-detail-card b{display:block;color:#214e6d;margin-bottom:5px;font-size:13px}
+.skill-detail-card span{font-size:12px;line-height:1.45;color:#5c7b93}
+.skill-tip-box{margin-top:10px;text-align:left;padding:12px 14px;border-radius:16px;background:linear-gradient(135deg,#fff8e8,#eef8ff);border:1px solid #e2d7a9;color:#45677f;font-size:12px;line-height:1.5}
+.skill-tip-box b{color:#7e641e}
+@media(max-width:680px){.skill-detail-grid{grid-template-columns:1fr}.skill-info-btn{right:10px;bottom:10px}}
+
 .pick b,.shop-item b{display:block;margin-top:10px;color:#1d5277;font-size:16px}.pick span,.shop-item span{display:block;color:#5c7d97;font-size:12px;margin-top:4px;line-height:1.45}.pick .meta-row,.shop-item .meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.soft-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#f1f8fd;border:1px solid #d7e8f4;color:#446783;font-size:11px;font-weight:800}.section-note{font-size:12px;color:#6e879e;background:#eef6fb;border:1px solid #d5e6f2;border-radius:999px;padding:5px 10px}.map-chip{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid rgba(210,229,242,.95);font-size:11px;font-weight:900;color:#365874}.map-footer{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.shop-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.shop-icon{font-size:42px;filter:drop-shadow(0 6px 14px rgba(38,94,132,.15))}.shop-price{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:linear-gradient(180deg,#f2f8fc,#e7f2f8);border:1px solid #cbdfea;color:#315a78;font-size:12px;font-weight:900}.shop-buy{margin-top:12px;width:100%}.collection-info,.shop-banner{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:14px 16px;border-radius:20px;background:linear-gradient(135deg,#f7fbff,#ecf6fb);border:1px solid #d4e6f3;margin-bottom:14px;color:#52728d}.shop-banner{background:linear-gradient(135deg,#113a60,#235f88 58%,#4b88b1);border-color:rgba(135,202,239,.34);color:#f2fbff;box-shadow:0 16px 34px rgba(33,89,127,.14)}.shop-banner strong{font-size:20px;display:block;color:#ffffff}
 .avatar-svg{width:72px;height:72px;margin:auto;display:block}.map-thumb{height:130px;border-radius:18px;margin-bottom:12px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}.day{background:linear-gradient(180deg,#92dcff 0,#bfefff 35%,#7ccaff 55%,#66b56a 55%,#4d9152 100%)}.night{background:linear-gradient(180deg,#0d1637 0,#253975 34%,#494a8b 52%,#183248 52%,#112437 100%)}.desert{background:linear-gradient(180deg,#ffd49a 0,#ffc27d 32%,#e49b58 54%,#b76d3f 54%,#9b592f 100%)}
 .citycut{position:absolute;left:0;right:0;bottom:0;height:58%;background:#ffffff66;clip-path:polygon(0 100%,0 65%,8% 65%,8% 30%,17% 30%,17% 72%,25% 72%,25% 42%,34% 42%,34% 66%,45% 66%,45% 22%,54% 22%,54% 72%,62% 72%,62% 47%,71% 47%,71% 68%,80% 68%,80% 35%,90% 35%,90% 75%,100% 75%,100% 100%)}
@@ -327,7 +339,7 @@ button{font:inherit}.hidden{display:none!important}
 <div id="homeScreen" class="screen">
  <div class="home">
   <div class="hero">
-   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V7.8.1 • Economy Rebalance</p></div>
+   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V7.8.2 • Skill Info UX</p></div>
    <div id="profileBox" class="profile"></div>
   </div>
   <div class="tabs">
@@ -387,7 +399,7 @@ button{font:inherit}.hidden{display:none!important}
 </div>
 
 <div class="app">
- <div class="topbar"><div class="brand"><div class="brand-row"><button class="back-btn" onclick="goHome()">← Back</button><h1>Fortune City <span style="color:#d985a6">V7.8.1</span></h1></div><p id="mapName" class="has-tip" data-tip-title="🗺️ ลูกเล่นแผนที่" data-tip-detail="">Sunrise City</p></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+ <div class="topbar"><div class="brand"><div class="brand-row"><button class="back-btn" onclick="goHome()">← Back</button><h1>Fortune City <span style="color:#d985a6">V7.8.2</span></h1></div><p id="mapName" class="has-tip" data-tip-title="🗺️ ลูกเล่นแผนที่" data-tip-detail="">Sunrise City</p></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
       <div class="badge">🏁 รอบ <b id="roundText">1</b>/<b id="roundMaxText">15</b> • ⭐ EXP หลังจบเกม</div>
       <div class="badge">⏱️ ความเร็ว
         <select id="speedSelect" onchange="setGameSpeed(this.value)" style="margin-left:6px;background:#14243b;color:white;border:1px solid #38516f;border-radius:8px;padding:4px 7px">
@@ -400,7 +412,7 @@ button{font:inherit}.hidden{display:none!important}
  <div class="layout">
   <aside class="control-sidebar">
    <div class="card game-control-card">
-    <div class="control-head"><div><h3>🎮 Game Control</h3><div id="turnText" class="control-turn">ถึงตาของคุณ</div></div><span class="chip">V7.8.1</span></div>
+    <div class="control-head"><div><h3>🎮 Game Control</h3><div id="turnText" class="control-turn">ถึงตาของคุณ</div></div><span class="chip">V7.8.2</span></div>
     <div class="side-dice"><div id="die1" class="die">⚀</div><div id="die2" class="die">⚀</div></div>
     <div class="side-controls">
      <button id="rollBtn" class="btn primary">🎲 ทอยเต๋า</button>
@@ -494,6 +506,31 @@ const skillDetails={
  3:"เลือกป้องกัน Rent ครั้งถัดไป หรือรับ Focus +2"
 };
 function roleInfoByTrait(trait){const role=roleDefs[trait]||roleDefs[0];return {role,detail:skillDetails[trait]||""}}
+const skillUseTips={
+ 0:"ใช้เมื่อผลเดินเกือบถึง Property, Trade Hub หรือ Junction สำคัญ การเก็บ Skill ไว้แก้ตำแหน่งช่วงกลาง–ท้ายเกมมักคุ้มที่สุด",
+ 1:"ถ้าเงินสดเริ่มตึงให้เลือกรับ Cash แต่ถ้ากำลังขาด Property อีก 1 ชิ้นเพื่อปิด Set การเปิด Trade Center มักมีมูลค่าสูงกว่า",
+ 2:"Upgrade ฟรีเหมาะกับ Property ที่ Strategy Value สูงและตั้งใจถือยาว ส่วนส่วนลด 35% เหมาะกับการเตรียม Upgrade ราคาแพงในจังหวะถัดไป",
+ 3:"Shield เหมาะก่อนเข้า District ที่ค่าเช่าสูง ส่วน Focus +2 เหมาะเมื่ออยากควบคุมเส้นทางหรือเล็ง Property สำคัญ"
+};
+function openCharacterSkillInfo(i,e){
+ if(e){e.preventDefault();e.stopPropagation();}
+ const c=chars[i],role=roleDefs[c.classId],rarity=charRarity(i),locked=!save.unlocked.includes(i);
+ const detail=skillDetails[c.classId]||"";
+ const useTip=skillUseTips[c.classId]||"";
+ modalIcon.textContent=c.icon||"✨";
+ modalTitle.textContent=`${c.name} • ${role.name}`;
+ modalText.textContent=`${role.trait} • ${rarity.label} ${"★".repeat(rarity.stars)}`;
+ modalExtra.innerHTML=`<div class="skill-detail-grid">
+   <div class="skill-detail-card"><b>✨ Role</b><span>${role.name}<br>${role.tag||role.trait}</span></div>
+   <div class="skill-detail-card"><b>🎯 Skill Type</b><span>${role.trait}</span></div>
+   <div class="skill-detail-card"><b>⚡ ความสามารถ</b><span>${detail}</span></div>
+   <div class="skill-detail-card"><b>⭐ ความหายาก</b><span>${rarity.label} ${"★".repeat(rarity.stars)} • ${c.theme}</span></div>
+ </div>
+ <div class="skill-tip-box"><b>💡 ใช้ตอนไหนคุ้ม</b><br>${useTip}</div>
+ ${locked?`<div class="choice-note" style="margin-top:10px">🔒 ตัวละครนี้ปลดล็อกที่ Lv.${c.unlock} แต่สามารถดูข้อมูล Skill ล่วงหน้าได้</div>`:""}`;
+ modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ปิด</button>`;
+ modal.classList.add("show");
+}
 function activeSatanCurseCount(p){return (p.satanSlowTurns||0)+(p.satanRentTurns||0)+(p.satanDrainTurns||0)}
 function clearSatanCurses(p){p.satanSlowTurns=0;p.satanRentTurns=0;p.satanDrainTurns=0}
 function getCurseEntries(p){
@@ -678,16 +715,23 @@ function renderHome(){
  chars.forEach((c,i)=>{
   const role=roleDefs[c.classId], rarity=charRarity(i);
   const locked=!save.unlocked.includes(i);
+  const roleDetail=skillDetails[c.classId]||"";
+  const tipTitle=`✨ ${c.name} • ${role.name}`;
+  const tipDetail=`${role.trait}<br>${roleDetail}` + (locked?`<br>🔒 ปลดล็อกที่ Lv.${c.unlock}`:"<br>คลิกเพื่อเลือกตัวละครนี้");
   if(charFilter!=="all" && c.theme!==charFilter) return;
   const d=document.createElement("div");
-  d.className="pick"+(i===selectedChar?" selected":"")+(locked?" locked":"");
-  d.innerHTML=`${avatarSVG(i,"normal",i===selectedChar?save.avatarStyle:{theme:"ocean"})}<b>${c.icon} ${c.name}</b><span class="tagline">${c.theme} • ${rarity.label} ${"★".repeat(rarity.stars)}</span><span>${role.name} • ${role.trait}</span><div class="meta-row"><span class="soft-pill">✨ ${role.name}</span><span class="soft-pill">🎯 ${role.trait}</span></div>${locked?`<span>🔒 ปลดล็อกที่ Lv.${c.unlock}</span>`:`<span class="subtag">เลือกใช้เป็นตัวละครของคุณ</span>`}`;
+  d.className="pick has-tip"+(i===selectedChar?" selected":"")+(locked?" locked":"");
+  d.dataset.tipTitle=tipTitle;
+  d.dataset.tipDetail=tipDetail;
+  d.innerHTML=`${avatarSVG(i,"normal",i===selectedChar?save.avatarStyle:{theme:"ocean"})}<b>${c.icon} ${c.name}</b><span class="tagline has-tip" data-tip-title="🏷️ หมวด / ความหายาก" data-tip-detail="${c.theme} • ${rarity.label} ${"★".repeat(rarity.stars)}">${c.theme} • ${rarity.label} ${"★".repeat(rarity.stars)}</span><span class="has-tip" data-tip-title="✨ Skill Overview" data-tip-detail="${role.name} • ${role.trait}<br>${roleDetail}">${role.name} • ${role.trait}</span><div class="meta-row"><span class="soft-pill has-tip" data-tip-title="✨ ${role.name}" data-tip-detail="${roleDetail}">✨ ${role.name}</span><span class="soft-pill has-tip" data-tip-title="🎯 ${role.trait}" data-tip-detail="${roleDetail}">🎯 ${role.trait}</span></div>${locked?`<span>🔒 ปลดล็อกที่ Lv.${c.unlock}</span>`:`<span class="subtag">เลือกใช้เป็นตัวละครของคุณ</span>`}<button class="skill-info-btn" onclick="openCharacterSkillInfo(${i},event)">✨ ดูสกิล</button>`;
   if(!locked)d.onclick=()=>{selectedChar=i;save.selectedChar=i;persist();renderHome()};
   charGrid.appendChild(d);
 
   const c2=document.createElement("div");
-  c2.className="pick"+(locked?" locked":"");
-  c2.innerHTML=`${avatarSVG(i)}<b>${c.icon} ${c.name}</b><span class="tagline">${c.theme} • ${rarity.label} ${"★".repeat(rarity.stars)}</span><span>${role.name} • ${role.trait}</span><div class="meta-row"><span class="soft-pill">🎭 ${c.theme}</span><span class="soft-pill">⭐ ${rarity.label}</span></div>${locked?`<span>🔒 ปลดล็อกที่ Lv.${c.unlock}</span>`:`<span class="subtag">พร้อมใช้งาน</span>`}`;
+  c2.className="pick has-tip"+(locked?" locked":"");
+  c2.dataset.tipTitle=tipTitle;
+  c2.dataset.tipDetail=`${role.name} • ${role.trait}<br>${roleDetail}` + (locked?`<br>🔒 ปลดล็อกที่ Lv.${c.unlock}`:"<br>พร้อมใช้งานใน Collection");
+  c2.innerHTML=`${avatarSVG(i)}<b>${c.icon} ${c.name}</b><span class="tagline">${c.theme} • ${rarity.label} ${"★".repeat(rarity.stars)}</span><span>${role.name} • ${role.trait}</span><div class="meta-row"><span class="soft-pill">🎭 ${c.theme}</span><span class="soft-pill">⭐ ${rarity.label}</span></div>${locked?`<span>🔒 ปลดล็อกที่ Lv.${c.unlock}</span>`:`<span class="subtag">พร้อมใช้งาน</span>`}<button class="skill-info-btn" onclick="openCharacterSkillInfo(${i},event)">✨ ดูสกิล</button>`;
   collectionGrid.appendChild(c2);
  });
  renderChosenPreview();
@@ -869,7 +913,7 @@ function startGame(){
    {name:aiB.name,title:titleDefs[Math.floor(Math.random()*titleDefs.length)].label,type:aiB.index,skin:makeAISkin(),money:eco.startMoney,pos:0,lands:0,spirit:null,items:[],color:"#4bd68a",trait:aiB.classId,bankrupt:false,focus:2,maxFocus:3,nextUpgradeDiscount:0,investmentToken:0},
    {name:aiC.name,title:titleDefs[Math.floor(Math.random()*titleDefs.length)].label,type:aiC.index,skin:makeAISkin(),money:eco.startMoney,pos:0,lands:0,spirit:null,items:[],color:"#b58cff",trait:aiC.classId,bankrupt:false,focus:2,maxFocus:3,nextUpgradeDiscount:0,investmentToken:0}
  ];
- save.inventory=[];persist();owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsed=false;log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V7.8.1: Economy Rebalance • Route AI Fix • 15 Property • เงินเริ่ม ${eco.startMoney} • Start +${eco.startBonus}`,"gold");showEffect("⚖️ Economy Rebalance",`${maps[selectedMap].name} • 15 Property • 5 Sets × 3 • ซื้อและพัฒนาได้สมดุลขึ้น`,"gold",5200);renderAll();startTurn();
+ save.inventory=[];persist();owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsed=false;log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V7.8.2: Economy Rebalance • Route AI Fix • Skill Info UX • 15 Property • เงินเริ่ม ${eco.startMoney} • Start +${eco.startBonus}`,"gold");showEffect("⚖️ Economy Rebalance",`${maps[selectedMap].name} • 15 Property • 5 Sets × 3 • ซื้อและพัฒนาได้สมดุลขึ้น`,"gold",5200);renderAll();startTurn();
 }
 
 function propertyIndices(){return tiles.map((t,i)=>t.type==="land"?i:-1).filter(i=>i>=0)}

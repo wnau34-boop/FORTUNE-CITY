@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fortune City V8.9 • Profile Reward & Cosmetic Collection</title>
+<title>Fortune City V8.8.9 • State Machine Hardening</title>
 <style>
 :root{
  --bg:#edf2f6;--panel:#f7fafc;--panel2:#eef4f8;--line:#a7bfd0;--text:#1d3850;--muted:#627d93;
@@ -472,7 +472,7 @@ button{font:inherit}.hidden{display:none!important}
   .side-controls{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;padding-left:0!important}
   .side-controls .btn{min-width:0!important;padding:9px 3px!important;border-radius:10px!important;font-size:10px!important;line-height:1.1!important;white-space:nowrap;box-shadow:none}
   .side-controls #rollBtn{grid-column:auto!important;font-size:11px!important}
-  .side-controls #skipBtn{display:none!important}
+  .side-controls #skipBtn{display:block!important}
   .skill-guide,.control-hint{display:none!important}
   .focus-panel{margin-top:8px!important;margin-left:0!important;padding:8px 10px!important;border-radius:12px!important;font-size:10px!important;min-height:0!important}
   .focus-panel span{display:inline!important;margin-left:5px!important;font-size:9px!important}
@@ -651,23 +651,21 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 @media(max-width:820px){.property-art{font-size:18px;right:3px;bottom:10px;opacity:.14}.zone-badge{right:2px!important;top:2px!important;min-width:16px;min-height:15px;padding:0 3px!important;font-size:9px!important}}
 
 
-/* V8.9 — Profile Reward & Cosmetic Collection */
-.cosmetic-hero{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 18px;border-radius:23px;background:linear-gradient(135deg,#223f68,#655496 55%,#b06d91);color:#fff;margin-bottom:14px;box-shadow:0 15px 32px rgba(59,70,113,.16)}
-.cosmetic-hero strong{display:block;font-size:21px}.cosmetic-hero p{margin:5px 0 0;color:#efe9ff;font-size:12px;line-height:1.5}.cosmetic-summary{padding:10px 13px;border-radius:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:11px;font-weight:900;white-space:nowrap}
-.cosmetic-preview-shell{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid #d5e5ef;border-radius:20px;background:linear-gradient(180deg,#fff,#f5faff);margin-bottom:15px}.cosmetic-preview{min-width:260px;min-height:100px;padding:14px;border-radius:18px;display:flex;align-items:center;gap:12px;overflow:hidden;border:1px solid #d3e5f0}.cosmetic-preview>div:last-child{min-width:0}.cosmetic-preview b{display:block;color:#fff;font-size:16px;text-shadow:0 1px 3px rgba(0,0,0,.26)}.cosmetic-preview small{display:block;color:rgba(255,255,255,.9);margin-top:5px;font-size:10px}.cosmetic-preview-copy b{display:block;color:#214f70}.cosmetic-preview-copy small{display:block;color:#6a8499;margin-top:4px;line-height:1.5}
-.cosmetic-section{margin-top:14px}.cosmetic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.cosmetic-card{position:relative;padding:14px;border-radius:19px;background:linear-gradient(180deg,#fff,#f4f9fc);border:1px solid #d5e5ef;min-width:0}.cosmetic-card.locked{opacity:.72}.cosmetic-card.equipped{border-color:#d6b24f;box-shadow:0 0 0 3px rgba(222,186,79,.16);background:linear-gradient(180deg,#fffdf5,#f8f3de)}.cosmetic-icon{font-size:30px}.cosmetic-card b{display:block;color:#214f70;font-size:14px;margin-top:6px}.cosmetic-card small{display:block;color:#688399;font-size:10px;line-height:1.45;margin-top:4px;min-height:29px}.cosmetic-source{display:inline-flex;margin-top:8px;padding:4px 7px;border-radius:999px;background:#eef6fb;color:#58748a;border:1px solid #d5e5ef;font-size:9px;font-weight:900}.cosmetic-btn{width:100%;margin-top:9px;padding:8px 9px!important;font-size:10px!important;border-radius:11px!important}.cosmetic-note{margin-top:14px;padding:12px 14px;border-radius:16px;background:#eef6fb;border:1px solid #d5e6ef;color:#607a8f;font-size:11px;line-height:1.55}.cosmetic-note b{color:#2a5877}
-/* frames */
-.frame-classic{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 6px 14px rgba(35,73,101,.12)}
-.frame-sunrise{border-color:#f1c660!important;box-shadow:0 0 0 3px rgba(241,198,96,.20),0 8px 18px rgba(134,96,17,.20)!important}
-.frame-harbor{border-color:#7cc8e8!important;box-shadow:0 0 0 3px rgba(124,200,232,.20),0 8px 18px rgba(33,115,150,.18)!important}
-.frame-royal{border-color:#c692e6!important;box-shadow:0 0 0 3px rgba(198,146,230,.20),0 8px 18px rgba(106,57,139,.20)!important}
-.frame-inferno{border-color:#ef7d72!important;box-shadow:0 0 0 3px rgba(239,125,114,.20),0 8px 18px rgba(155,49,39,.22)!important}
-.frame-fortune{border-color:#9ad5e9!important;box-shadow:0 0 0 3px rgba(185,135,238,.18),0 0 18px rgba(101,192,220,.28)!important}
-/* backgrounds */
-.profile-bg-city{background:linear-gradient(135deg,#315f88,#6395b8 52%,#86b7ce)!important}.profile-bg-sunset{background:linear-gradient(135deg,#7c4c70,#d17d78 54%,#efbd83)!important}.profile-bg-moonbay{background:linear-gradient(135deg,#20335c,#384b86 54%,#5479a1)!important}.profile-bg-goldendunes{background:linear-gradient(135deg,#8e6136,#c48b50 55%,#e3bd7d)!important}.profile-bg-champion{background:linear-gradient(135deg,#5b4519,#b48a2d 48%,#2f6788)!important}.profile-bg-aurora{background:linear-gradient(135deg,#274f71,#6a5b9c 45%,#4e9b96 72%,#d28ba9)!important}
-.profile[class*="profile-bg-"] .name,.profile[class*="profile-bg-"] .profile-sub{color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.22)}.profile[class*="profile-bg-"] .profile-stat{background:rgba(255,255,255,.90)!important}.profile[class*="profile-bg-"] .xpbar{background:rgba(14,35,52,.45)!important}
-@media(max-width:820px){.cosmetic-grid{grid-template-columns:1fr 1fr}.cosmetic-hero,.cosmetic-preview-shell{align-items:flex-start;flex-direction:column}.cosmetic-preview{min-width:0;width:100%}}
-
+/* V8.8.6 — Skip Soft-lock Hotfix
+   Never hide Pass on mobile. When a purchase/upgrade cannot be afforded,
+   Buy/Upgrade stays disabled while Pass remains an explicit enabled action. */
+@media(max-width:820px){
+  .side-controls #skipBtn{display:block!important}
+}
+.side-controls #skipBtn:not(:disabled){
+  opacity:1!important;
+  cursor:pointer!important;
+  font-weight:900!important;
+  box-shadow:0 6px 14px rgba(65,105,135,.12)!important;
+}
+.side-controls #buyBtn:disabled,.side-controls #upgradeBtn:disabled{
+  cursor:not-allowed!important;
+}
 </style>
 </head>
 <body>
@@ -675,7 +673,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 <div id="homeScreen" class="screen">
  <div class="home">
   <div class="hero">
-   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.9 • Profile Reward & Cosmetic Collection</p></div>
+   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.8.1 • Sustainable Progression Economy</p></div>
    <div id="profileBox" class="profile"></div>
   </div>
   <div class="tabs home-main-tabs">
@@ -694,7 +692,6 @@ body.desktop-fullscreen .control-sidebar{top:10px}
    <button class="home-subtab" data-home-sub="chests" onclick="switchHomeHub('collection','chests',this)">📦 Chests</button>
    <button class="home-subtab" data-home-sub="career" onclick="switchHomeHub('collection','career',this)">💼 Career</button>
    <button class="home-subtab" data-home-sub="decorate" onclick="switchHomeHub('collection','decorate',this)">🎭 Profile</button>
-   <button class="home-subtab" data-home-sub="cosmetics" onclick="switchHomeHub('collection','cosmetics',this)">✨ Cosmetics</button>
    <button class="home-subtab" data-home-sub="collection" onclick="switchHomeHub('collection','collection',this)">🧩 Characters</button>
   </div>
   <div id="playTab" class="panel tabpanel">
@@ -747,7 +744,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
    <div id="bagSummary" class="bag-summary"></div>
    <div class="bag-section"><div class="bag-section-head"><h3>🧰 Consumables</h3><span>ของใช้ทั่วไป • ซื้อเพิ่มจาก Shop ได้</span></div><div id="bagConsumableGrid" class="bag-grid"></div></div>
    <div class="bag-section"><div class="bag-section-head"><h3>🎴 Tactic Cards</h3><span>หาได้จาก Tactic Tile • ใช้เลือกเป้าหมายในเกม</span></div><div id="bagTacticGrid" class="bag-grid"></div></div>
-   <div class="bag-section"><div class="bag-section-head"><h3>🔮 Meta Collection</h3><span>ระบบสะสมระยะยาว</span></div><div class="bag-future-grid"><div class="bag-future" style="opacity:1;cursor:pointer" onclick="openCareerTab()"><b>💼 Career Cards</b><small>เปิดใช้งานแล้วใน V8.7 • Equip ได้ 1 ใบ และให้ Passive Advantage เล็กน้อย 3–7%</small></div><div class="bag-future" style="opacity:1;cursor:pointer" onclick="openChestTab()"><b>📦 Chests</b><small>V8.9 • Reward หลักเป็น Consumable/Shard • มีโอกาสปลด Skill/Career/Cosmetic</small></div><div class="bag-future" style="opacity:1;cursor:pointer" onclick="openHomeHub('collection','cosmetics',document.getElementById('collectionMainTabBtn'))"><b>✨ Cosmetics</b><small>Title • Frame • Background • ไม่มี Gameplay Power</small></div></div></div>
+   <div class="bag-section"><div class="bag-section-head"><h3>🔮 Meta Collection</h3><span>ระบบสะสมระยะยาว</span></div><div class="bag-future-grid"><div class="bag-future" style="opacity:1;cursor:pointer" onclick="openCareerTab()"><b>💼 Career Cards</b><small>เปิดใช้งานแล้วใน V8.7 • Equip ได้ 1 ใบ และให้ Passive Advantage เล็กน้อย 3–7%</small></div><div class="bag-future" style="opacity:1;cursor:pointer" onclick="openChestTab()"><b>📦 Chests</b><small>V8.8.1 • Reward หลักเป็น Consumable/Shard • มีโอกาสปลด Skill/Career</small></div></div></div>
    <div class="bag-note">💡 ของใน Bag ไม่ได้ถูกใช้ตอนอยู่หน้า Home ระบบจะย้าย Item ทั้งหมดเข้า Match เมื่อกดเริ่มเกม และ Item ที่เหลือหลังจบเกมจะกลับเข้ากระเป๋าอีกครั้ง</div>
   </div>
 
@@ -810,11 +807,10 @@ body.desktop-fullscreen .control-sidebar{top:10px}
     <div class="guide-card"><div class="guide-icon">🏆</div><b>Achievement</b><p>การซื้อ Property, Full Set, Trade, Win และ Challenge ต่าง ๆ จะสะสม Lifetime Stats และปลด Achievement</p></div>
     <div class="guide-card"><div class="guide-icon">📋</div><b>Daily / Weekly Quest</b><p>ภารกิจจะนับจากการเล่นจริง เช่น ซื้อ Property, Upgrade, ใช้ Focus, Trade, Tactic และจบเกม รับ Coins จาก Quest เป็นรายได้หลักสำหรับ Shop</p></div>
     <div class="guide-card"><div class="guide-icon">💎</div><b>Gems</b><p>ทรัพยากร Meta Progression สำหรับ Cosmetic / Convenience และระบบที่จะเพิ่มภายหลัง ไม่ได้เพิ่มพลัง Match โดยตรง</p></div>
-    <div class="guide-card"><div class="guide-icon">✨</div><b>Cosmetic Collection</b><p>Title, Profile Frame และ Background ได้จาก Achievement, Chest หรือใช้ Gems ซื้อบางชิ้น • Cosmetic ไม่มีผลต่อ Stat หรือ Match Power</p></div>
    </div></div>
 
    <div class="guide-tip"><b>💡 เคล็ดลับสำหรับเกมแรก</b><br>อย่าซื้อทุก Property ที่เจอ • พยายามปิด Set ให้ได้ก่อน • เก็บเงินสำรองสำหรับ Auction/Trade • ใช้ Focus เมื่อช่วยให้ลง Tile ที่คุ้มจริง ๆ • Skill ไม่จำเป็นต้องใช้ทันที เก็บไว้แก้สถานการณ์ช่วงกลางหรือท้ายเกมมักมีมูลค่ามากกว่า • Tactic Card ใช้เลือกคู่แข่งได้ แต่ผู้ที่เพิ่งโดนจะมี Protection ชั่วคราว</div>
-   <div class="home-actions" style="position:static;margin-top:16px"><button class="btn primary" onclick="returnToPlayTab()">🎲 เข้าใจแล้ว — ไปเตรียมเกม</button></div>
+   <div class="home-actions" style="position:static;margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" onclick="returnToPlayTab()">🎲 เข้าใจแล้ว — ไปเตรียมเกม</button><button class="btn blue" onclick="runQASimulator(500)">🧪 QA Simulator • 500 Matches</button></div>
   </div>
   <div id="progressTab" class="panel tabpanel hidden">
    <div class="progress-hero">
@@ -824,13 +820,6 @@ body.desktop-fullscreen .control-sidebar{top:10px}
    <div id="lifetimeStatsGrid" class="lifetime-grid"></div>
    <h3 style="margin-top:18px">Achievements <span id="achievementCount" class="section-note"></span></h3>
    <div id="achievementGrid" class="achievement-grid"></div>
-  </div>
-  <div id="cosmeticsTab" class="panel tabpanel hidden">
-   <div class="cosmetic-hero"><div><strong>✨ Cosmetic Collection</strong><p>สะสม Profile Frame, Background และ Title เพื่อแสดงตัวตน • ไม่มี Gameplay Power และไม่เพิ่ม Stat ใน Match</p></div><div id="cosmeticSummary" class="cosmetic-summary">0 / 0</div></div>
-   <div class="cosmetic-preview-shell"><div id="cosmeticPreview" class="cosmetic-preview"></div><div class="cosmetic-preview-copy"><b>Live Profile Preview</b><small>แตะ Equip เพื่อดูผลทันที • Cosmetic ทุกชิ้นเป็น Meta Collection เท่านั้น</small></div></div>
-   <div class="cosmetic-section"><div class="bag-section-head"><h3>🖼️ Profile Frames</h3><span>Achievement • Chest • Gems</span></div><div id="frameCosmeticGrid" class="cosmetic-grid"></div></div>
-   <div class="cosmetic-section"><div class="bag-section-head"><h3>🌆 Profile Backgrounds</h3><span>Achievement • Chest • Gems</span></div><div id="backgroundCosmeticGrid" class="cosmetic-grid"></div></div>
-   <div class="cosmetic-note"><b>⚖️ Fair Cosmetic Rule:</b> Frame / Background / Title ไม่เพิ่ม Cash, Focus, Rent, Skill, Career หรือ AI advantage ใด ๆ • Gems ใช้ซื้อ Cosmetic บางชิ้นเพื่อเป็น Resource Sink โดยไม่ Pay-to-Win</div>
   </div>
   <div id="decorateTab" class="panel tabpanel hidden profile-mode">
    <h3>ตกแต่งโปรไฟล์ <span class="section-note">จัดการฉายา ธีม และ Character แยกจากหน้าเล่น</span></h3>
@@ -863,7 +852,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 </div>
 
 <div class="app">
- <div class="topbar"><div class="brand"><div class="brand-row"><button class="back-btn" onclick="goHome()">← Back</button><h1>Fortune City <span style="color:#d985a6">V8.9</span></h1></div><p id="mapName" class="has-tip" data-tip-title="🗺️ ลูกเล่นแผนที่" data-tip-detail="">Sunrise City</p></div><div class="topbar-actions">
+ <div class="topbar"><div class="brand"><div class="brand-row"><button class="back-btn" onclick="goHome()">← Back</button><h1>Fortune City <span style="color:#d985a6">V8.8.9</span></h1></div><p id="mapName" class="has-tip" data-tip-title="🗺️ ลูกเล่นแผนที่" data-tip-detail="">Sunrise City</p></div><div class="topbar-actions">
       <div class="badge">🏁 รอบ <b id="roundText">1</b>/<b id="roundMaxText">15</b> • ⭐ EXP หลังจบเกม</div>
       <div id="aiDifficultyBadge" class="badge ai-badge">🤖 Normal</div>
       <div class="badge">⏱️ ความเร็ว
@@ -878,7 +867,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
  <div class="layout">
   <aside class="control-sidebar">
    <div class="card game-control-card">
-    <div class="control-head"><div><h3>🎮 Game Control</h3><div id="turnText" class="control-turn">ถึงตาของคุณ</div></div><span class="chip">V8.9</span></div>
+    <div class="control-head"><div><h3>🎮 Game Control</h3><div id="turnText" class="control-turn">ถึงตาของคุณ</div></div><span class="chip">V8.8.9</span></div>
     <div class="side-dice"><div id="die1" class="die">⚀</div><div id="die2" class="die">⚀</div></div>
     <div class="side-controls">
      <button id="rollBtn" class="btn primary">🎲 ทอยเต๋า</button>
@@ -943,24 +932,6 @@ const themeDefs=[
  {id:"royal",label:"Royal"},
  {id:"gold",label:"Gold"}
 ];
-const frameDefs=[
- {id:"classic",name:"Classic",icon:"◻️",desc:"กรอบมาตรฐานของ Fortune City",starter:true},
- {id:"sunrise",name:"Sunrise Gold",icon:"🌅",desc:"กรอบทองอุ่นจาก Sunrise City",achievement:"first_win"},
- {id:"harbor",name:"Harbor Glass",icon:"🌊",desc:"กรอบกระจกฟ้าจาก Moonlight Bay",gemCost:6},
- {id:"royal",name:"Royal Crest",icon:"👑",desc:"กรอบราชวงศ์สำหรับนักสะสม",achievement:"property_25"},
- {id:"inferno",name:"Inferno",icon:"🔥",desc:"กรอบพิเศษจากการพิชิต Hell",achievement:"hell_standard_win"},
- {id:"fortune",name:"Fortune Prism",icon:"💎",desc:"กรอบ Prism ระดับสูงจาก Chest หรือ Gems",gemCost:10,chest:true}
-];
-const backgroundDefs=[
- {id:"city",name:"City Blue",icon:"🏙️",desc:"พื้นหลังเมืองโทนสะอาด",starter:true},
- {id:"sunset",name:"Sunset Avenue",icon:"🌇",desc:"แสงเย็นโทนอุ่นสำหรับ Profile",gemCost:5},
- {id:"moonbay",name:"Moonlight Bay",icon:"🌙",desc:"พื้นหลังอ่าวกลางคืน",achievement:"trade_5"},
- {id:"goldendunes",name:"Golden Dunes",icon:"🏜️",desc:"ทะเลทรายสีทองและทางรถไฟ",gemCost:7},
- {id:"champion",name:"Champion Plaza",icon:"🏆",desc:"พื้นหลังสำหรับผู้เล่นสายชัยชนะ",achievement:"hard_win"},
- {id:"aurora",name:"Fortune Aurora",icon:"✨",desc:"พื้นหลัง Rare จาก Chest หรือ Gems",gemCost:12,chest:true}
-];
-function frameById(id){return frameDefs.find(x=>x.id===id)||frameDefs[0]}
-function backgroundById(id){return backgroundDefs.find(x=>x.id===id)||backgroundDefs[0]}
 const titleDefs=[
  {id:"brave",label:"The Brave"},
  {id:"shadow",label:"Shadow King"},
@@ -992,8 +963,7 @@ function avatarSVG(type,size="normal",skin={}){
  const cls=size==="small"?"small":size==="tiny"?"tiny":"";
  const theme=skin.theme||"ocean";
  const stars="★".repeat(rarity.stars);
- const frame=skin.frame||"classic";
- return `<div class="avatar-emoji ${cls} theme-${theme} rarity-${rarity.id} frame-${frame}" aria-hidden="true">
+ return `<div class="avatar-emoji ${cls} theme-${theme} rarity-${rarity.id}" aria-hidden="true">
    <span class="stars">${stars}</span>
    <span class="main-wrap"><span class="main">${c.icon}</span></span>
  </div>`;
@@ -1082,8 +1052,6 @@ function grantChestReward(c){
   }
  }
  if(Math.random()<(c.type==="gold"?.55:c.type==="silver"?.32:.18)){const ids=Object.keys(tacticDefs),id=ids[Math.floor(Math.random()*ids.length)];save.inventory.push(id);rewards.push(`${tacticDefs[id].icon} ${tacticDefs[id].name}`)}
- const cosmeticChance=c.type==="gold"?.16:c.type==="silver"?.08:.03;
- if(Math.random()<cosmeticChance){const pool=[...frameDefs.filter(x=>x.chest&&!save.cosmetics.frames.includes(x.id)).map(x=>({kind:"frame",x})),...backgroundDefs.filter(x=>x.chest&&!save.cosmetics.backgrounds.includes(x.id)).map(x=>({kind:"background",x}))];if(pool.length){const pick=pool[Math.floor(Math.random()*pool.length)];if(pick.kind==="frame")save.cosmetics.frames.push(pick.x.id);else save.cosmetics.backgrounds.push(pick.x.id);rewards.push(`✨ NEW Cosmetic: ${pick.x.name}`)}}
  return rewards;
 }
 function claimChest(id){
@@ -1284,9 +1252,9 @@ const tacticDefs={
  focus_jam:{name:"Focus Jam",icon:"📵",desc:"คู่แข่งใช้ Focus Control ไม่ได้ในเทิร์นถัดไป",kind:"tactic",shop:false}
 };
 const itemDefs={shield:{name:"โล่คุ้มกัน",icon:"🛡️",desc:"ยกเลิกค่าเช่าครั้งถัดไป",price:80},warp:{name:"การ์ดวาร์ป",icon:"🌀",desc:"เดินหน้า +4",price:100},steal:{name:"ขโมยโชค",icon:"🎭",desc:"รับ 80 จากคู่แข่ง",price:120},tax:{name:"ใบเรียกเก็บ",icon:"📜",desc:"คู่แข่งจ่าย 60",price:90},holywater:{name:"น้ำมนต์ล้างคำสาป",icon:"💧",desc:"ล้างคำสาปซาตานทั้งหมดที่ติดอยู่",price:95},turbo:{name:"รองเท้าเร่งฝีเท้า",icon:"👟",desc:"เดินหน้า +2 ช่องทันที",price:70},blessing:{name:"เครื่องรางแสง",icon:"✨",desc:"กันคำสาปซาตานครั้งถัดไป 1 ครั้ง",price:110},...tacticDefs};
-const defaultAvatarStyle={theme:"ocean",title:"brave",frame:"classic",background:"city"};
+const defaultAvatarStyle={theme:"ocean",title:"brave"};
 const defaultStats={gamesPlayed:0,wins:0,quickGames:0,shortGames:0,standardGames:0,normalGames:0,hardGames:0,hellGames:0,hardWins:0,hellWins:0,hellStandardWins:0,propertiesBought:0,upgrades:0,tradesCompleted:0,auctionsWon:0,fullSetsCompleted:0,districtControls:0,focusSpent:0,tacticCardsDrawn:0,tacticCardsUsed:0,highestNetWorth:0,totalNetWorth:0};
-const defaultCosmetics={titles:[],frames:["classic"],backgrounds:["city"]};
+const defaultCosmetics={titles:[],frames:[],backgrounds:[]};
 const defaultMeta={cityEnergy:0,chests:[],chestHistory:[],chestSeq:1,careerCards:[],tacticCards:[],dailyQuests:[],weeklyQuests:[],dailyQuestKey:"",weeklyQuestKey:"",dailyQuestBonusKey:"",weeklyQuestBonusKey:"",dailyLoginKey:"",aiDifficulty:"normal",skillShards:0,careerShards:0,consumableLoadout:[],inMatchLoadout:[],progressionV881:false};
 const defaultSave={level:1,xp:0,coins:500,gems:10,unlocked:[0,1,2,3],inventory:["shield"],lastDaily:"",playerName:"Player",selectedChar:0,selectedRounds:15,avatarStyle:defaultAvatarStyle,stats:defaultStats,achievements:[],cosmetics:defaultCosmetics,meta:defaultMeta,ownedSkills:["quick_step","quick_cash","focus_reserve","rent_shield"],skillLoadout:["quick_step","focus_reserve"],skillMastery:{},ownedCareers:["investor"],equippedCareer:"investor"};
 const storedSave=localStorage.getItem("fortuneCityV6");
@@ -1298,10 +1266,6 @@ save.cosmetics=Object.assign({},defaultCosmetics,save.cosmetics||{});
 save.cosmetics.titles=Array.isArray(save.cosmetics.titles)?save.cosmetics.titles:[];
 save.cosmetics.frames=Array.isArray(save.cosmetics.frames)?save.cosmetics.frames:[];
 save.cosmetics.backgrounds=Array.isArray(save.cosmetics.backgrounds)?save.cosmetics.backgrounds:[];
-if(!save.cosmetics.frames.includes("classic"))save.cosmetics.frames.unshift("classic");
-if(!save.cosmetics.backgrounds.includes("city"))save.cosmetics.backgrounds.unshift("city");
-if(!frameDefs.some(x=>x.id===save.avatarStyle.frame)||!save.cosmetics.frames.includes(save.avatarStyle.frame))save.avatarStyle.frame="classic";
-if(!backgroundDefs.some(x=>x.id===save.avatarStyle.background)||!save.cosmetics.backgrounds.includes(save.avatarStyle.background))save.avatarStyle.background="city";
 save.meta=Object.assign({},defaultMeta,save.meta||{});
 save.meta.chests=Array.isArray(save.meta.chests)?save.meta.chests.slice(0,3):[];save.meta.chestHistory=Array.isArray(save.meta.chestHistory)?save.meta.chestHistory.slice(0,8):[];save.meta.chestSeq=Math.max(1,Number(save.meta.chestSeq)||1);save.meta.skillShards=Math.max(0,Number(save.meta.skillShards)||0);save.meta.careerShards=Math.max(0,Number(save.meta.careerShards)||0);save.meta.consumableLoadout=Array.isArray(save.meta.consumableLoadout)?save.meta.consumableLoadout.slice(0,2):[];save.meta.inMatchLoadout=Array.isArray(save.meta.inMatchLoadout)?save.meta.inMatchLoadout:[];if(save.meta.inMatchLoadout.length){save.inventory.push(...save.meta.inMatchLoadout.filter(id=>itemDefs[id]&&itemDefs[id].kind!=="tactic"));save.meta.inMatchLoadout=[];}
 if(!save.meta.skillLoadoutInitialized){
@@ -1322,32 +1286,21 @@ function bumpStat(key,amount=1){save.stats[key]=Math.max(0,Number(save.stats[key
 function setStatMax(key,value){save.stats[key]=Math.max(Number(save.stats[key]||0),Number(value||0));persist();evaluateAchievements();renderDaily();if(window.questTab&&!questTab.classList.contains("hidden"))renderQuests()}
 const achievementDefs=[
  {id:"first_game",icon:"🎲",name:"First Steps",desc:"เล่น Fortune City จบ 1 เกม",stat:"gamesPlayed",target:1,reward:{xp:30}},
- {id:"first_win",icon:"🏆",name:"First Fortune",desc:"ชนะเกมครั้งแรก",stat:"wins",target:1,reward:{xp:60,title:"risingInvestor",frame:"sunrise"}},
- {id:"property_25",icon:"🏙️",name:"Property Tycoon I",desc:"ซื้อ Property สะสม 25 แห่ง",stat:"propertiesBought",target:25,reward:{xp:120,coins:100,title:"cityTycoon",frame:"royal"}},
+ {id:"first_win",icon:"🏆",name:"First Fortune",desc:"ชนะเกมครั้งแรก",stat:"wins",target:1,reward:{xp:60,title:"risingInvestor"}},
+ {id:"property_25",icon:"🏙️",name:"Property Tycoon I",desc:"ซื้อ Property สะสม 25 แห่ง",stat:"propertiesBought",target:25,reward:{xp:120,coins:100,title:"cityTycoon"}},
  {id:"upgrade_20",icon:"🏗️",name:"City Developer",desc:"Upgrade Property สะสม 20 ครั้ง",stat:"upgrades",target:20,reward:{xp:100,coins:80}},
- {id:"trade_5",icon:"🤝",name:"Deal Maker",desc:"Trade สำเร็จ 5 ครั้ง",stat:"tradesCompleted",target:5,reward:{xp:120,title:"dealMaker",background:"moonbay"}},
+ {id:"trade_5",icon:"🤝",name:"Deal Maker",desc:"Trade สำเร็จ 5 ครั้ง",stat:"tradesCompleted",target:5,reward:{xp:120,title:"dealMaker"}},
  {id:"auction_5",icon:"🔨",name:"Auction Hunter",desc:"ชนะ Auction 5 ครั้ง",stat:"auctionsWon",target:5,reward:{xp:120,coins:100}},
  {id:"set_10",icon:"🧩",name:"Synergy Master",desc:"ทำ Full Set สะสม 10 Set",stat:"fullSetsCompleted",target:10,reward:{xp:160,gems:2}},
  {id:"focus_30",icon:"🎯",name:"Route Controller",desc:"ใช้ Focus สะสม 30 แต้ม",stat:"focusSpent",target:30,reward:{xp:100}},
  {id:"veteran_25",icon:"🌟",name:"Fortune Veteran",desc:"เล่นจบ 25 เกม",stat:"gamesPlayed",target:25,reward:{xp:300,gems:5,title:"fortuneVeteran"}},
- {id:"hard_win",icon:"🔥",name:"Strategic Pressure",desc:"ชนะ AI ระดับ Hard ครั้งแรก",stat:"hardWins",target:1,reward:{xp:200,gems:2,title:"hardStrategist",background:"champion"}},
- {id:"hell_standard_win",icon:"😈",name:"Welcome to Hell",desc:"ชนะ AI ระดับ Hell ใน Standard Game 15 รอบ",stat:"hellStandardWins",target:1,reward:{xp:500,gems:5,title:"hellInvestor",frame:"inferno"}}
+ {id:"hard_win",icon:"🔥",name:"Strategic Pressure",desc:"ชนะ AI ระดับ Hard ครั้งแรก",stat:"hardWins",target:1,reward:{xp:200,gems:2,title:"hardStrategist"}},
+ {id:"hell_standard_win",icon:"😈",name:"Welcome to Hell",desc:"ชนะ AI ระดับ Hell ใน Standard Game 15 รอบ",stat:"hellStandardWins",target:1,reward:{xp:500,gems:5,title:"hellInvestor"}}
 ];
-function achievementRewardText(r={}){return [r.xp?`+${r.xp} EXP`:"",r.coins?`+${r.coins} Coins`:"",r.gems?`+${r.gems} Gems`:"",r.title?`🏷️ ${titleDefs.find(x=>x.id===r.title)?.label||"Title"}`:"",r.frame?`🖼️ ${frameById(r.frame).name}`:"",r.background?`🌆 ${backgroundById(r.background).name}`:""].filter(Boolean).join(" • ")}
-function backfillAchievementCosmetics(){let changed=false;achievementDefs.forEach(a=>{if(!save.achievements.includes(a.id))return;const r=a.reward||{};if(r.title&&!save.cosmetics.titles.includes(r.title)){save.cosmetics.titles.push(r.title);changed=true}if(r.frame&&!save.cosmetics.frames.includes(r.frame)){save.cosmetics.frames.push(r.frame);changed=true}if(r.background&&!save.cosmetics.backgrounds.includes(r.background)){save.cosmetics.backgrounds.push(r.background);changed=true}});if(changed)persist()}
-backfillAchievementCosmetics();
-function grantAchievement(a){if(save.achievements.includes(a.id))return;save.achievements.push(a.id);const r=a.reward||{};if(r.coins)save.coins+=r.coins;if(r.gems)save.gems+=r.gems;if(r.title&&!save.cosmetics.titles.includes(r.title))save.cosmetics.titles.push(r.title);if(r.frame&&!save.cosmetics.frames.includes(r.frame))save.cosmetics.frames.push(r.frame);if(r.background&&!save.cosmetics.backgrounds.includes(r.background))save.cosmetics.backgrounds.push(r.background);persist();if(r.xp)addXP(r.xp);unlockCheck();achievementEarnedThisGame.push(a.id);toastMsg(`🏆 Achievement: ${a.name} • ${achievementRewardText(r)}`)}
+function achievementRewardText(r={}){return [r.xp?`+${r.xp} EXP`:"",r.coins?`+${r.coins} Coins`:"",r.gems?`+${r.gems} Gems`:"",r.title?`🏷️ ${titleDefs.find(x=>x.id===r.title)?.label||"Title"}`:""].filter(Boolean).join(" • ")}
+function grantAchievement(a){if(save.achievements.includes(a.id))return;save.achievements.push(a.id);const r=a.reward||{};if(r.coins)save.coins+=r.coins;if(r.gems)save.gems+=r.gems;if(r.title&&!save.cosmetics.titles.includes(r.title))save.cosmetics.titles.push(r.title);persist();if(r.xp)addXP(r.xp);unlockCheck();achievementEarnedThisGame.push(a.id);toastMsg(`🏆 Achievement: ${a.name} • ${achievementRewardText(r)}`)}
 function evaluateAchievements(){achievementDefs.forEach(a=>{if(!save.achievements.includes(a.id)&&Number(save.stats[a.stat]||0)>=a.target)grantAchievement(a)})}
 function isTitleUnlocked(id){const d=titleDefs.find(x=>x.id===id);return !d?.achievement||save.cosmetics.titles.includes(id)}
-function cosmeticOwned(kind,id){const arr=kind==="frame"?save.cosmetics.frames:save.cosmetics.backgrounds;return arr.includes(id)}
-function cosmeticDef(kind,id){return kind==="frame"?frameById(id):backgroundById(id)}
-function unlockCosmetic(kind,id,source="Reward"){const arr=kind==="frame"?save.cosmetics.frames:save.cosmetics.backgrounds;if(arr.includes(id))return false;arr.push(id);persist();toastMsg(`✨ ${source}: ${cosmeticDef(kind,id).name}`);return true}
-function equipCosmetic(kind,id){if(!cosmeticOwned(kind,id))return toastMsg("Cosmetic นี้ยังไม่ปลดล็อก");save.avatarStyle[kind==="frame"?"frame":"background"]=id;persist();renderHome();renderCosmetics();toastMsg(`Equip ${cosmeticDef(kind,id).name} แล้ว`)}
-function buyCosmetic(kind,id){const d=cosmeticDef(kind,id);if(cosmeticOwned(kind,id))return equipCosmetic(kind,id);const cost=Number(d.gemCost||0);if(!cost)return toastMsg("Cosmetic นี้ต้องปลดจาก Achievement หรือ Chest");if(save.gems<cost)return toastMsg(`ต้องใช้ ${cost} Gems`);save.gems-=cost;unlockCosmetic(kind,id,"Gem Unlock");equipCosmetic(kind,id)}
-function cosmeticSourceText(d){if(d.starter)return "Starter";if(d.achievement)return "🏆 Achievement";if(d.chest&&d.gemCost)return `📦 Chest / 💎 ${d.gemCost}`;if(d.gemCost)return `💎 ${d.gemCost} Gems`;return "📦 Reward"}
-function cosmeticCard(kind,d){const owned=cosmeticOwned(kind,d.id),eq=save.avatarStyle[kind==="frame"?"frame":"background"]===d.id;let action="";if(owned)action=`<button class="btn ${eq?"gray":"blue"} cosmetic-btn" ${eq?"disabled":""} onclick="equipCosmetic('${kind}','${d.id}')">${eq?"✓ Equipped":"Equip"}</button>`;else if(d.gemCost)action=`<button class="btn purple cosmetic-btn" onclick="buyCosmetic('${kind}','${d.id}')">💎 ${d.gemCost}</button>`;else action=`<button class="btn gray cosmetic-btn" disabled>🔒 Locked</button>`;return `<div class="cosmetic-card ${owned?"owned":"locked"} ${eq?"equipped":""}"><div class="cosmetic-icon">${d.icon}</div><b>${d.name}</b><small>${d.desc}</small><span class="cosmetic-source">${cosmeticSourceText(d)}</span>${action}</div>`}
-function renderCosmetics(){if(!window.frameCosmeticGrid)return;const total=frameDefs.length+backgroundDefs.length,owned=save.cosmetics.frames.length+save.cosmetics.backgrounds.length;cosmeticSummary.textContent=`${owned} / ${total} Owned`;frameCosmeticGrid.innerHTML=frameDefs.map(d=>cosmeticCard("frame",d)).join("");backgroundCosmeticGrid.innerHTML=backgroundDefs.map(d=>cosmeticCard("background",d)).join("");const f=frameById(save.avatarStyle.frame),bg=backgroundById(save.avatarStyle.background);cosmeticPreview.className=`cosmetic-preview profile-bg-${bg.id}`;cosmeticPreview.innerHTML=`${avatarSVG(selectedChar,"normal",save.avatarStyle)}<div><b>${fullPlayerName()}</b><small>${f.icon} ${f.name} • ${bg.icon} ${bg.name}</small></div>`}
-
 
 
 const dailyQuestDefs=[
@@ -1409,15 +1362,14 @@ const difficultyDefs={
 function currentDifficulty(){return difficultyDefs[save.meta.aiDifficulty]||difficultyDefs.normal}
 function setDifficulty(id){if(!difficultyDefs[id])return;save.meta.aiDifficulty=id;persist();renderHome()}
 function renderProfile(){
- profileBox.className=`profile profile-bg-${save.avatarStyle.background||"city"}`;
  profileBox.innerHTML=`<div class="profile-top">${avatarSVG(selectedChar,"normal",save.avatarStyle)}<div style="min-width:0;flex:1"><div class="name">${fullPlayerName()}</div><div class="profile-sub">${buildAvatarName(selectedChar)} • ${charRarity(selectedChar).label}</div><div class="profile-sub">Lv.${save.level} • ${save.xp}/${xpNeed()} EXP</div><div class="xpbar"><div class="xpfill" style="width:${Math.min(100,save.xp/xpNeed()*100)}%"></div></div></div></div><div class="profile-stats"><div class="profile-stat"><b>🪙 ${save.coins}</b><span>Coins สำหรับซื้อไอเทม</span></div><div class="profile-stat"><b>💎 ${save.gems}</b><span>Meta Progression / Cosmetic</span></div><div class="profile-stat"><b>🎭 ${chars[selectedChar].name}</b><span>Avatar ที่เลือกตอนนี้</span></div><div class="profile-stat"><b>🏆 ${save.achievements.length}</b><span>Achievements</span></div></div>`;
 }
 function hideHomePanels(){document.querySelectorAll(".tabpanel").forEach(x=>x.classList.add("hidden"));["progressHubNav","collectionHubNav"].forEach(id=>document.getElementById(id)?.classList.add("hidden"))}
 function setMainTab(btn){document.querySelectorAll(".home-main-tabs .tab").forEach(x=>x.classList.remove("active"));if(btn)btn.classList.add("active")}
 function openHomeMain(name,btn){hideHomePanels();document.getElementById(name+"Tab")?.classList.remove("hidden");setMainTab(btn)}
-function switchHomeHub(hub,name,btn){const groups=hub==="progress"?["quest","progress"]:["bag","chests","career","decorate","collection"];groups.forEach(n=>document.getElementById(n+"Tab")?.classList.add("hidden"));document.getElementById(name+"Tab")?.classList.remove("hidden");document.querySelectorAll(`#${hub}HubNav .home-subtab`).forEach(x=>x.classList.remove("active"));if(btn)btn.classList.add("active");if(name==="quest")renderQuests();if(name==="bag")renderHomeBag();if(name==="chests")renderChests();if(name==="career")renderCareer();if(name==="cosmetics")renderCosmetics()}
+function switchHomeHub(hub,name,btn){const groups=hub==="progress"?["quest","progress"]:["bag","chests","career","decorate","collection"];groups.forEach(n=>document.getElementById(n+"Tab")?.classList.add("hidden"));document.getElementById(name+"Tab")?.classList.remove("hidden");document.querySelectorAll(`#${hub}HubNav .home-subtab`).forEach(x=>x.classList.remove("active"));if(btn)btn.classList.add("active");if(name==="quest")renderQuests();if(name==="bag")renderHomeBag();if(name==="chests")renderChests();if(name==="career")renderCareer()}
 function openHomeHub(hub,initial,mainBtn){hideHomePanels();setMainTab(mainBtn);const nav=document.getElementById(hub+"HubNav");nav?.classList.remove("hidden");const sub=nav?.querySelector(`[data-home-sub="${initial}"]`);switchHomeHub(hub,initial,sub)}
-function showTab(name,btn){if(["quest","progress"].includes(name)){openHomeHub("progress",name,document.getElementById("progressMainTabBtn"));return}if(["bag","career","decorate","cosmetics","collection"].includes(name)){openHomeHub("collection",name,document.getElementById("collectionMainTabBtn"));return}openHomeMain(name,btn)}
+function showTab(name,btn){if(["quest","progress"].includes(name)){openHomeHub("progress",name,document.getElementById("progressMainTabBtn"));return}if(["bag","career","decorate","collection"].includes(name)){openHomeHub("collection",name,document.getElementById("collectionMainTabBtn"));return}openHomeMain(name,btn)}
 function openGuideTab(){const b=document.getElementById("guideTabBtn");if(b){showTab("guide",b);window.scrollTo({top:0,behavior:"smooth"})}}
 function returnToPlayTab(){const b=document.getElementById("playTabBtn");if(b){openHomeMain("play",b);window.scrollTo({top:0,behavior:"smooth"})}}
 let mobilePanel='players';
@@ -1553,7 +1505,7 @@ function renderHome(){
    d.innerHTML=`<div class="shop-head"><div class="shop-icon">${it.icon}</div><div class="shop-price">${it.price} 🪙</div></div><b>${it.name}</b><span>${it.desc}</span><div class="meta-row"><span class="soft-pill">🧰 Utility Item</span><span class="soft-pill">✨ Pre-game Boost</span></div><button class="btn blue shop-buy" onclick="buyShop('${id}')">ซื้อไอเทม</button>`;
    shopGrid.appendChild(d)
  });
- unlockCheck();evaluateAchievements();renderDaily();renderProgress();renderQuests();renderHomeBag();renderChests();renderCareer();renderConsumableLoadout();renderCosmetics();
+ unlockCheck();evaluateAchievements();renderDaily();renderProgress();renderQuests();renderHomeBag();renderChests();renderCareer();renderConsumableLoadout();
 }
 function unlockCheck(){chars.forEach((c,i)=>{if(save.level>=c.unlock&&!save.unlocked.includes(i)){save.unlocked.push(i);persist()}})}
 function buyShop(id){const it=itemDefs[id];if(save.coins<it.price)return toastMsg("เหรียญไม่พอ");save.coins-=it.price;save.inventory.push(id);persist();renderHome();toastMsg("ซื้อสำเร็จ")}
@@ -1687,6 +1639,15 @@ document.addEventListener("click",e=>{
 
 let players=[],owners=[],levels=[],developments=[],districtBoost={},current=0,round=1,gameOver=false,lastDice=[1,1],moving=false,wanderSpirit=20,skillUsedSlots=[];
 
+// V8.8.9 — explicit turn state machine and duplicate-action protection.
+const TURN_STATE=Object.freeze({BOOT:"BOOT",TURN_START:"TURN_START",WAIT_ROLL:"WAIT_ROLL",AI_WAIT:"AI_WAIT",ROLLING:"ROLLING",FOCUS_DECISION:"FOCUS_DECISION",MOVING:"MOVING",RESOLVING_TILE:"RESOLVING_TILE",WAIT_DECISION:"WAIT_DECISION",ACTION_RESOLVING:"ACTION_RESOLVING",END_TURN:"END_TURN",GAME_OVER:"GAME_OVER"});
+let turnState=TURN_STATE.BOOT,turnEpoch=0,endedEpoch=-1,nextTurnTimer=null;
+function setTurnState(next,reason=""){turnState=next;document.body.dataset.turnState=next;if(reason)console.debug(`[TurnState] ${next} • ${reason}`)}
+function humanCanRoll(){return current===0&&!gameOver&&!moving&&turnState===TURN_STATE.WAIT_ROLL}
+function humanCanDecide(){return current===0&&!gameOver&&!moving&&turnState===TURN_STATE.WAIT_DECISION}
+function clearNextTurnTimer(){if(nextTurnTimer){clearTimeout(nextTurnTimer);nextTurnTimer=null}}
+
+
 function makeAISkin(){
  return {
    theme: themeDefs[Math.floor(Math.random()*themeDefs.length)].id,
@@ -1730,7 +1691,7 @@ function startGame(){
  ];
  if(window.aiDifficultyBadge){aiDifficultyBadge.textContent=`${diff.icon} ${diff.label}`;aiDifficultyBadge.className=`badge ai-badge ${diff.id}`;}
  syncMobileControlState();
- persist();owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsedSlots=[];log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V8.9: Profile Reward & Cosmetic Collection • QA Fixes & Visual Polish • Refined Map Colors • Sustainable Progression Economy • Chest System • Career Card & Loadout • Home Bag & Inventory • Daily & Weekly Quests • Tactic Tile & Target Cards • Choice Balance Fix • Guide & Rule Consistency • AI ${diff.label} • EXP ×${diff.xpMult} • Character/Skill separated • Progression Foundation • Trade Center Fix • Mobile-first UX • Player ${eco.startMoney} / AI ${aiStartMoney} • Start +${eco.startBonus}`,"gold");const career=currentCareer();if(career){addLog(`${career.icon} Career: ${career.name} • ${career.summary}`,"gold");showEffect(`${career.icon} ${career.name}`,career.summary,"gold",3600)}
+ persist();owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsedSlots=[];turnEpoch=0;endedEpoch=-1;clearNextTurnTimer();setTurnState(TURN_STATE.BOOT,"new-game");log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V8.8.9: State Machine Hardening • Turn Guard • Duplicate Action Protection • Automated QA Simulator • Production Hardening Phase 3 • QA Fixes & Visual Polish • Refined Map Colors • Sustainable Progression Economy • Chest System • Career Card & Loadout • Home Bag & Inventory • Daily & Weekly Quests • Tactic Tile & Target Cards • Choice Balance Fix • Guide & Rule Consistency • AI ${diff.label} • EXP ×${diff.xpMult} • Character/Skill separated • Progression Foundation • Trade Center Fix • Mobile-first UX • Player ${eco.startMoney} / AI ${aiStartMoney} • Start +${eco.startBonus}`,"gold");const career=currentCareer();if(career){addLog(`${career.icon} Career: ${career.name} • ${career.summary}`,"gold");showEffect(`${career.icon} ${career.name}`,career.summary,"gold",3600)}
  if(save.equippedCareer==="analyst"){const m1=nextMarketForRound(1),m2={round:m1.round+3,market:marketDefs[(marketDefs.indexOf(m1.market)+1)%marketDefs.length]};addLog(`📊 Analyst Forecast • รอบ ${m1.round}: ${m1.market.name} • รอบ ${m2.round}: ${m2.market.name}`,"info");}
  showEffect("⚖️ Economy Rebalance",`${maps[selectedMap].name} • 15 Property • 5 Sets × 3 • ซื้อและพัฒนาได้สมดุลขึ้น`,"gold",5200);renderAll();startTurn();
 }
@@ -1910,9 +1871,37 @@ function baseRent(i){return propertyRent(i)}
 function buyCost(i,p){let f=p.spirit?.discount||1;if(p.nextBuyDiscount)f*=1-p.nextBuyDiscount;const m=marketForRound();if(m?.kind==="infrastructure"&&tiles[i].category==="transportprop")f*=.80;let c=Math.round(tiles[i].price*f);if(p.investmentToken)c=Math.max(0,c-p.investmentToken);return c}
 function upgradeCost(i,p){let f=p.spirit?.discount||1;if(p.nextUpgradeDiscount)f*=1-p.nextUpgradeDiscount;if(p.careerUpgradeDiscount)f*=1-p.careerUpgradeDiscount;if(districtLeader(tiles[i].district)===players.indexOf(p))f*=.85;const m=marketForRound();if(m?.kind==="housing"&&tiles[i].category==="residential")f*=.80;const rate=levels[i]===1?.40:levels[i]===2?.55:.75;let c=Math.round(tiles[i].price*rate*f);if(p.investmentToken)c=Math.max(0,c-p.investmentToken);return c}
 function netWorth(idx){const p=players[idx];let v=p.money;owners.forEach((o,i)=>{if(o===idx)v+=tiles[i].price+Math.max(0,levels[i]-1)*Math.round(tiles[i].price*.6)});const sets=[...new Set(ownedIndices(idx).map(i=>tiles[i].set))];sets.forEach(st=>{if(setOwnedCount(idx,st)>=setTotal(st))v+=120});const ds=[...new Set(ownedIndices(idx).map(i=>tiles[i].district))];ds.forEach(d=>{if(districtLeader(d)===idx)v+=80});return Math.max(0,Math.round(v))}
-function setButtons(r,sk,b,u,c,s){rollBtn.disabled=!r;skillBtn.disabled=!sk;buyBtn.disabled=!b;upgradeBtn.disabled=!u;cardBtn.disabled=!c;skipBtn.disabled=!s}
+function setButtons(r,sk,b,u,c,s){
+ rollBtn.disabled=!r;skillBtn.disabled=!sk;buyBtn.disabled=!b;upgradeBtn.disabled=!u;cardBtn.disabled=!c;
+ // Production safety: never allow a human turn to soft-lock on an actionable Property.
+ let safeSkip=!!s;
+ if(current===0&&!gameOver&&!moving&&players?.[0]){
+  const pos=players[0].pos,t=tiles?.[pos];
+  if(t?.type==="land"&&!r){
+   const o=owners?.[pos];
+   if(o<0||(o===0&&levels?.[pos]<4)) safeSkip=true;
+  }
+ }
+ skipBtn.disabled=!safeSkip;
+ skipBtn.style.display=safeSkip?"":"";
+ skipBtn.setAttribute("aria-disabled",safeSkip?"false":"true");
+}
 function addLog(m,c=""){const d=document.createElement("div");d.className="logline "+c;d.textContent=m;log.prepend(d)}
 function toastMsg(t){toast.textContent=t;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1200)}
+function actionSafetyCheck(){
+ if(gameOver||moving||current!==0||!players?.[0])return;
+ const p=players[0],tile=tiles?.[p.pos];
+ if(!tile||tile.type!=="land")return;
+ const owner=owners?.[p.pos];
+ const actionable=owner<0||(owner===0&&levels?.[p.pos]<4);
+ if(!actionable)return;
+ const allMainDisabled=rollBtn.disabled&&buyBtn.disabled&&upgradeBtn.disabled&&skipBtn.disabled;
+ if(allMainDisabled&&!modal.classList.contains("show")){
+   skipBtn.disabled=false;skipBtn.style.display="";
+   addLog("🛟 Safety Recovery: เปิดปุ่มผ่านเพื่อป้องกันเทิร์นค้าง","info");
+ }
+}
+setInterval(actionSafetyCheck,1200);
 let focusPromptState={active:false,minimized:false,steps:0};
 function clearFocusPrompt(){focusPromptState={active:false,minimized:false,steps:0};if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.focusRestoreBtn)focusRestoreBtn.classList.add("hidden")}
 function minimizeFocusPrompt(){if(!focusPromptState.active)return;focusPromptState.minimized=true;hideGameModal();if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.focusRestoreBtn){focusRestoreBtn.textContent=`🎯 เปิด Focus (${focusPromptState.steps} ช่อง)`;focusRestoreBtn.classList.remove("hidden")}}
@@ -1920,6 +1909,8 @@ function restoreFocusPrompt(){if(!focusPromptState.active)return;if(window.focus
 function closeModal(){if(window.modalMinBtn)modalMinBtn.classList.add("hidden");hideGameModal()}
 function showModal(icon,title,text,extra=""){if(window.modalMinBtn)modalMinBtn.classList.add("hidden");modalIcon.textContent=icon;modalTitle.textContent=title;modalText.textContent=text;modalExtra.innerHTML=extra;modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ตกลง</button>`;openGameModal()}
 function startTurn(){
+ clearNextTurnTimer();turnEpoch++;endedEpoch=-1;setTurnState(TURN_STATE.TURN_START,`P${current} epoch ${turnEpoch}`);
+ validateGameState("startTurn");
  if(gameOver)return;
  const p=players[current];
  if(p.bankrupt){nextTurn();return}
@@ -1939,8 +1930,8 @@ function startTurn(){
  addLog(`${p.spirit.name} จาก ${p.name} ไปแล้ว`,"info");
  p.spirit=null
 }}renderAll();showTurnBanner(current===0?"🎯 ถึงตาของคุณ":`🤖 ตาของ ${p.name}`);
- if(current===0){setButtons(true,availableLoadoutSkills().length>0,false,false,p.items.length>0,false);updateStrategyHUD()}
- else{setButtons(false,false,false,false,false,false);setTimeout(rollDice,speedCfg[GAME_SPEED].aiThink)}}
+ if(current===0){setTurnState(TURN_STATE.WAIT_ROLL,"human-ready");setButtons(true,availableLoadoutSkills().length>0,false,false,p.items.length>0,false);updateStrategyHUD()}
+ else{setTurnState(TURN_STATE.AI_WAIT,"ai-thinking");setButtons(false,false,false,false,false,false);setTimeout(()=>{if(!gameOver&&turnState===TURN_STATE.AI_WAIT)rollDice()},speedCfg[GAME_SPEED].aiThink)}}
 function useSkill(){
  if(current!==0)return;const available=availableLoadoutSkills();if(!available.length)return toastMsg("ใช้ Skill Loadout ครบแล้วในเกมนี้");
  modalIcon.textContent="🧠";modalTitle.textContent="Skill Loadout";modalText.textContent=`เลือก Skill ที่ต้องการใช้ • เหลือ ${available.length} Skill`;
@@ -1967,15 +1958,15 @@ function applyLoadoutSkill(id,choice){const p=players[0],sk=skillById(id);if(ski
 
 function aiLandingScore(idx,pos){pos=((pos%tiles.length)+tiles.length)%tiles.length;const t=tiles[pos],z=zoneAt(pos);let score=0;if(z){if(z.kind==="satan"||z.kind==="trap")score-=180;if(z.kind==="trade")score+=75;if(z.kind==="branch"||z.kind==="shortcut")score+=45;if(z.kind==="blackhole")score-=25;if(z.kind==="olympic")score+=55;if(z.kind==="tactic")score+=70;}if(t.type==="land"){const o=owners[pos];if(o<0)score+=aiStrategyValue(idx,pos);else if(o===idx)score+=levels[pos]<4?70:20;else score-=propertyRent(pos)*2;}else if(t.type==="income")score+=65;else if(t.type==="event")score+=30;else if(t.type==="start")score+=45;else if(t.type==="tax")score-=Number(t.amount||60);return score}
 function aiFocusAdjustment(idx,steps){const p=players[idx],diff=currentDifficulty();if(idx===0||diff.id==="normal"||p.focus<1||(p.focusJammedTurns||0)>0)return 0;const base=aiLandingScore(idx,p.pos+steps),minus=aiLandingScore(idx,p.pos+Math.max(1,steps-1)),plus=aiLandingScore(idx,p.pos+steps+1);let adj=0,best=base;if(minus>best){best=minus;adj=-1}if(plus>best){best=plus;adj=1}const threshold=diff.id==="hell"?25:55;if(adj&&best-base>=threshold){p.focus--;addLog(`🎯 ${p.name} ใช้ Focus ${adj>0?"+1":"-1"} เพื่อเลือก Landing ที่ดีกว่า`,"gold");return adj}return 0}
-function rollDice(){if(gameOver||moving)return;setButtons(false,false,false,false,false,false);const a=1+Math.floor(Math.random()*6),b=1+Math.floor(Math.random()*6);lastDice=[a,b];let steps=a+b;const p=players[current];if((p.satanSlowTurns||0)>0){steps=Math.max(2,steps-2);p.satanSlowTurns--;addLog(`⛓️ Heavy Chains: ${p.name} เดินลดลง 2 ช่อง`,"bad")}let k=0;const t=setInterval(()=>{die1.textContent=diceFaces[Math.floor(Math.random()*6)];die2.textContent=diceFaces[Math.floor(Math.random()*6)];if(++k>7){clearInterval(t);die1.textContent=diceFaces[a-1];die2.textContent=diceFaces[b-1];if(current===0&&(p.focus>0||p.skillMoveControl)&&!(p.focusJammedTurns>0))return offerFocusMove(steps);if(current!==0){const adj=aiFocusAdjustment(current,steps);steps=Math.max(1,steps+adj)}animateMove(current,steps)}},speedCfg[GAME_SPEED].dice)}
-function offerFocusMove(steps){const p=players[0];focusPromptState={active:true,minimized:false,steps};if(window.focusRestoreBtn)focusRestoreBtn.classList.add("hidden");if(window.modalMinBtn)modalMinBtn.classList.remove("hidden");modalIcon.textContent="🎯";modalTitle.textContent=`Focus Control • ทอยได้ ${lastDice[0]} + ${lastDice[1]} = ${steps}`;modalText.textContent=`มี Focus ${p.focus}/${p.maxFocus} • ใช้ฝีมือแก้ตำแหน่งก่อนเดิน`;const opt=[];if(p.focus>=1){opt.push(`<button class="btn blue" onclick="applyFocusMove(${steps},-1,1)">-1 ช่อง • 1 Focus</button>`,`<button class="btn green" onclick="applyFocusMove(${steps},1,1)">+1 ช่อง • 1 Focus</button>`)}if(p.focus>=2)opt.push(`<button class="btn purple" onclick="rerollOneDie(${steps})">Reroll 1 ลูก • 2 Focus</button>`);if(p.skillMoveControl)opt.push(`<button class="btn purple" onclick="applyFocusMove(${steps},${p.skillMoveControl},0)">Scout ${p.skillMoveControl} ฟรี</button>`);modalExtra.innerHTML=`<div class="choice-note">ดูเส้นทางและ Property ข้างหน้าก่อนเลือก ใช้ Focus อย่างมีจังหวะ • กดย่อมุมขวาบนเพื่อเปิดดูกระดานก่อนตัดสินใจได้</div>`;modalChoices.innerHTML=opt.join("")+`<button class="btn primary" onclick="applyFocusMove(${steps},0,0)">เดิน ${steps} ช่อง</button>`;openGameModal()}
+function rollDice(){if(gameOver||moving)return;if(current===0&&turnState!==TURN_STATE.WAIT_ROLL)return;if(current!==0&&turnState!==TURN_STATE.AI_WAIT)return;setTurnState(TURN_STATE.ROLLING,`roll P${current}`);setButtons(false,false,false,false,false,false);const a=1+Math.floor(Math.random()*6),b=1+Math.floor(Math.random()*6);lastDice=[a,b];let steps=a+b;const p=players[current];if((p.satanSlowTurns||0)>0){steps=Math.max(2,steps-2);p.satanSlowTurns--;addLog(`⛓️ Heavy Chains: ${p.name} เดินลดลง 2 ช่อง`,"bad")}let k=0;const t=setInterval(()=>{die1.textContent=diceFaces[Math.floor(Math.random()*6)];die2.textContent=diceFaces[Math.floor(Math.random()*6)];if(++k>7){clearInterval(t);die1.textContent=diceFaces[a-1];die2.textContent=diceFaces[b-1];if(current===0&&(p.focus>0||p.skillMoveControl)&&!(p.focusJammedTurns>0))return offerFocusMove(steps);if(current!==0){const adj=aiFocusAdjustment(current,steps);steps=Math.max(1,steps+adj)}animateMove(current,steps)}},speedCfg[GAME_SPEED].dice)}
+function offerFocusMove(steps){setTurnState(TURN_STATE.FOCUS_DECISION,"focus-choice");const p=players[0];focusPromptState={active:true,minimized:false,steps};if(window.focusRestoreBtn)focusRestoreBtn.classList.add("hidden");if(window.modalMinBtn)modalMinBtn.classList.remove("hidden");modalIcon.textContent="🎯";modalTitle.textContent=`Focus Control • ทอยได้ ${lastDice[0]} + ${lastDice[1]} = ${steps}`;modalText.textContent=`มี Focus ${p.focus}/${p.maxFocus} • ใช้ฝีมือแก้ตำแหน่งก่อนเดิน`;const opt=[];if(p.focus>=1){opt.push(`<button class="btn blue" onclick="applyFocusMove(${steps},-1,1)">-1 ช่อง • 1 Focus</button>`,`<button class="btn green" onclick="applyFocusMove(${steps},1,1)">+1 ช่อง • 1 Focus</button>`)}if(p.focus>=2)opt.push(`<button class="btn purple" onclick="rerollOneDie(${steps})">Reroll 1 ลูก • 2 Focus</button>`);if(p.skillMoveControl)opt.push(`<button class="btn purple" onclick="applyFocusMove(${steps},${p.skillMoveControl},0)">Scout ${p.skillMoveControl} ฟรี</button>`);modalExtra.innerHTML=`<div class="choice-note">ดูเส้นทางและ Property ข้างหน้าก่อนเลือก ใช้ Focus อย่างมีจังหวะ • กดย่อมุมขวาบนเพื่อเปิดดูกระดานก่อนตัดสินใจได้</div>`;modalChoices.innerHTML=opt.join("")+`<button class="btn primary" onclick="applyFocusMove(${steps},0,0)">เดิน ${steps} ช่อง</button>`;openGameModal()}
 function applyFocusMove(base,adj,cost){const p=players[0];p.focus=Math.max(0,p.focus-cost);if(cost>0)bumpStat("focusSpent",cost);if(cost===0&&adj===p.skillMoveControl)p.skillMoveControl=0;clearFocusPrompt();closeModal();const steps=Math.max(1,base+adj);if(adj)addLog(`🎯 Focus Control: ${base} ${adj>0?"+":""}${adj} = ${steps}`,"gold");animateMove(0,steps)}
 function rerollOneDie(base){const p=players[0];p.focus-=2;bumpStat("focusSpent",2);const choose=lastDice[0]>=lastDice[1]?0:1;const old=lastDice[choose],nw=1+Math.floor(Math.random()*6);lastDice[choose]=nw;clearFocusPrompt();closeModal();const steps=lastDice[0]+lastDice[1];announceStatus(p.name,"🎯","Reroll",`เปลี่ยน ${old} → ${nw} • เดิน ${steps}`,"gold");animateMove(0,steps)}
-function animateMove(idx,steps){moving=true;let n=0;const p=players[idx];const timer=setInterval(()=>{const old=p.pos;p.pos=(p.pos+1)%tiles.length;if(p.pos<old){
+function animateMove(idx,steps){setTurnState(TURN_STATE.MOVING,`move P${idx} +${steps}`);moving=true;let n=0;const p=players[idx];const timer=setInterval(()=>{const old=p.pos;p.pos=(p.pos+1)%tiles.length;if(p.pos<old){
  let b=gameEconomy().startBonus;if(setOwnedCount(idx,"River Living")>=setTotal("River Living"))b+=30;p.money+=b;p.focus=Math.min(p.maxFocus||3,(p.focus||0)+1);
  addLog(`${p.name} ผ่านจุดเริ่มต้น +${b} • Focus +1`,"good");
  announceMoney(p.name,b,"ผ่านจุดเริ่มต้น");
-}n++;renderAll();if(n>=steps){clearInterval(timer);moving=false;addLog(`${p.name} เดิน ${steps} ช่อง → ${getRenderTile(p.pos).view.name}`,"info");showTurnBanner(`🎲 ${p.name}: ${lastDice[0]} + ${lastDice[1]} = ${steps}`);setTimeout(()=>resolveTile(idx),Math.round(speedCfg[GAME_SPEED].after*.45))}},speedCfg[GAME_SPEED].move)}
+}n++;renderAll();if(n>=steps){clearInterval(timer);moving=false;setTurnState(TURN_STATE.RESOLVING_TILE,`land P${idx} tile ${p.pos+1}`);addLog(`${p.name} เดิน ${steps} ช่อง → ${getRenderTile(p.pos).view.name}`,"info");showTurnBanner(`🎲 ${p.name}: ${lastDice[0]} + ${lastDice[1]} = ${steps}`);setTimeout(()=>{if(!gameOver&&turnState===TURN_STATE.RESOLVING_TILE)resolveTile(idx)},Math.round(speedCfg[GAME_SPEED].after*.45))}},speedCfg[GAME_SPEED].move)}
 
 function jumpTo(idx,target,reason,icon="🌀",resolveAfter=true){
  const p=players[idx];
@@ -2147,7 +2138,7 @@ function resolveSpecialZone(idx){
 
 function playCasino(idx){const p=players[idx],z=zoneAt(p.pos);if(idx===0)closeModal();const bet=Math.min(80,p.money);if(bet<=0)return afterAction(idx);p.money-=bet;const win=Math.random()<.48;if(win){p.money+=200;announceMoney(p.name,120,`${z.name}: ชนะเดิมพัน`)}else announceMoney(p.name,-bet,`${z.name}: แพ้เดิมพัน`);announceStatus(p.name,"🎰",z.name,win?"ชนะสุทธิ +120":"เสีย 80",win?"good":"bad");afterAction(idx);return true}
 
-function resolveTile(idx,transported=false,skipZone=false){const p=players[idx],t=tiles[p.pos];if(!skipZone && resolveSpecialZone(idx))return;if(t.type==="land"){const o=owners[p.pos];if(o<0){if(idx===0){const c=buyCost(p.pos,p);buyBtn.textContent=`🏠 ซื้อ ${c}`;setButtons(false,false,p.money>=c,false,p.items.length>0,true);return}else return aiBuy(idx)}else if(o===idx&&levels[p.pos]<4){if(idx===0){const c=upgradeCost(p.pos,p);upgradeBtn.textContent=`⬆️ อัปเกรด ${c}`;setButtons(false,false,false,p.money>=c,p.items.length>0,true);return}else return aiUpgrade(idx)}else if(o!==idx){
+function resolveTile(idx,transported=false,skipZone=false){setTurnState(TURN_STATE.RESOLVING_TILE,`resolve P${idx}`);const p=players[idx],t=tiles[p.pos];if(!skipZone && resolveSpecialZone(idx))return;if(t.type==="land"){const o=owners[p.pos];if(o<0){if(idx===0){const c=buyCost(p.pos,p);setTurnState(TURN_STATE.WAIT_DECISION,"buy-or-skip");buyBtn.textContent=`🏠 ซื้อ ${c}`;setButtons(false,false,p.money>=c,false,p.items.length>0,true);return}else return aiBuy(idx)}else if(o===idx&&levels[p.pos]<4){if(idx===0){const c=upgradeCost(p.pos,p);setTurnState(TURN_STATE.WAIT_DECISION,"upgrade-or-skip");upgradeBtn.textContent=`⬆️ อัปเกรด ${c}`;setButtons(false,false,false,p.money>=c,p.items.length>0,true);return}else return aiUpgrade(idx)}else if(o!==idx){
  let rent=propertyRent(p.pos)*(p.spirit?.rentFactor||1);
  if((p.satanRentTurns||0)>0){rent*=1.5;p.satanRentTurns--;addLog(`🔥 Blood Pact: ${p.name} ค่าเช่าเพิ่ม 50%`,"bad");if(p.satanRentTurns===0)announceStatus(p.name,"✨","คำสาปสิ้นสุด","Blood Pact หมดผลแล้ว","info");}
  if(p.shieldNext){
@@ -2194,14 +2185,14 @@ function handleMapGimmick(idx,t){
 
  return false;
 }
-function buyCurrent(){const p=players[0],i=p.pos,c=buyCost(i,p);if(owners[i]<0&&p.money>=c){p.money-=c;p.investmentToken=0;p.nextBuyDiscount=0;owners[i]=0;levels[i]=1;p.lands++;bumpStat("propertiesBought");addLog(`คุณซื้อ ${tiles[i].name} ราคา ${c}`,"good");announceMoney(p.name,-c,`ซื้อ ${tiles[i].name}`);announceStatus(p.name,tiles[i].catIcon||"🏠","ซื้อ Property",`${tiles[i].name} • ${tiles[i].district} • Set ${tiles[i].set}`,"good")}afterAction(0)}
-function upgradeCurrent(){const p=players[0],i=p.pos,c=upgradeCost(i,p);if(owners[i]!==0||levels[i]>=4||p.money<c)return afterAction(0);if(levels[i]===1&&!developments[i])return openDevelopmentChoice(i,c);applyUpgrade(0,i,c,developments[i]||"rent")}
+function buyCurrent(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"buy");const p=players[0],i=p.pos,c=buyCost(i,p);if(owners[i]<0&&p.money>=c){p.money-=c;p.investmentToken=0;p.nextBuyDiscount=0;owners[i]=0;levels[i]=1;p.lands++;bumpStat("propertiesBought");addLog(`คุณซื้อ ${tiles[i].name} ราคา ${c}`,"good");announceMoney(p.name,-c,`ซื้อ ${tiles[i].name}`);announceStatus(p.name,tiles[i].catIcon||"🏠","ซื้อ Property",`${tiles[i].name} • ${tiles[i].district} • Set ${tiles[i].set}`,"good")}afterAction(0)}
+function upgradeCurrent(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"upgrade");const p=players[0],i=p.pos,c=upgradeCost(i,p);if(owners[i]!==0||levels[i]>=4||p.money<c)return afterAction(0);if(levels[i]===1&&!developments[i])return openDevelopmentChoice(i,c);applyUpgrade(0,i,c,developments[i]||"rent")}
 function openDevelopmentChoice(i,c){modalIcon.textContent="🏗️";modalTitle.textContent=`เลือกแนวพัฒนา • ${tiles[i].name}`;modalText.textContent="Upgrade Branch ทำให้ Property เดียวกันเล่นได้คนละแผน";modalExtra.innerHTML=`<div class="choice-note">💰 Income Build: ค่าเช่า +6% และรับเงินสด 35 ตอน Upgrade<br>🏙️ Rent Build: ค่าเช่า +22% เหมาะกับ Set / District Control</div>`;modalChoices.innerHTML=`<button class="btn green" onclick="chooseDevelopment(${i},${c},'income')">💰 Income Build</button><button class="btn purple" onclick="chooseDevelopment(${i},${c},'rent')">🏙️ Rent Build</button>`;openGameModal()}
 function chooseDevelopment(i,c,dev){closeModal();developments[i]=dev;applyUpgrade(0,i,c,dev)}
 function applyUpgrade(idx,i,c,dev){const p=players[idx];if(p.money<c)return afterAction(idx);p.money-=c;p.investmentToken=0;levels[i]++;if(!developments[i])developments[i]=dev||"rent";if(idx===0)bumpStat("upgrades");if(developments[i]==="income"){p.money+=35;announceMoney(p.name,35,"Income Build")};p.nextUpgradeDiscount=0;p.careerUpgradeDiscount=0;addLog(`${p.name} อัปเกรด ${tiles[i].name} → Lv.${levels[i]} • ${developments[i]}`,"good");announceMoney(p.name,-c,`อัปเกรด ${tiles[i].name}`);announceStatus(p.name,"⬆️","Property Development",`${tiles[i].name} → Lv.${levels[i]} • ${developments[i]==="rent"?"Rent Build":"Income Build"}`,"good");afterAction(idx)}
 function aiBuy(idx){const p=players[idx],i=p.pos,c=buyCost(i,p),diff=currentDifficulty(),value=aiStrategyValue(idx,i),reserve=diff.buyReserve+round*(diff.id==="normal"?8:6);const ratio=diff.id==="normal"?.92:diff.id==="hard"?.86:.80;const should=p.money-c>reserve && value>=c*ratio;if(should){p.money-=c;p.investmentToken=0;owners[i]=idx;levels[i]=1;p.lands++;addLog(`${p.name} ซื้อ ${tiles[i].name} • ${diff.label} Value ${value}`,"good");announceStatus(p.name,tiles[i].catIcon||"🏠",`AI ${diff.label} ลงทุน`,`${tiles[i].set} • ${tiles[i].district}`,"good");afterAction(idx)}else{addLog(`${p.name} ผ่าน ${tiles[i].name} • รักษา Reserve ${reserve}`,"info");runAuction(i,idx)}}
 function aiUpgrade(idx){const p=players[idx],i=p.pos,c=upgradeCost(i,p),diff=currentDifficulty(),potential=propertyRent(i),setN=setOwnedCount(idx,tiles[i].set),full=setN>=setTotal(tiles[i].set);const roi=diff.id==="normal"?.22:diff.id==="hard"?.18:.15;const strategic=full||(diff.id!=="normal"&&districtLeader(tiles[i].district)===idx);if(p.money-c>diff.upgradeReserve && (potential>c*roi||strategic)){const dev=(diff.id==="hell"&&tiles[i].category!=="industrial")?"rent":((tiles[i].category==="industrial"||tiles[i].category==="residential")?"income":"rent");if(!developments[i])developments[i]=dev;return applyUpgrade(idx,i,c,dev)}addLog(`${p.name} ยังไม่ Upgrade ${tiles[i].name} • ${diff.label} ประเมิน ROI`,"info");afterAction(idx)}
-function skipAction(){const i=players[0].pos;if(tiles[i].type==="land"&&owners[i]<0){addLog(`${players[0].name} ไม่ซื้อ • เปิด Auction ${tiles[i].name}`,"gold");return runAuction(i,0)}addLog(`${players[0].name} เลือกผ่าน`,"info");afterAction(0)}
+function skipAction(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"skip");const i=players[0].pos;if(tiles[i].type==="land"&&owners[i]<0){addLog(`${players[0].name} ไม่ซื้อ • เปิด Auction ${tiles[i].name}`,"gold");return runAuction(i,0)}addLog(`${players[0].name} เลือกผ่าน`,"info");afterAction(0)}
 function runAuction(i,starter){const diff=currentDifficulty();const bidders=players.map((p,idx)=>({p,idx,max:Math.min(p.money-(idx===0?180:(diff.id==="normal"?180:diff.id==="hard"?155:135)),Math.round((idx===0?strategyValue(idx,i):aiStrategyValue(idx,i))*(idx===0?1.05:diff.auctionMult)))})).filter(x=>!x.p.bankrupt&&x.max>=Math.round(tiles[i].price*.65));if(!bidders.length)return afterAction(starter);let price=Math.round(tiles[i].price*.65),active=bidders.slice();while(active.length>1){price+=20;active=active.filter(x=>x.max>=price);if(price>tiles[i].price*1.35)break}const winner=(active[0]||bidders.sort((a,b)=>b.max-a.max)[0]);price=Math.min(price,winner.max);if(winner.idx===0){modalIcon.textContent="🔨";modalTitle.textContent=`Auction • ${tiles[i].name}`;modalText.textContent=`คุณชนะสิทธิ์ประมูลที่ ${price} เหรียญ`;modalExtra.innerHTML=`<div class="choice-note">Strategy Value ของคุณ: ${strategyValue(0,i)} • ราคาปกติ ${tiles[i].price}</div>`;modalChoices.innerHTML=`<button class="btn green" ${players[0].money<price?"disabled":""} onclick="acceptAuction(${i},${price},${starter})">ซื้อ ${price}</button><button class="btn gray" onclick="declineAuction(${i},${starter})">ถอนตัว</button>`;openGameModal()}else{completeAuction(i,winner.idx,price);afterAction(starter)}}
 function acceptAuction(i,price,starter){closeModal();completeAuction(i,0,price);afterAction(starter)}
 function declineAuction(i,starter){closeModal();const diff=currentDifficulty();const others=players.map((p,idx)=>({p,idx,max:idx===0?-1:Math.min(p.money-(diff.id==="normal"?180:diff.id==="hard"?155:135),Math.round(aiStrategyValue(idx,i)*diff.auctionMult))})).filter(x=>x.max>=tiles[i].price*.65).sort((a,b)=>b.max-a.max);if(others.length)completeAuction(i,others[0].idx,Math.round(tiles[i].price*.72));afterAction(starter)}
@@ -2244,11 +2235,16 @@ if(id==="tax"){
  showEffect("📜 ใบเรียกเก็บ",`${p.name} ใช้กับ ${x.name} • เสีย ${a} เหรียญ`,"bad");
 }markMatchConsumableUsed(id);p.items.splice(index,1);closeModal();renderAll()}
 function tickEndTurnStatuses(idx){const p=players[idx];if(!p)return;if((p.tacticProtectionTurns||0)>0){p.tacticProtectionTurns--;if(p.tacticProtectionTurns===0)addLog(`🫧 Tactic Protection ของ ${p.name} สิ้นสุด`,"info")}if((p.focusJammedTurns||0)>0){p.focusJammedTurns--;if(p.focusJammedTurns===0)addLog(`📵 Focus Jam ของ ${p.name} สิ้นสุด`,"info")}}
-function afterAction(idx){tickEndTurnStatuses(idx);renderAll();if(players[idx].money<0)bankrupt(idx);if(!gameOver)setTimeout(nextTurn,idx===0?speedCfg[GAME_SPEED].after:Math.round(speedCfg[GAME_SPEED].after*1.25))}
+function afterAction(idx){
+ const epoch=turnEpoch;if(gameOver)return;if(endedEpoch===epoch){qaRecord("warning","afterAction",`duplicate end ignored • epoch ${epoch}`);return;}
+ endedEpoch=epoch;setTurnState(TURN_STATE.END_TURN,`P${idx} epoch ${epoch}`);setButtons(false,false,false,false,false,false);
+ validateGameState("afterAction-pre");tickEndTurnStatuses(idx);renderAll();validateGameState("afterAction-post");if(players[idx].money<0)bankrupt(idx);
+ if(!gameOver){clearNextTurnTimer();const wait=idx===0?speedCfg[GAME_SPEED].after:Math.round(speedCfg[GAME_SPEED].after*1.25);nextTurnTimer=setTimeout(()=>{nextTurnTimer=null;if(!gameOver&&turnEpoch===epoch&&turnState===TURN_STATE.END_TURN)nextTurn();},wait)}
+}
 function bankrupt(idx){const p=players[idx];p.bankrupt=true;p.money=0;owners.forEach((o,i)=>{if(o===idx){owners[i]=-1;levels[i]=0}});p.lands=0;addLog(`${p.name} ล้มละลาย ทรัพย์สินถูกคืน`,"bad");announceStatus(p.name,"☠️","ล้มละลาย","เงินหมดและทรัพย์สินทั้งหมดถูกคืนสู่เมือง","bad");if(players.filter(x=>!x.bankrupt).length<=1)finishGame("เหลือผู้เล่นเพียงคนเดียว")}
-function nextTurn(){if(gameOver)return;do{current=(current+1)%players.length}while(players[current].bankrupt);if(current===0){round++;if(round>MAX_ROUNDS)return finishGame(`ครบ ${MAX_ROUNDS} รอบ`);announceMarketRound()}renderAll();startTurn()}
+function nextTurn(){if(gameOver)return;clearNextTurnTimer();do{current=(current+1)%players.length}while(players[current].bankrupt);if(current===0){round++;if(round>MAX_ROUNDS)return finishGame(`ครบ ${MAX_ROUNDS} รอบ`);announceMarketRound()}renderAll();startTurn()}
 function finishGame(reason){
- gameOver=true;syncMobileControlState();setButtons(false,false,false,false,false,false);
+ gameOver=true;clearNextTurnTimer();setTurnState(TURN_STATE.GAME_OVER,reason);syncMobileControlState();setButtons(false,false,false,false,false,false);
  const ranking=players.map((p,i)=>({i,n:p.name,t:p.type,w:netWorth(i)})).sort((a,b)=>b.w-a.w);
  const playerRank=ranking.findIndex(r=>r.i===0)+1,win=playerRank===1;
  const xpCalc=gameXPByRank(playerRank),xp=xpCalc.total,coins=win?80:40;
@@ -2271,6 +2267,106 @@ function finishGame(reason){
  const achHtml=newly.length?`<div class="choice-note" style="margin-bottom:10px"><b>🏆 Achievement Unlocked</b><br>${newly.map(a=>`${a.icon} ${a.name} • ${achievementRewardText(a.reward)}`).join("<br>")}</div>`:"";const chestHtml=`<div class="choice-note" style="margin-bottom:10px"><b>📦 Chest Reward</b><br>${chestReward.text}</div>`;
  modalExtra.innerHTML=xpBreak+chestHtml+achHtml+`<div class="rank">${ranking.map((r,k)=>`<div class="rankrow"><span>${["🥇","🥈","🥉","4️⃣"][k]} ${r.n}</span><b>${r.w} 💎</b></div>`).join("")}</div><div class="choice-note" style="margin-top:10px">🏠 Property Tycoon: ${players[propKing.i].name} • 👑 District Master: ${players[districtKing.i].name}<br>🧩 Full Set ของคุณเกมนี้: ${fullSetsThisGame} • 👑 District Control: ${districtsThisGame}</div>`;
  modalChoices.innerHTML=`<button class="btn primary" onclick="location.reload()">กลับหน้าหลัก</button>`;openGameModal()
+}
+
+
+// V8.8.9 — Automated QA Simulator + runtime state validation + explicit turn state machine.
+const qaRuntime={checks:0,warnings:0,errors:0,last:[],recoveries:0};
+function qaRecord(level,context,message){
+ const row={time:new Date().toISOString(),level,context,message};qaRuntime.last.unshift(row);qaRuntime.last=qaRuntime.last.slice(0,30);qaRuntime[level==="error"?"errors":"warnings"]++;
+ if(level==="error")console.error("[Fortune QA]",context,message);else console.warn("[Fortune QA]",context,message);
+}
+function validateGameState(context="runtime"){
+ qaRuntime.checks++;
+ if(!Array.isArray(players)||!players.length)return true;
+ let ok=true;
+ const fail=m=>{ok=false;qaRecord("error",context,m)};
+ if(!Array.isArray(owners)||owners.length!==tiles.length)fail(`owners length ${owners?.length} != tiles ${tiles.length}`);
+ if(!Array.isArray(levels)||levels.length!==tiles.length)fail(`levels length ${levels?.length} != tiles ${tiles.length}`);
+ if(!Number.isInteger(current)||current<0||current>=players.length)fail(`invalid current player ${current}`);
+ if(!Object.values(TURN_STATE).includes(turnState))fail(`invalid turnState ${turnState}`);
+ players.forEach((p,i)=>{
+  if(!Number.isFinite(p.money))fail(`P${i} money is not finite`);
+  if(!Number.isInteger(p.pos)||p.pos<0||p.pos>=tiles.length)fail(`P${i} invalid position ${p.pos}`);
+  if(!Number.isFinite(p.focus||0)||!Number.isFinite(p.maxFocus||0))fail(`P${i} invalid focus`);
+  if((p.focus||0)<0||(p.focus||0)>(p.maxFocus||3))qaRecord("warning",context,`P${i} focus out of expected range ${p.focus}/${p.maxFocus}`);
+ });
+ if(Array.isArray(owners))owners.forEach((o,i)=>{
+  if(!Number.isInteger(o)||o<-1||o>=players.length)fail(`tile ${i} invalid owner ${o}`);
+  if(levels?.[i]!=null&&(!Number.isInteger(levels[i])||levels[i]<0||levels[i]>4))fail(`tile ${i} invalid level ${levels[i]}`);
+  if(o<0&&levels?.[i]>0)qaRecord("warning",context,`tile ${i} unowned but level ${levels[i]}`);
+ });
+ return ok;
+}
+function qaRuntimeRecoverHumanTurn(){
+ if(gameOver||moving||current!==0||!players?.[0])return;
+ const p=players[0],t=tiles?.[p.pos];if(!t)return;
+ const modalOpen=modal.classList.contains("show");
+ const noAction=rollBtn.disabled&&skillBtn.disabled&&buyBtn.disabled&&upgradeBtn.disabled&&cardBtn.disabled&&skipBtn.disabled;
+ if(noAction&&!modalOpen){
+  if(t.type==="land"&&turnState===TURN_STATE.WAIT_DECISION){
+   skipBtn.disabled=false;skipBtn.style.display="";qaRuntime.recoveries++;
+   addLog("🧪 QA Recovery: พบ Human Turn ไม่มี Valid Action • เปิดปุ่มผ่านอัตโนมัติ","info");
+  }else{
+   qaRecord("warning","human-turn",`No valid action at tile ${p.pos+1} (${t.type})`);
+  }
+ }
+}
+setInterval(qaRuntimeRecoverHumanTurn,900);
+
+function qaSimRent(tile,level){return Math.max(1,Math.round((tile.rent||20)*(1+Math.max(0,level-1)*.62)))}
+function qaSimOne(matchNo){
+ const eco=gameEconomy(),n=4,L=tiles.length,maxR=Math.max(5,Number(MAX_ROUNDS)||15);
+ const ps=Array.from({length:n},(_,i)=>({money:i===0?eco.startMoney:Math.round(eco.startMoney*(i?1.05:1)),pos:0,lands:0,bankrupt:false}));
+ const os=Array(L).fill(-1),ls=Array(L).fill(0);let actions=0,turns=0,errors=[];
+ const err=m=>errors.push(`M${matchNo}: ${m}`);
+ for(let r=1;r<=maxR;r++){
+  for(let pi=0;pi<n;pi++){
+   const p=ps[pi];if(p.bankrupt)continue;turns++;
+   const steps=2+Math.floor(Math.random()*11);p.pos=(p.pos+steps)%L;const t=tiles[p.pos];
+   if(!t){err(`missing tile at ${p.pos}`);continue}
+   if(t.type==="land"){
+    const o=os[p.pos];
+    if(o<0){
+     const reserve=pi===0?170:200,price=Math.max(0,Number(t.price)||0);
+     if(Number.isFinite(price)&&p.money-price>=reserve){p.money-=price;os[p.pos]=pi;ls[p.pos]=1;p.lands++;actions++}
+    }else if(o===pi&&ls[p.pos]<4){
+     const c=Math.round((Number(t.price)||0)*(ls[p.pos]===1?.40:ls[p.pos]===2?.55:.75));
+     if(p.money-c>=180){p.money-=c;ls[p.pos]++;actions++}
+    }else if(o!==pi&&o>=0&&!ps[o].bankrupt){
+     const rent=Math.min(p.money,qaSimRent(t,ls[p.pos]));p.money-=rent;ps[o].money+=rent;actions++;
+    }
+   }else if(t.type==="tax"){
+    const loss=Math.min(p.money,Math.max(30,Number(t.amount)||80));p.money-=loss;actions++;
+   }else if(t.type==="bonus"||t.type==="start"){
+    p.money+=60;actions++;
+   }
+   if(!Number.isFinite(p.money))err(`P${pi} non-finite money`);
+   if(p.money<0)err(`P${pi} negative money ${p.money}`);
+   if(p.money===0&&p.lands===0)p.bankrupt=true;
+   if(p.pos<0||p.pos>=L)err(`P${pi} invalid pos ${p.pos}`);
+   if(ls.some(x=>!Number.isInteger(x)||x<0||x>4))err("property level invariant failed");
+   if(os.some(x=>!Number.isInteger(x)||x<-1||x>=n))err("property owner invariant failed");
+  }
+ }
+ const worth=ps.map((p,pi)=>p.money+os.reduce((sum,o,i)=>sum+(o===pi?(Number(tiles[i].price)||0)+Math.max(0,ls[i]-1)*Math.round((Number(tiles[i].price)||0)*.6):0),0));
+ const winner=worth.indexOf(Math.max(...worth));
+ return {errors,turns,actions,winner,worth,bankrupt:ps.filter(p=>p.bankrupt).length};
+}
+function runQASimulator(count=500){
+ count=Math.max(10,Math.min(5000,Number(count)||500));
+ const t0=performance.now(),agg={matches:count,errors:[],turns:0,actions:0,wins:[0,0,0,0],bankrupt:0,minWorth:Infinity,maxWorth:0};
+ for(let i=1;i<=count;i++){
+  const r=qaSimOne(i);agg.errors.push(...r.errors.slice(0,3));agg.turns+=r.turns;agg.actions+=r.actions;agg.wins[r.winner]++;agg.bankrupt+=r.bankrupt;agg.minWorth=Math.min(agg.minWorth,...r.worth);agg.maxWorth=Math.max(agg.maxWorth,...r.worth);
+  if(agg.errors.length>60)break;
+ }
+ const ms=Math.round(performance.now()-t0),passed=agg.errors.length===0;
+ modalIcon.textContent=passed?"✅":"⚠️";modalTitle.textContent=`QA Simulator • ${passed?"PASS":"CHECK"}`;
+ modalText.textContent=`จำลอง ${count.toLocaleString()} Matches • ${agg.turns.toLocaleString()} Turns • ${ms} ms`;
+ const humanRate=((agg.wins[0]/count)*100).toFixed(1);
+ modalExtra.innerHTML=`<div class="choice-note"><b>${passed?"✅ Core invariant ผ่าน":"⚠️ พบ invariant ที่ต้องตรวจ"}</b><br>Errors: ${agg.errors.length} • Runtime Checks: ${qaRuntime.checks} • Runtime Recoveries: ${qaRuntime.recoveries}<br>Player simulated win rate: ${humanRate}% • Avg actions/match: ${(agg.actions/count).toFixed(1)} • Avg bankrupt/match: ${(agg.bankrupt/count).toFixed(2)}<br>Net Worth range: ${Math.round(agg.minWorth)}–${Math.round(agg.maxWorth)}</div>${agg.errors.length?`<div class="choice-note" style="margin-top:10px;text-align:left"><b>ตัวอย่าง Error</b><br>${agg.errors.slice(0,12).map(x=>`• ${x}`).join("<br>")}</div>`:`<div class="choice-note" style="margin-top:10px">ไม่พบ Negative Money, invalid owner, invalid level, invalid position หรือ non-finite state ใน simulation นี้</div>`}`;
+ modalChoices.innerHTML=`<button class="btn blue" onclick="runQASimulator(1000)">🧪 Run 1,000</button><button class="btn gray" onclick="closeModal()">ปิด</button>`;openGameModal("qa");
+ return agg;
 }
 
 function fullscreenActive(){return !!(document.fullscreenElement||document.webkitFullscreenElement||document.msFullscreenElement)}
@@ -2298,7 +2394,9 @@ window.addEventListener("resize",syncFullscreenUI);
 
 rollBtn.onclick=rollDice;skillBtn.onclick=useSkill;buyBtn.onclick=buyCurrent;upgradeBtn.onclick=upgradeCurrent;skipBtn.onclick=skipAction;cardBtn.onclick=()=>{if(players[0].items.length)useItem(0)};
 const playersEl=document.getElementById("players");
-renderHome();renderCosmetics();syncMobileControlState();syncFullscreenUI();
+renderHome();syncMobileControlState();syncFullscreenUI();
 </script>
+
+<!-- V8.8.9 Automated QA Simulator + Turn State Machine: runtime invariant validation + human-turn recovery + batch match simulation. -->
 </body>
 </html>

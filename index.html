@@ -796,7 +796,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
     <div class="guide-card"><div class="guide-icon">🎯</div><b>Focus</b><p>ทรัพยากรสำหรับควบคุมผล Movement เช่นปรับตำแหน่งหรือ Reroll เพื่อช่วยให้ลง Property, Junction หรือ Tile สำคัญที่ต้องการได้แม่นขึ้น</p></div>
     <div class="guide-card"><div class="guide-icon">🧠</div><b>Skill Loadout</b><p>Character ไม่มี Skill Bonus โดยตรง ผู้เล่นจัด Skill 2 ช่องเองภายในงบ 6 SP แต่ละ Skill Slot ใช้ได้หนึ่งครั้งต่อเกม</p></div>
     <div class="guide-card"><div class="guide-icon">💼</div><b>Career Card</b><p>Equip ได้ 1 ใบเพื่อรับ Passive Advantage เล็กน้อย เช่น Token เริ่มต้น, ส่วนลด Upgrade แรก หรือข้อมูล Forecast เพิ่ม Career มีผลน้อยกว่า Skill อย่างชัดเจน</p></div>
-    <div class="guide-card"><div class="guide-icon">🤝</div><b>Trade Center</b><p>เมื่อเข้า Trade Hub สามารถซื้อหรือ Swap Property กับ AI ได้ แต่ AI จะป้องกัน Core Asset และต้องเหลือเงินสำรองหลังดีล</p></div>
+    <div class="guide-card"><div class="guide-icon">🤝</div><b>Trade Center</b><p>เมื่อเข้า Trade Hub สามารถซื้อหรือ Swap Property กับ AI ได้ • AI จะป้องกัน Core Asset • ระบบจะแนะนำเงินสำรองหลังดีล แต่ผู้เล่นตัดสินใจรับความเสี่ยงเองได้</p></div>
     <div class="guide-card"><div class="guide-icon">🔨</div><b>Auction</b><p>Property ที่ไม่ได้ซื้อโดยตรงยังอาจถูกนำเข้าประมูล จึงมีโอกาสได้ Property ต่ำกว่าหรือสูงกว่า Base Price ตามการแข่งขัน</p></div>
     <div class="guide-card"><div class="guide-icon">📈</div><b>City Market</b><p>Market Effect เกิดเป็นช่วง ๆ และมี Forecast ล่วงหน้า ใช้ข้อมูลนี้วางแผนซื้อ Upgrade หรือเน้น Property ประเภทที่กำลังได้ Bonus</p></div>
      <div class="guide-card"><div class="guide-icon">🎴</div><b>Tactic Hub</b><p>แต่ละ Map มี Tactic Hub 1 ช่อง เมื่อลงช่องนี้จะสุ่ม Tactic Card 1 ใบ เช่น ถอยหลัง, ย้ายตำแหน่ง, สลับตำแหน่ง หรือปิด Focus จากนั้นกดใช้การ์ดและเลือกคู่แข่งเป็นเป้าหมาย ผู้ที่เพิ่งโดนจะได้รับ Tactic Protection จนจบเทิร์นถัดไปเพื่อป้องกันการโดนรุมซ้ำ</p></div>
@@ -925,7 +925,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
  </div>
 </div>
 
-<div id="modal" class="modal"><div class="dialog"><div class="modal-toolbar"><button id="modalMinBtn" class="toolbar-btn hidden" onclick="minimizeFocusPrompt()" title="ย่อหน้าต่าง Focus">—</button></div><div id="modalIcon" class="icon">✨</div><h2 id="modalTitle">Fortune City</h2><p id="modalText"></p><div id="modalExtra"></div><div id="modalChoices" class="choice-row"><button class="btn primary" onclick="closeModal()">ตกลง</button></div></div></div><button id="focusRestoreBtn" class="focus-restore hidden" onclick="restoreFocusPrompt()">🎯 เปิด Focus อีกครั้ง</button>
+<div id="modal" class="modal"><div class="dialog"><div class="modal-toolbar"><button id="tradeMinBtn" class="toolbar-btn hidden" onclick="minimizeTradeCenter()" title="ซ่อน Trade Hub เพื่อดูกระดานและ Property">—</button><button id="modalMinBtn" class="toolbar-btn hidden" onclick="minimizeFocusPrompt()" title="ย่อหน้าต่าง Focus">—</button></div><div id="modalIcon" class="icon">✨</div><h2 id="modalTitle">Fortune City</h2><p id="modalText"></p><div id="modalExtra"></div><div id="modalChoices" class="choice-row"><button class="btn primary" onclick="closeModal()">ตกลง</button></div></div></div><button id="focusRestoreBtn" class="focus-restore hidden" onclick="restoreFocusPrompt()">🎯 เปิด Focus อีกครั้ง</button><button id="tradeRestoreBtn" class="focus-restore hidden" onclick="restoreTradeCenter()" style="bottom:76px">🤝 กลับ Trade Hub</button>
 <div id="toast" class="toast"></div><div id="turnBanner" class="turn-banner"></div><div id="effectFeed" class="effect-feed"></div><div id="tooltip" class="tooltip"></div>
 
 <script>
@@ -1000,7 +1000,7 @@ const skillDefs=[
 const careerDefs=[
  {id:"investor",name:"Investor",icon:"🏦",unlockLevel:1,tag:"Investment",summary:"เริ่มเกมด้วย Investment Token 75",detail:"ลดค่าซื้อ Property หรือ Upgrade ครั้งแรกสูงสุด 75 • ใช้แล้วหมดทั้ง Token"},
  {id:"developer",name:"Developer",icon:"🏗️",unlockLevel:1,tag:"Development",summary:"Upgrade ครั้งแรก -10%",detail:"ส่วนลดเฉพาะ Upgrade ครั้งแรกของ Match • หลังใช้แล้ว Career จะไม่ลด Upgrade เพิ่ม"},
- {id:"broker",name:"Broker",icon:"🤝",unlockLevel:2,tag:"Commerce",summary:"Trade Reserve -25",detail:"ต้องเหลือเงินสำรองหลัง Trade น้อยลง 25 • ไม่ลดราคาซื้อ Property โดยตรง"},
+ {id:"broker",name:"Broker",icon:"🤝",unlockLevel:2,tag:"Commerce",summary:"Recommended Trade Reserve -25",detail:"ลดระดับเงินสำรองที่ระบบแนะนำหลัง Trade ลง 25 • เป็นคำแนะนำด้านความเสี่ยง ไม่ได้บล็อกการซื้อ"},
  {id:"analyst",name:"Analyst",icon:"📊",unlockLevel:3,tag:"Strategy",summary:"เห็น City Market Forecast เพิ่ม",detail:"แสดง Market สองช่วงถัดไปตั้งแต่เริ่มเกม ช่วยวางแผนแต่ไม่เพิ่ม Stat โดยตรง"},
  {id:"executive",name:"Executive",icon:"🏢",unlockLevel:4,tag:"Finance",summary:"เงินเริ่มเกม +60",detail:"เพิ่มสภาพคล่องเริ่มต้นประมาณ 5% ใน Standard Game • ไม่มีโบนัสระหว่างเกมเพิ่มเติม"}
 ];
@@ -1802,6 +1802,43 @@ function openTileInfo(i){
 }
 
 function openStrategyPanel(){if(!players.length)return;const districts=[...new Set(propertyIndices().map(i=>tiles[i].district))];const sets=[...new Set(propertyIndices().map(i=>tiles[i].set))];const mine=ownedIndices(0),active=currentBuildIdentity();modalIcon.textContent="🧩";modalTitle.textContent="Synergy & Strategy";modalText.textContent=`${active.icon} ${active.name} • ปิด Set เพื่อสร้าง Synergy • สูตร Rent/Effect ใช้ Core Balance เดิม`;modalExtra.innerHTML=`<div class="strategy-grid"><div class="synergy-section-title">🧩 PROPERTY SYNERGIES</div>${sets.map(st=>synergyCardHTML(0,st)).join("")}<div class="synergy-section-title">📍 DISTRICT CONTROL</div>${districts.map(d=>{const l=districtLeader(d);return `<div class="strategy-card"><b>📍 ${d}</b><small>${l>=0?`👑 Leader: ${players[l].name}`:`ยังไม่มี District Leader`}<br>ของคุณ: ${ownedIndices(0).filter(i=>tiles[i].district===d).length} แห่ง</small></div>`}).join("")}</div>${mine.length?`<div class="choice-note" style="margin-top:12px"><b>🏦 Liquidate Property</b><br>${mine.map(i=>`<button class="mini-btn" style="margin:5px 4px" onclick="liquidateProperty(${i})">ขาย ${tiles[i].name} • +${Math.round(tiles[i].price*.7)}</button>`).join("")}</div>`:""}`;modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ปิด</button>`;openGameModal()}
+let tradeContext="button";
+let tradeMinimized=false;
+function closeTradeCenter(endTurn=false){
+ const wasSkill=tradeContext==="skill";
+ tradeMinimized=false;
+ if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");
+ if(window.tradeRestoreBtn)tradeRestoreBtn.classList.add("hidden");
+ tradeContext="button";
+ if(wasSkill&&players[0])players[0].tradeReserveDiscount=0;
+ closeModal();renderAll();
+ if(endTurn){markTradeUsed();afterAction(0)}
+}
+function finishTradeCenter(){
+ const endTurn=tradeContext==="zone";
+ markTradeUsed();
+ tradeMinimized=false;
+ if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");
+ if(window.tradeRestoreBtn)tradeRestoreBtn.classList.add("hidden");
+ tradeContext="button";
+ closeModal();renderAll();
+ if(endTurn)afterAction(0)
+}
+function minimizeTradeCenter(){
+ if(!modal.classList.contains("show"))return;
+ tradeMinimized=true;
+ if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");
+ hideGameModal();
+ if(window.tradeRestoreBtn){tradeRestoreBtn.textContent="🤝 กลับ Trade Hub";tradeRestoreBtn.classList.remove("hidden")}
+ toastMsg("ซ่อน Trade Hub แล้ว • แตะ Property หรือเปิด Synergy เพื่อดูข้อมูลได้")
+}
+function restoreTradeCenter(){
+ if(!tradeMinimized)return;
+ tradeMinimized=false;
+ if(window.tradeRestoreBtn)tradeRestoreBtn.classList.add("hidden");
+ if(window.tradeMinBtn)tradeMinBtn.classList.remove("hidden");
+ openGameModal()
+}
 function openTradeCenter(source="button"){
  if(current!==0)return;
  if(source==="button"&&!canPlayerTrade(0))return toastMsg(tradeAlreadyUsed()?"Trade Hub นี้ใช้สิทธิ์ไปแล้ว":"Trade ใช้ได้เมื่อยืนบน Trade Hub เท่านั้น");
@@ -1810,12 +1847,14 @@ function openTradeCenter(source="button"){
  const candidates=propertyIndices().filter(i=>owners[i]>0);
  if(!candidates.length){if(source==="skill"&&players[0])players[0].tradeReserveDiscount=0;if(source==="zone")return closeTradeCenter(true);return toastMsg("ยังไม่มี Property ของคู่แข่งให้ Trade")}
  modalIcon.textContent="🤝";modalTitle.textContent=source==="zone"?"Trade Hub • 1 Deal":"Trade Center";
- modalText.textContent=`เลือกได้ 1 รายการ • หลังซื้อแล้วต้องเหลือเงินสำรองอย่างน้อย ${tradeReserve(0)} • AI ปกป้อง Property สำคัญต่อ Set / District`;
- modalExtra.innerHTML=`<div class="strategy-grid">${candidates.slice(0,10).map(i=>{const o=owners[i],q=tradeQuote(i),mine=ownedIndices(0).sort((a,b)=>Math.abs(strategyValue(o,a)-strategyValue(o,i)) - Math.abs(strategyValue(o,b)-strategyValue(o,i)))[0];const sellerNeed=strategyValue(o,i);const mineSellerValue=mine===undefined?0:strategyValue(o,mine);const topup=mine===undefined?0:Math.max(0,Math.round((sellerNeed-mineSellerValue)*1.05));const reserve=tradeReserve(0);const needCash=q.price+reserve;const shortCash=Math.max(0,needCash-players[0].money);const cashOK=!q.core&&shortCash===0;const swapNeed=topup+reserve;const shortSwap=Math.max(0,swapNeed-players[0].money);const swapValueOK=mine!==undefined&&(mineSellerValue+topup>=sellerNeed*.95);const swapOK=mine!==undefined&&!q.core&&swapValueOK&&shortSwap===0;return `<div class="strategy-card"><b>${tiles[i].catIcon} ${tiles[i].name}</b><small>${tiles[i].district} • ${tiles[i].set}<br>เจ้าของ: ${players[o].name}<br>${tradeReason(i)}${q.core?"":`<br>ราคาเสนอขาย: ${q.price}<br>เงินคุณ: ${players[0].money} • ต้องเหลือสำรอง ${reserve}${cashOK?`<br>✅ ซื้อได้ เหลือ ${players[0].money-q.price}`:`<br>⚠️ ต้องมีอย่างน้อย ${needCash} • ขาด ${shortCash}`}`}</small>${q.core?`<button class="mini-btn" disabled style="margin-top:7px">🔒 ไม่ขาย</button>`:`<button class="mini-btn" style="margin-top:7px" onclick="tradeBuy(${i},${q.price})">${cashOK?`💰 ซื้อ ${q.price}`:`💰 ตรวจสอบเงิน • ${q.price}`}</button>${mine!==undefined?`<button class="mini-btn" style="margin-top:5px" onclick="tradeSwap(${i},${mine},${topup})">🔄 ${tiles[mine].name}${topup?` + ${topup}`:""}${swapOK?"":" • ตรวจสอบ"}</button>`:""}`}</div>`}).join("")}</div>`;
- modalChoices.innerHTML=source==="zone"?`<button class="btn gray" onclick="closeTradeCenter(true)">ผ่าน Trade Hub</button>`:`<button class="btn gray" onclick="closeTradeCenter(false)">ปิด</button>`;openGameModal()
+ modalText.textContent=`เลือกได้ 1 รายการ • เงินสำรอง ${tradeReserve(0)} เป็นระดับที่แนะนำ ไม่ใช่ข้อบังคับ • AI ยังปกป้อง Property สำคัญต่อ Set / District`;
+ if(window.tradeMinBtn)tradeMinBtn.classList.remove("hidden");
+ if(window.tradeRestoreBtn)tradeRestoreBtn.classList.add("hidden");
+ modalExtra.innerHTML=`<div class="strategy-grid">${candidates.slice(0,10).map(i=>{const o=owners[i],q=tradeQuote(i),mine=ownedIndices(0).sort((a,b)=>Math.abs(strategyValue(o,a)-strategyValue(o,i)) - Math.abs(strategyValue(o,b)-strategyValue(o,i)))[0];const sellerNeed=strategyValue(o,i);const mineSellerValue=mine===undefined?0:strategyValue(o,mine);const topup=mine===undefined?0:Math.max(0,Math.round((sellerNeed-mineSellerValue)*1.05));const reserve=tradeReserve(0);const cashOK=!q.core&&players[0].money>=q.price;const riskyCash=cashOK&&(players[0].money-q.price<reserve);const swapValueOK=mine!==undefined&&(mineSellerValue+topup>=sellerNeed*.95);const swapOK=mine!==undefined&&!q.core&&swapValueOK&&players[0].money>=topup;const riskySwap=swapOK&&(players[0].money-topup<reserve);return `<div class="strategy-card"><b>${tiles[i].catIcon} ${tiles[i].name}</b><small>${tiles[i].district} • ${tiles[i].set}<br>เจ้าของ: ${players[o].name}<br>${tradeReason(i)}${q.core?"":`<br>ราคาเสนอขาย: ${q.price}<br>เงินคุณ: ${players[0].money} • เงินสำรองแนะนำ ${reserve}${cashOK?`<br>${riskyCash?"⚠️ ซื้อได้ แต่เงินจะต่ำกว่าระดับสำรองที่แนะนำ":"✅ ซื้อได้"} • เหลือ ${players[0].money-q.price}`:`<br>❌ เงินสดไม่พอ • ขาด ${Math.max(0,q.price-players[0].money)}`}`}</small>${q.core?`<button class="mini-btn" disabled style="margin-top:7px">🔒 ไม่ขาย</button>`:`<button class="mini-btn" ${cashOK?"":"disabled"} style="margin-top:7px" onclick="tradeBuy(${i},${q.price})">${cashOK?`${riskyCash?"⚠️":"💰"} ซื้อ ${q.price}`:`💰 เงินไม่พอ • ${q.price}`}</button>${mine!==undefined?`<button class="mini-btn" ${swapOK?"":"disabled"} style="margin-top:5px" onclick="tradeSwap(${i},${mine},${topup})">🔄 ${tiles[mine].name}${topup?` + ${topup}`:""}${riskySwap?" • ⚠️ เสี่ยง":""}</button>`:""}`}</div>`}).join("")}</div>`;
+ modalChoices.innerHTML=source==="zone"?`<button class="btn blue" onclick="minimizeTradeCenter()">👁️ ซ่อนเพื่อดู Property</button><button class="btn gray" onclick="closeTradeCenter(true)">ผ่าน Trade Hub</button>`:`<button class="btn blue" onclick="minimizeTradeCenter()">👁️ ซ่อนเพื่อดู Property</button><button class="btn gray" onclick="closeTradeCenter(false)">ปิด</button>`;openGameModal()
 }
-function tradeBuy(i,price){const buyer=players[0],q=tradeQuote(i);if(!q||q.core)return toastMsg("🔒 AI ไม่ขาย Property สำคัญนี้");const reserve=tradeReserve(0),need=price+reserve;if(buyer.money<need)return toastMsg(`💰 เงินไม่พอ • มี ${buyer.money} • ต้องมี ${need} (ซื้อ ${price} + สำรอง ${reserve})`);const seller=players[q.sellerIdx];buyer.money-=price;seller.money+=price;buyer.tradeReserveDiscount=0;owners[i]=0;buyer.lands++;seller.lands=Math.max(0,seller.lands-1);addLog(`🤝 ${buyer.name} ซื้อ ${tiles[i].name} จาก ${seller.name} ราคา ${price}`,"gold");announceStatus(buyer.name,"🤝","Trade สำเร็จ",`${tiles[i].name} • ราคา ${price} • เหลือเงิน ${buyer.money}`,"gold");bumpStat("tradesCompleted");bumpStat("propertiesBought");finishTradeCenter()}
-function tradeSwap(target,mine,topup){const buyer=players[0],sellerIdx=owners[target],seller=players[sellerIdx],q=tradeQuote(target);if(!q||q.core)return toastMsg("AI ไม่ยอมแลก Core Asset นี้");if(owners[mine]!==0||sellerIdx<=0)return toastMsg("Trade นี้ใช้ไม่ได้แล้ว");const giveValue=strategyValue(sellerIdx,mine)+topup,need=strategyValue(sellerIdx,target);if(giveValue<need*.95)return toastMsg("AI มองว่าข้อเสนอมีมูลค่าต่ำเกินไป");if(buyer.money-topup<tradeReserve(0))return toastMsg(`💰 เงินไม่พอสำหรับ Swap • ต้องเหลือสำรอง ${tradeReserve(0)} หลังจ่ายเพิ่ม ${topup}`);buyer.money-=topup;seller.money+=topup;buyer.tradeReserveDiscount=0;owners[target]=0;owners[mine]=sellerIdx;announceStatus(buyer.name,"🔄","Property Swap",`${tiles[mine].name} ↔ ${tiles[target].name}${topup?` • เพิ่มเงิน ${topup}`:""}`,"gold");addLog(`🔄 ${buyer.name} แลก ${tiles[mine].name} กับ ${seller.name} เพื่อรับ ${tiles[target].name}`,"gold");bumpStat("tradesCompleted");finishTradeCenter()}
+function tradeBuy(i,price){const buyer=players[0],q=tradeQuote(i);if(!q||q.core)return toastMsg("🔒 AI ไม่ขาย Property สำคัญนี้");if(buyer.money<price)return toastMsg(`💰 เงินไม่พอ • มี ${buyer.money} • ราคา ${price}`);const reserve=tradeReserve(0),risky=buyer.money-price<reserve;const seller=players[q.sellerIdx];buyer.money-=price;seller.money+=price;buyer.tradeReserveDiscount=0;owners[i]=0;buyer.lands++;seller.lands=Math.max(0,seller.lands-1);addLog(`🤝 ${buyer.name} ซื้อ ${tiles[i].name} จาก ${seller.name} ราคา ${price}`,"gold");announceStatus(buyer.name,"🤝","Trade สำเร็จ",`${tiles[i].name} • ราคา ${price} • เหลือเงิน ${buyer.money}${risky?" • ⚠️ ต่ำกว่าเงินสำรองที่แนะนำ":""}`,"gold");bumpStat("tradesCompleted");bumpStat("propertiesBought");finishTradeCenter()}
+function tradeSwap(target,mine,topup){const buyer=players[0],sellerIdx=owners[target],seller=players[sellerIdx],q=tradeQuote(target);if(!q||q.core)return toastMsg("AI ไม่ยอมแลก Core Asset นี้");if(owners[mine]!==0||sellerIdx<=0)return toastMsg("Trade นี้ใช้ไม่ได้แล้ว");const giveValue=strategyValue(sellerIdx,mine)+topup,need=strategyValue(sellerIdx,target);if(giveValue<need*.95)return toastMsg("AI มองว่าข้อเสนอมีมูลค่าต่ำเกินไป");if(buyer.money<topup)return toastMsg(`💰 เงินไม่พอสำหรับ Swap • ต้องจ่ายเพิ่ม ${topup}`);buyer.money-=topup;seller.money+=topup;buyer.tradeReserveDiscount=0;owners[target]=0;owners[mine]=sellerIdx;announceStatus(buyer.name,"🔄","Property Swap",`${tiles[mine].name} ↔ ${tiles[target].name}${topup?` • เพิ่มเงิน ${topup}`:""}`,"gold");addLog(`🔄 ${buyer.name} แลก ${tiles[mine].name} กับ ${seller.name} เพื่อรับ ${tiles[target].name}`,"gold");bumpStat("tradesCompleted");finishTradeCenter()}
 function renderPlayerLegend(){if(!window.playerLegend)return;playerLegend.innerHTML=players.map((p,i)=>`<div class="legend-player ${i===current&&!gameOver?"current":""}"><span class="legend-dot" style="background:${p.color}"></span><span class="legend-name">${p.name}</span></div>`).join("")}
 function renderAll(){
  syncSynergyProgress();
@@ -1846,7 +1885,7 @@ function attachCoreTips(){
  attachTip(cardBtn,"🎴 ใช้การ์ด","ใช้ไอเทมหรือการ์ดจากกระเป๋า");
  if(window.statusBtn) attachTip(statusBtn,"📊 Buff / Debuff Status","ดูภาพรวม Buff, Debuff และจำนวนเทิร์นคงเหลือของผู้เล่นทุกคน");
  if(window.strategyBtn) attachTip(strategyBtn,"🏙️ Strategy","ดู Property Set, District Leader และโบนัสเชิงกลยุทธ์");
- if(window.tradeBtn) attachTip(tradeBtn,"🤝 Trade Center","ใช้ได้เมื่อยืนบน Trade Hub เท่านั้น • 1 Deal ต่อครั้ง • AI อาจไม่ขาย Property สำคัญ • ต้องเหลือเงินสำรอง");
+ if(window.tradeBtn) attachTip(tradeBtn,"🤝 Trade Center","ใช้ได้เมื่อยืนบน Trade Hub เท่านั้น • 1 Deal ต่อครั้ง • AI อาจไม่ขาย Property สำคัญ • เงินสำรองเป็นเพียงคำแนะนำสำหรับผู้เล่น");
  attachTip(skipBtn,"➡️ ผ่าน","ไม่ซื้อหรืออัปเกรดในช่องนี้ แล้วจบเทิร์น");
  attachTip(die1,"🎲 ลูกเต๋า","ผลลูกเต๋าลูกที่ 1");
  attachTip(die2,"🎲 ลูกเต๋า","ผลลูกเต๋าลูกที่ 2");
@@ -2573,5 +2612,6 @@ function openCoreGameplayLockReport(){
 
 <!-- V8.9.2 Synergy Rework: activation UX, 2/3→3/3 progress, named synergies, Build Identity fit labels. V8.9 Core Economy/AI/Turn Balance unchanged. -->
 <!-- V8.8.11 Simulator Calibration retained: rotating initiative, actual bankruptcy semantics, near-set telemetry, per-player win rates + state-machine QA. -->
+<!-- V8.9.2.1 Trade Hub UX Hotfix: restore close/finish functions, add minimize/restore property inspection, player reserve becomes advisory while AI reserve remains intact. -->
 </body>
 </html>

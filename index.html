@@ -673,7 +673,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 <div id="homeScreen" class="screen">
  <div class="home">
   <div class="hero">
-   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.8.1 • Sustainable Progression Economy</p></div>
+   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.8.11 • Simulator Calibration</p></div>
    <div id="profileBox" class="profile"></div>
   </div>
   <div class="tabs home-main-tabs">
@@ -2270,7 +2270,7 @@ function finishGame(reason){
 }
 
 
-// V8.8.10 — Balance Telemetry + Automated QA Simulator + runtime state validation + explicit turn state machine.
+// V8.8.11 — Simulator Calibration: seat rotation + real bankruptcy semantics + near-set telemetry + Balance Telemetry + state-machine QA.
 const qaRuntime={checks:0,warnings:0,errors:0,last:[],recoveries:0};
 function qaRecord(level,context,message){
  const row={time:new Date().toISOString(),level,context,message};qaRuntime.last.unshift(row);qaRuntime.last=qaRuntime.last.slice(0,30);qaRuntime[level==="error"?"errors":"warnings"]++;
@@ -2318,18 +2318,23 @@ function qaSimRent(tile,level){return Math.max(1,Math.round((tile.rent||20)*(1+M
 function qaSimWorth(ps,os,ls,pi){
  return ps[pi].money+os.reduce((sum,o,i)=>sum+(o===pi?(Number(tiles[i].price)||0)+Math.max(0,ls[i]-1)*Math.round((Number(tiles[i].price)||0)*.6):0),0);
 }
-function qaCompletedSets(os,pi){
+function qaSetProgress(os,pi){
  const names=[...new Set(tiles.filter(t=>t.type==="land"&&t.set).map(t=>t.set))];
- return names.filter(name=>{const idx=tiles.map((t,i)=>t.type==="land"&&t.set===name?i:-1).filter(i=>i>=0);return idx.length>1&&idx.every(i=>os[i]===pi)}).length;
+ let completed=0,near=0;
+ names.forEach(name=>{const idx=tiles.map((t,i)=>t.type==="land"&&t.set===name?i:-1).filter(i=>i>=0);if(idx.length<2)return;const own=idx.filter(i=>os[i]===pi).length;if(own===idx.length)completed++;else if(own===idx.length-1)near++;});
+ return {completed,near};
 }
 function qaSimOne(matchNo,difficultyId="normal"){
  const diff=difficultyDefs[difficultyId]||difficultyDefs.normal,eco=gameEconomy(),n=4,L=tiles.length,maxR=Math.max(5,Number(MAX_ROUNDS)||15);
  const ps=Array.from({length:n},(_,i)=>({money:i===0?eco.startMoney:Math.round(eco.startMoney*diff.moneyMult),pos:0,lands:0,bankrupt:false}));
- const os=Array(L).fill(-1),ls=Array(L).fill(0);let actions=0,turns=0,errors=[],purchases=0,upgrades=0,rentEvents=0,midWorth=null;
+ const os=Array(L).fill(-1),ls=Array(L).fill(0);let actions=0,turns=0,errors=[],purchases=0,upgrades=0,rentEvents=0,midWorth=null,bankruptcyEvents=0;
  const err=m=>errors.push(`M${matchNo}: ${m}`);
+ // Rotate initiative each match so AI1/AI2/AI3 are not rewarded simply for acting earlier.
+ const initiative=matchNo%n;
+ const eliminate=pi=>{const p=ps[pi];if(p.bankrupt)return;p.bankrupt=true;p.money=0;os.forEach((o,i)=>{if(o===pi){os[i]=-1;ls[i]=0}});p.lands=0;bankruptcyEvents++;};
  for(let r=1;r<=maxR;r++){
-  for(let pi=0;pi<n;pi++){
-   const p=ps[pi];if(p.bankrupt)continue;turns++;
+  for(let k=0;k<n;k++){
+   const pi=(initiative+k)%n,p=ps[pi];if(p.bankrupt)continue;turns++;
    const steps=2+Math.floor(Math.random()*11);p.pos=(p.pos+steps)%L;const t=tiles[p.pos];
    if(!t){err(`missing tile at ${p.pos}`);continue}
    if(t.type==="land"){
@@ -2346,66 +2351,68 @@ function qaSimOne(matchNo,difficultyId="normal"){
      if(p.money-c>=reserve&&Math.random()<upgradeBias){p.money-=c;ls[p.pos]++;actions++;upgrades++}
     }else if(o!==pi&&o>=0&&!ps[o].bankrupt){
      let rent=qaSimRent(t,ls[p.pos]);
-     // Completed-set premium approximates the real strategic advantage without simulating every live modifier.
      if(t.set){const setIdx=tiles.map((x,i)=>x.type==="land"&&x.set===t.set?i:-1).filter(i=>i>=0);if(setIdx.length>1&&setIdx.every(i=>os[i]===o))rent=Math.round(rent*1.30)}
-     rent=Math.min(p.money,rent);p.money-=rent;ps[o].money+=rent;actions++;rentEvents++;
+     // Mirror live-game semantics: full rent is charged first; negative cash bankrupts after the action.
+     p.money-=rent;ps[o].money+=rent;actions++;rentEvents++;
     }
    }else if(t.type==="tax"){
-    const loss=Math.min(p.money,Math.max(30,Number(t.amount)||80));p.money-=loss;actions++;
+    p.money-=Math.max(30,Number(t.amount)||80);actions++;
    }else if(t.type==="bonus"||t.type==="start"){
     p.money+=60;actions++;
    }
    if(!Number.isFinite(p.money))err(`P${pi} non-finite money`);
-   if(p.money<0)err(`P${pi} negative money ${p.money}`);
-   if(p.money===0&&p.lands===0)p.bankrupt=true;
+   if(p.money<0)eliminate(pi);
    if(p.pos<0||p.pos>=L)err(`P${pi} invalid pos ${p.pos}`);
    if(ls.some(x=>!Number.isInteger(x)||x<0||x>4))err("property level invariant failed");
    if(os.some(x=>!Number.isInteger(x)||x<-1||x>=n))err("property owner invariant failed");
   }
   if(r===Math.ceil(maxR/2))midWorth=ps.map((_,pi)=>qaSimWorth(ps,os,ls,pi));
+  if(ps.filter(p=>!p.bankrupt).length<=1)break;
  }
  const worth=ps.map((_,pi)=>qaSimWorth(ps,os,ls,pi));
  const sorted=[...worth].sort((a,b)=>b-a),winner=worth.indexOf(sorted[0]);
  const midRank=midWorth?[...midWorth].map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v).findIndex(x=>x.i===winner)+1:1;
- const completedSets=ps.map((_,pi)=>qaCompletedSets(os,pi));
- return {errors,turns,actions,winner,worth,bankrupt:ps.filter(p=>p.bankrupt).length,purchases,upgrades,rentEvents,completedSets,margin:sorted[0]-sorted[1],comeback:midRank>=3};
+ const setProgress=ps.map((_,pi)=>qaSetProgress(os,pi));
+ return {errors,turns,actions,winner,worth,bankrupt:bankruptcyEvents,purchases,upgrades,rentEvents,completedSets:setProgress.map(x=>x.completed),nearSets:setProgress.map(x=>x.near),margin:sorted[0]-sorted[1],comeback:midRank>=3};
 }
 function qaAggregate(count=1000,difficultyId="normal"){
  count=Math.max(10,Math.min(10000,Number(count)||1000));
- const t0=performance.now(),agg={matches:count,difficultyId,errors:[],turns:0,actions:0,wins:[0,0,0,0],bankrupt:0,minWorth:Infinity,maxWorth:0,sumWorth:[0,0,0,0],margin:0,comebacks:0,purchases:0,upgrades:0,rentEvents:0,sets:[0,0,0,0]};
+ const t0=performance.now(),agg={matches:count,difficultyId,errors:[],turns:0,actions:0,wins:[0,0,0,0],bankrupt:0,minWorth:Infinity,maxWorth:0,sumWorth:[0,0,0,0],margin:0,comebacks:0,purchases:0,upgrades:0,rentEvents:0,sets:[0,0,0,0],nearSets:[0,0,0,0]};
  for(let i=1;i<=count;i++){
   const r=qaSimOne(i,difficultyId);agg.errors.push(...r.errors.slice(0,3));agg.turns+=r.turns;agg.actions+=r.actions;agg.wins[r.winner]++;agg.bankrupt+=r.bankrupt;agg.margin+=r.margin;if(r.comeback)agg.comebacks++;agg.purchases+=r.purchases;agg.upgrades+=r.upgrades;agg.rentEvents+=r.rentEvents;
-  r.worth.forEach((v,j)=>{agg.sumWorth[j]+=v;agg.minWorth=Math.min(agg.minWorth,v);agg.maxWorth=Math.max(agg.maxWorth,v)});r.completedSets.forEach((v,j)=>agg.sets[j]+=v);
+  r.worth.forEach((v,j)=>{agg.sumWorth[j]+=v;agg.minWorth=Math.min(agg.minWorth,v);agg.maxWorth=Math.max(agg.maxWorth,v)});r.completedSets.forEach((v,j)=>agg.sets[j]+=v);r.nearSets.forEach((v,j)=>agg.nearSets[j]+=v);
   if(agg.errors.length>60)break;
  }
  agg.ms=Math.round(performance.now()-t0);return agg;
 }
 function qaMetricRows(agg){
  const c=agg.matches,diff=difficultyDefs[agg.difficultyId]||difficultyDefs.normal;
- const rate=i=>((agg.wins[i]/c)*100).toFixed(1),avgWorth=i=>Math.round(agg.sumWorth[i]/c),avgSet=i=>(agg.sets[i]/c).toFixed(2);
+ const rate=i=>((agg.wins[i]/c)*100).toFixed(1),avgWorth=i=>Math.round(agg.sumWorth[i]/c),avgSet=i=>(agg.sets[i]/c).toFixed(2),avgNear=i=>(agg.nearSets[i]/c).toFixed(2);
+ const aiRates=[1,2,3].map(i=>Number(rate(i))),aiSpread=(Math.max(...aiRates)-Math.min(...aiRates)).toFixed(1);
  return `<div class="choice-note" style="text-align:left;line-height:1.65"><b>${diff.icon} ${diff.label} • Win Rate</b><br>
  👤 Player <b>${rate(0)}%</b> • 🤖 AI 1 ${rate(1)}% • 🤖 AI 2 ${rate(2)}% • 🤖 AI 3 ${rate(3)}%<br>
- <span style="opacity:.8">Fair-share baseline: 25.0% ต่อฝ่าย</span></div>
+ <span style="opacity:.8">Fair-share baseline: 25.0% ต่อฝ่าย • AI seat spread ${aiSpread} pt (initiative rotated)</span></div>
  <div class="choice-note" style="margin-top:8px;text-align:left;line-height:1.65"><b>💰 Economy / Match</b><br>
  Avg Net Worth: Player <b>${avgWorth(0)}</b> • AI ${avgWorth(1)} / ${avgWorth(2)} / ${avgWorth(3)}<br>
  Avg victory margin: <b>${Math.round(agg.margin/c)}</b> • Comeback wins: <b>${((agg.comebacks/c)*100).toFixed(1)}%</b><br>
- Bankruptcy: <b>${(agg.bankrupt/c).toFixed(2)}</b> / match • Net Worth range: ${Math.round(agg.minWorth)}–${Math.round(agg.maxWorth)}</div>
+ Bankruptcy events: <b>${(agg.bankrupt/c).toFixed(2)}</b> / match • Net Worth range: ${Math.round(agg.minWorth)}–${Math.round(agg.maxWorth)}</div>
  <div class="choice-note" style="margin-top:8px;text-align:left;line-height:1.65"><b>🏙️ Board Strategy / Match</b><br>
  Properties bought: <b>${(agg.purchases/c).toFixed(1)}</b> • Upgrades: <b>${(agg.upgrades/c).toFixed(1)}</b> • Rent events: <b>${(agg.rentEvents/c).toFixed(1)}</b><br>
- Completed Sets: Player <b>${avgSet(0)}</b> • AI ${avgSet(1)} / ${avgSet(2)} / ${avgSet(3)}<br>
- Avg actions: <b>${(agg.actions/c).toFixed(1)}</b></div>`;
+ Raw Completed Sets: Player <b>${avgSet(0)}</b> • AI ${avgSet(1)} / ${avgSet(2)} / ${avgSet(3)}<br>
+ Near Sets (2/3): Player <b>${avgNear(0)}</b> • AI ${avgNear(1)} / ${avgNear(2)} / ${avgNear(3)}<br>
+ <span style="opacity:.8">หมายเหตุ: Simulator ยังไม่จำลอง Trade Center เต็มรูปแบบ จึงใช้ Near Set เพื่ออ่าน Synergy potential</span><br>Avg actions: <b>${(agg.actions/c).toFixed(1)}</b></div>`;
 }
 function runBalanceSimulator(count=1000,difficultyId="normal"){
  const agg=qaAggregate(count,difficultyId),passed=agg.errors.length===0,diff=difficultyDefs[difficultyId]||difficultyDefs.normal;
  modalIcon.textContent=passed?"✅":"⚠️";modalTitle.textContent=`Balance Simulator • ${passed?"PASS":"CHECK"}`;
  modalText.textContent=`${diff.icon} ${diff.label} • ${agg.matches.toLocaleString()} Matches • ${agg.turns.toLocaleString()} Turns • ${agg.ms} ms`;
- modalExtra.innerHTML=`<div class="choice-note"><b>${passed?"✅ Core invariant ผ่าน":"⚠️ พบ invariant ที่ต้องตรวจ"}</b><br>Errors: ${agg.errors.length} • Runtime Checks: ${qaRuntime.checks} • Runtime Recoveries: ${qaRuntime.recoveries}</div>${qaMetricRows(agg)}${agg.errors.length?`<div class="choice-note" style="margin-top:8px;text-align:left"><b>ตัวอย่าง Error</b><br>${agg.errors.slice(0,12).map(x=>`• ${x}`).join("<br>")}</div>`:`<div class="choice-note" style="margin-top:8px">ไม่พบ Negative Money, invalid owner, invalid level, invalid position หรือ non-finite state</div>`}`;
+ modalExtra.innerHTML=`<div class="choice-note"><b>${passed?"✅ Core invariant ผ่าน":"⚠️ พบ invariant ที่ต้องตรวจ"}</b><br>Errors: ${agg.errors.length} • Runtime Checks: ${qaRuntime.checks} • Runtime Recoveries: ${qaRuntime.recoveries}</div>${qaMetricRows(agg)}${agg.errors.length?`<div class="choice-note" style="margin-top:8px;text-align:left"><b>ตัวอย่าง Error</b><br>${agg.errors.slice(0,12).map(x=>`• ${x}`).join("<br>")}</div>`:`<div class="choice-note" style="margin-top:8px">ไม่พบ invalid owner, invalid level, invalid position หรือ non-finite state</div>`}`;
  modalChoices.innerHTML=`<button class="btn" onclick="runBalanceSimulator(${count},'normal')">🙂 Normal</button><button class="btn" onclick="runBalanceSimulator(${count},'hard')">🔥 Hard</button><button class="btn" onclick="runBalanceSimulator(${count},'hell')">😈 Hell</button><button class="btn blue" onclick="runAllBalanceSimulators(${count})">📊 Compare All</button><button class="btn gray" onclick="closeModal()">ปิด</button>`;openGameModal("qa");return agg;
 }
 function runAllBalanceSimulators(count=1000){
  const rows=["normal","hard","hell"].map(id=>qaAggregate(count,id));const passed=rows.every(x=>x.errors.length===0);
  modalIcon.textContent=passed?"📊":"⚠️";modalTitle.textContent="Difficulty Balance Comparison";modalText.textContent=`${Number(count).toLocaleString()} Matches ต่อระดับ • รวม ${(Number(count)*3).toLocaleString()} Matches`;
- modalExtra.innerHTML=rows.map(a=>{const d=difficultyDefs[a.difficultyId],c=a.matches,wr=((a.wins[0]/c)*100).toFixed(1),margin=Math.round(a.margin/c),cb=((a.comebacks/c)*100).toFixed(1),bank=(a.bankrupt/c).toFixed(2);return `<div class="choice-note" style="margin-top:8px;text-align:left"><b>${d.icon} ${d.label}</b><br>👤 Player Win <b>${wr}%</b> • Victory Margin ${margin} • Comeback ${cb}% • Bankruptcy ${bank}/match<br>Properties ${(a.purchases/c).toFixed(1)} • Upgrades ${(a.upgrades/c).toFixed(1)} • Player Sets ${(a.sets[0]/c).toFixed(2)}</div>`}).join("")+`<div class="choice-note" style="margin-top:8px;text-align:left"><b>🎯 Initial Balance Targets</b><br>Normal: Player 27–35% • Hard: 18–27% • Hell: 12–22%<br><span style="opacity:.8">เป็น target สำหรับ simulator ก่อน Human Beta; จะปรับอีกครั้งจาก telemetry ผู้เล่นจริง</span></div>`;
+ modalExtra.innerHTML=rows.map(a=>{const d=difficultyDefs[a.difficultyId],c=a.matches,wr=((a.wins[0]/c)*100).toFixed(1),margin=Math.round(a.margin/c),cb=((a.comebacks/c)*100).toFixed(1),bank=(a.bankrupt/c).toFixed(2),near=(a.nearSets[0]/c).toFixed(2);return `<div class="choice-note" style="margin-top:8px;text-align:left"><b>${d.icon} ${d.label}</b><br>👤 Player Win <b>${wr}%</b> • Victory Margin ${margin} • Comeback ${cb}% • Bankruptcy ${bank}/match<br>Properties ${(a.purchases/c).toFixed(1)} • Upgrades ${(a.upgrades/c).toFixed(1)} • Raw Sets ${(a.sets[0]/c).toFixed(2)} • Near Sets ${near}</div>`}).join("")+`<div class="choice-note" style="margin-top:8px;text-align:left"><b>🎯 Initial Balance Targets</b><br>Normal: Player 27–35% • Hard: 18–27% • Hell: 12–22%<br><span style="opacity:.8">V8.8.11 rotates initiative and uses live-game bankruptcy semantics. Trade Center is not fully simulated yet.</span></div>`;
  modalChoices.innerHTML=`<button class="btn blue" onclick="runAllBalanceSimulators(${Math.min(5000,Number(count)*2)})">🧪 Run ${Math.min(5000,Number(count)*2).toLocaleString()} / Level</button><button class="btn gray" onclick="closeModal()">ปิด</button>`;openGameModal("qa");return rows;
 }
 function runQASimulator(count=1000){return runBalanceSimulator(count,"normal")}
@@ -2438,6 +2445,6 @@ const playersEl=document.getElementById("players");
 renderHome();syncMobileControlState();syncFullscreenUI();
 </script>
 
-<!-- V8.8.10 Balance Telemetry: per-player win rates, difficulty comparison, economy, comeback, bankruptcy, property/set metrics + state-machine QA. -->
+<!-- V8.8.11 Simulator Calibration: rotating initiative, actual bankruptcy semantics, near-set telemetry, per-player win rates + state-machine QA. -->
 </body>
 </html>

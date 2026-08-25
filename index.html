@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fortune City V8.9.2 • Synergy Rework</title>
+<title>Fortune City V8.9.2.1 • Synergy Rework + Trade Hub UX Hotfix</title>
 <style>
 :root{
  --bg:#edf2f6;--panel:#f7fafc;--panel2:#eef4f8;--line:#a7bfd0;--text:#1d3850;--muted:#627d93;
@@ -685,7 +685,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 <div id="homeScreen" class="screen">
  <div class="home">
   <div class="hero">
-   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.9.2 • Synergy Rework</p></div>
+   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.9.2.1 • Synergy Rework + Trade Hub UX Hotfix</p></div>
    <div id="profileBox" class="profile"></div>
   </div>
   <div class="tabs home-main-tabs">
@@ -1734,7 +1734,7 @@ function startGame(){
  ];
  if(window.aiDifficultyBadge){aiDifficultyBadge.textContent=`${diff.icon} ${diff.label}`;aiDifficultyBadge.className=`badge ai-badge ${diff.id}`;}
  syncMobileControlState();
- persist();synergyStateCache={};owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsedSlots=[];turnEpoch=0;endedEpoch=-1;clearNextTurnTimer();setTurnState(TURN_STATE.BOOT,"new-game");log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V8.8.10: Balance Telemetry • State Machine Hardening • Turn Guard • Duplicate Action Protection • Automated QA Simulator • Production Hardening Phase 3 • QA Fixes & Visual Polish • Refined Map Colors • Sustainable Progression Economy • Chest System • Career Card & Loadout • Home Bag & Inventory • Daily & Weekly Quests • Tactic Tile & Target Cards • Choice Balance Fix • Guide & Rule Consistency • AI ${diff.label} • EXP ×${diff.xpMult} • Character/Skill separated • Progression Foundation • Trade Center Fix • Mobile-first UX • Player ${eco.startMoney} / AI ${aiStartMoney} • Start +${eco.startBonus}`,"gold");const career=currentCareer();if(career){addLog(`${career.icon} Career: ${career.name} • ${career.summary}`,"gold");showEffect(`${career.icon} ${career.name}`,career.summary,"gold",3600)}
+ persist();synergyStateCache={};owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsedSlots=[];turnEpoch=0;endedEpoch=-1;clearNextTurnTimer();setTurnState(TURN_STATE.BOOT,"new-game");log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V8.9.2.1: Synergy Rework • Trade Hub UX Hotfix • Core Gameplay Lock retained • Balance Telemetry • State Machine Hardening • Turn Guard • Duplicate Action Protection • Automated QA Simulator • Wandering Spirit Hotfix • Mobile-first UX • AI ${diff.label} • EXP ×${diff.xpMult} • Player ${eco.startMoney} / AI ${aiStartMoney} • Start +${eco.startBonus}`,"gold");const career=currentCareer();if(career){addLog(`${career.icon} Career: ${career.name} • ${career.summary}`,"gold");showEffect(`${career.icon} ${career.name}`,career.summary,"gold",3600)}
  if(save.equippedCareer==="analyst"){const m1=nextMarketForRound(1),m2={round:m1.round+3,market:marketDefs[(marketDefs.indexOf(m1.market)+1)%marketDefs.length]};addLog(`📊 Analyst Forecast • รอบ ${m1.round}: ${m1.market.name} • รอบ ${m2.round}: ${m2.market.name}`,"info");}
  showEffect("⚖️ Economy Rebalance",`${maps[selectedMap].name} • 15 Property • 5 Sets × 3 • ซื้อและพัฒนาได้สมดุลขึ้น`,"gold",5200);renderAll();startTurn();
 }

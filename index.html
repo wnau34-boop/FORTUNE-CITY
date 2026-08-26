@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fortune City V8.9.2.4 • Strategy Clarity Pass</title>
+<title>Fortune City V8.9.2.10 • World of Wonders Theme Prototype</title>
 <style>
 :root{
  --bg:#edf2f6;--panel:#f7fafc;--panel2:#eef4f8;--line:#a7bfd0;--text:#1d3850;--muted:#627d93;
@@ -679,6 +679,25 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 /* V8.9.2 — Synergy Rework (UX/presentation over locked V8.9 balance) */
 .synergy-progress{margin-top:6px;height:7px;border-radius:99px;background:#e2edf4;overflow:hidden;border:1px solid #c9dce8}.synergy-progress>i{display:block;height:100%;background:linear-gradient(90deg,#70bfe5,#f0c75f);border-radius:99px;transition:width .25s ease}.synergy-state{display:inline-flex;align-items:center;gap:5px;margin-top:7px;padding:4px 8px;border-radius:999px;font-size:9px;font-weight:900;border:1px solid #d2e2ec;background:#f6fbfe;color:#537389}.synergy-state.near{background:#fff8e6;border-color:#ead48a;color:#876713}.synergy-state.active{background:#eaf8ef;border-color:#a9d8bd;color:#2d7650}.synergy-fit{display:inline-flex;margin-left:5px;padding:3px 6px;border-radius:999px;background:#eef5ff;border:1px solid #cadcf3;color:#4b6d96;font-size:8px;font-weight:900;vertical-align:middle}.synergy-player-line{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}.synergy-mini{display:inline-flex;align-items:center;gap:3px;padding:3px 6px;border-radius:999px;background:#eef8f2;border:1px solid #b9dcc6;color:#337354;font-size:9px;font-weight:900}.synergy-section-title{grid-column:1/-1;padding:3px 2px 0;font-size:11px;font-weight:950;color:#2d5b7b}.synergy-burst{position:fixed;left:50%;top:43%;transform:translate(-50%,-50%) scale(.84);z-index:390;width:min(520px,calc(100vw - 28px));padding:20px;border-radius:26px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(239,249,255,.98));border:2px solid #edc45b;box-shadow:0 24px 80px rgba(20,55,80,.32),0 0 0 7px rgba(246,204,91,.16);text-align:center;pointer-events:none;opacity:0;animation:synergyBurst 2.5s ease forwards}.synergy-burst .sb-kicker{font-size:11px;font-weight:950;letter-spacing:.14em;color:#9a7618}.synergy-burst .sb-icon{font-size:46px;margin:5px 0}.synergy-burst .sb-name{font-size:25px;font-weight:950;color:#214f70}.synergy-burst .sb-effect{font-size:12px;line-height:1.5;color:#5e7d94;margin-top:6px}.synergy-burst .sb-build{display:inline-flex;margin-top:9px;padding:5px 9px;border-radius:999px;background:#eef5ff;border:1px solid #cbdcf0;color:#4b6d92;font-size:10px;font-weight:900}@keyframes synergyBurst{0%{opacity:0;transform:translate(-50%,-44%) scale(.78)}12%{opacity:1;transform:translate(-50%,-50%) scale(1.03)}22%{transform:translate(-50%,-50%) scale(1)}78%{opacity:1}100%{opacity:0;transform:translate(-50%,-58%) scale(.96)}}
 @media(max-width:820px){.synergy-burst{top:36%;padding:16px;border-radius:22px}.synergy-burst .sb-icon{font-size:38px}.synergy-burst .sb-name{font-size:20px}.synergy-fit{display:block;width:max-content;margin:5px 0 0}.synergy-player-line{margin-top:4px}.synergy-mini{font-size:8px;padding:2px 5px}}
+
+/* V8.9.2.8 — Mobile modal touch reliability */
+@media(max-width:820px){
+ .modal.show .dialog{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+ .modal.show .choice-row{position:sticky;bottom:-1px;z-index:8;margin:14px -4px -4px!important;padding:12px 4px calc(4px + env(safe-area-inset-bottom,0px))!important;background:linear-gradient(180deg,rgba(244,249,253,0),rgba(244,249,253,.96) 22%,#f4f9fd 42%)!important}
+ .modal.show .choice-row .btn{min-height:52px!important;padding:13px 16px!important;font-size:14px!important;line-height:1.15!important;touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:9}
+ .modal.show .choice-row .btn:only-child{width:100%!important}
+ .modal.show .toolbar-btn{width:44px!important;height:44px!important;touch-action:manipulation}
+}
+
+/* V8.9.2.10 — World of Wonders visual theme prototype. Gameplay values are untouched. */
+.theme-prototype-badge{display:inline-flex;width:max-content;max-width:100%;margin-top:12px;padding:7px 11px;border-radius:999px;background:rgba(255,246,196,.14);border:1px solid rgba(255,231,133,.34);color:#fff1b9;font-size:10px;font-weight:950;letter-spacing:.06em}
+.screen{background:radial-gradient(circle at 12% 8%,rgba(255,226,139,.42) 0,transparent 18%),radial-gradient(circle at 86% 11%,rgba(191,158,255,.28) 0,transparent 19%),radial-gradient(circle at 50% 100%,rgba(97,211,188,.18) 0,transparent 31%),linear-gradient(180deg,#edf8f5 0%,#eaf1fb 48%,#faf6ec 100%)}
+.hero{background:linear-gradient(135deg,rgba(31,75,84,.97),rgba(50,104,105,.95) 42%,rgba(100,87,151,.92) 100%);border-color:rgba(195,232,205,.5)}
+.board.day{background:radial-gradient(circle at 50% 18%,rgba(255,239,171,.34) 0 9%,transparent 10%),linear-gradient(180deg,#9dd5df 0%,#bfe4df 29%,#92c7bd 48%,#7eb18e 57%,#86b487 78%,#6d9a72 100%)}
+.board.night{background:radial-gradient(circle at 50% 16%,rgba(220,225,255,.32) 0 8%,transparent 9%),linear-gradient(180deg,#242e51 0%,#39496f 30%,#53608a 48%,#3c5965 60%,#34575a 78%,#2a484b 100%)}
+.board.desert{background:radial-gradient(circle at 78% 15%,rgba(255,236,168,.35) 0 9%,transparent 10%),linear-gradient(180deg,#e4cfaa 0%,#dfbf8d 33%,#c99e72 53%,#b37c59 69%,#91604b 100%)}
+.board-watermark{color:#1d645e;opacity:.105}.map-label{background:rgba(249,255,252,.92);border-color:#b8ddd2;color:#2b665d}.tile.spirit{background:linear-gradient(180deg,#b494d7,#826bb0)}.tile.event{background:linear-gradient(180deg,#8b75bb,#675594)}.tile.income{background:linear-gradient(180deg,#62ad83,#478a67)}.tile.transport{background:linear-gradient(180deg,#58aeb7,#438e98)}.tile.tax{background:linear-gradient(180deg,#d58886,#bc6c70)}
+@media(max-width:820px){.theme-prototype-badge{font-size:8px;margin-top:7px;padding:5px 8px}}
 </style>
 </head>
 <body>
@@ -686,7 +705,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 <div id="homeScreen" class="screen">
  <div class="home">
   <div class="hero">
-   <div class="logo"><div style="font-size:60px">🏙️🎲</div><h1>FORTUNE CITY</h1><p>V8.9.2.4 • Strategy Clarity Pass</p></div>
+   <div class="logo"><div style="font-size:60px">🧭✨🎲</div><h1>FORTUNE CITY</h1><p>V8.9.2.10 • World of Wonders Prototype • Strategic Adventure Theme</p><div class="theme-prototype-badge">THEME PROTOTYPE • GAMEPLAY & BALANCE UNCHANGED</div></div>
    <div id="profileBox" class="profile"></div>
   </div>
   <div class="tabs home-main-tabs">
@@ -777,39 +796,39 @@ body.desktop-fullscreen .control-sidebar{top:10px}
   </div>
   <div id="guideTab" class="panel tabpanel hidden">
    <div class="guide-hero">
-    <div class="guide-intro"><h2>📘 วิธีเล่น Fortune City</h2><p>Fortune City คือ Strategic Property Board Game เป้าหมายไม่ใช่แค่เดินให้ไกล แต่คือการซื้อ Property ที่เหมาะสม สร้าง Set คุม District ใช้ Focus และ Skill ให้ถูกจังหวะ แล้วจบเกมด้วย <b>Net Worth สูงที่สุด</b></p></div>
-    <div class="guide-recommend"><strong>⭐ เกมแรกแนะนำ</strong><p><b>15 รอบ • Normal AI • Sunrise City</b><br>15 รอบคือ Standard Game ที่เกมถูก Balance ไว้เต็มรูปแบบและได้รับ EXP 100% เลือก Skill ที่ใช้ได้ตั้งแต่ Lv.1 ก่อน เช่น Quick Step + Rent Shield หรือ Quick Step + Focus Reserve</p></div>
+    <div class="guide-intro"><h2>📘 วิธีเล่น Fortune City</h2><p>Fortune City คือ Strategic Dice Adventure Board Game เป้าหมายไม่ใช่แค่เดินให้ไกล แต่คือการซื้อ Property ที่เหมาะสม สร้าง Set คุม District ใช้ Focus และ Skill ให้ถูกจังหวะ แล้วจบเกมด้วย <b>Net Worth สูงที่สุด</b></p></div>
+    <div class="guide-recommend"><strong>⭐ เกมแรกแนะนำ</strong><p><b>15 รอบ • Normal AI • Wonderhaven</b><br>15 รอบคือ Standard Game ที่เกมถูก Balance ไว้เต็มรูปแบบและได้รับ EXP 100% เลือก Skill ที่ใช้ได้ตั้งแต่ Lv.1 ก่อน เช่น Quick Step + Rent Shield หรือ Quick Step + Focus Reserve</p></div>
    </div>
 
    <div class="guide-section"><h3>🚀 Quick Start — 5 ขั้นตอน</h3><div class="guide-steps">
     <div class="guide-step"><div class="n">1</div><b>เตรียม Loadout</b><span>เลือก Skill 2 ช่องรวมไม่เกิน 6 SP และ Career Card 1 ใบ แล้วเลือกจำนวนรอบกับระดับ AI</span></div>
     <div class="guide-step"><div class="n">2</div><b>ทอยเต๋าและเลือกทาง</b><span>เดินตามแต้มเต๋า บาง Map มี Junction ให้เลือกเส้นทาง ใช้ Focus เพื่อควบคุมตำแหน่งได้</span></div>
     <div class="guide-step"><div class="n">3</div><b>ซื้อ Property</b><span>ถ้าลง Property ที่ไม่มีเจ้าของ สามารถซื้อได้ หรือปล่อยเข้า Auction ตามสถานการณ์</span></div>
-    <div class="guide-step"><div class="n">4</div><b>สร้าง Set / District</b><span>ถือ Property ใน Set เดียวกันเพื่อเพิ่ม Synergy และคุม District เพื่อรับสิทธิ์ Upgrade ถูกลง</span></div>
-    <div class="guide-step"><div class="n">5</div><b>ชนะด้วย Net Worth</b><span>เมื่อครบจำนวนรอบ ผู้ที่มี Net Worth สูงสุดชนะ • Cash 1:1 + Property 100% ราคาพื้นฐาน + Upgrade 60% ราคาพื้นฐานต่อ Level หลัง Lv.1 + Full Set 120/Set + District Leader 80/District</span></div>
+    <div class="guide-step"><div class="n">4</div><b>สร้าง Network / Synergy</b><span>ถือ Property ใน Set เดียวกันเพื่อเพิ่ม Synergy และคุม District เพื่อรับสิทธิ์ Upgrade ถูกลง</span></div>
+    <div class="guide-step"><div class="n">5</div><b>ชนะด้วย Net Worth</b><span>เมื่อครบจำนวนรอบ ผู้ที่มี Net Worth สูงสุดชนะ • Cash 1:1 + Property 100% ราคาพื้นฐาน + Upgrade 60% ราคาพื้นฐานต่อ Level หลัง Lv.1 + Full Set 200/Set + District Leader 80/District</span></div>
    </div></div>
 
-   <div class="guide-section"><h3>🏙 ระบบสำคัญที่ควรรู้</h3><div class="guide-grid">
-    <div class="guide-card"><div class="guide-icon">🏠</div><b>Property</b><p>เป็นแกนหลักของเกม ซื้อ Property เพื่อเก็บค่าเช่าและสร้างมูลค่ารวมของคุณ อย่าใช้เงินหมดจนไม่มีสำรองสำหรับจังหวะสำคัญ</p></div>
-     <div class="guide-card"><div class="guide-icon">💎</div><b>Net Worth Formula</b><p><b>Cash 1:1</b> • Property นับ 100% ของราคาพื้นฐาน • Upgrade เพิ่ม 60% ของราคาพื้นฐานต่อ Level หลัง Lv.1 • Full Set +120 • District Leader +80 ดังนั้นซื้อ Property ปกติคือเปลี่ยน Cash เป็น Asset ไม่ได้ทำให้คะแนนหายทันที</p></div>
-    <div class="guide-card"><div class="guide-icon">🧩</div><b>Set Synergy</b><p>ถือ 2/3 ใน Set ได้ Rent +15% และ Full Set 3/3 ได้ Rent +30% บาง Set มี Ability เพิ่มเติม เช่น Mobility Full Set ช่วย Recharge Focus</p></div>
+   <div class="guide-section"><h3>🧭 ระบบสำคัญของการผจญภัย</h3><div class="guide-grid">
+    <div class="guide-card"><div class="guide-icon">🏠</div><b>Landmark</b><p>เป็นแกนหลักของเกม ครอบครอง Landmark เพื่อสร้าง Income และมูลค่ารวมของคุณ อย่าใช้เงินหมดจนไม่มีสำรองสำหรับจังหวะสำคัญ</p></div>
+     <div class="guide-card"><div class="guide-icon">💎</div><b>Net Worth Formula</b><p><b>Cash 1:1</b> • Property นับ 100% ของราคาพื้นฐาน • Upgrade เพิ่ม 60% ของราคาพื้นฐานต่อ Level หลัง Lv.1 • Full Set +200 • District Leader +80 ดังนั้นซื้อ Property ปกติคือเปลี่ยน Cash เป็น Asset ไม่ได้ทำให้คะแนนหายทันที</p></div>
+    <div class="guide-card"><div class="guide-icon">🧩</div><b>Set Synergy</b><p>ถือ 2/3 ใน Set ได้ Rent +15% และ Full Set 3/3 ได้ Rent +30% พร้อม +200 Net Worth ต่อ Set บาง Set มี Ability เพิ่มเติม เช่น Wayfinder Full Set ช่วย Recharge Focus</p></div>
     <div class="guide-card"><div class="guide-icon">👑</div><b>District Control</b><p>ผู้ที่ถือ Property เด่นที่สุดใน District จะเป็น Leader และได้รับส่วนลด Upgrade ภายใน District นั้น</p></div>
     <div class="guide-card"><div class="guide-icon">⬆️</div><b>Upgrade</b><p>ลงทุนเพิ่มกับ Property เดิมเพื่อเพิ่ม Rent ต้องเลือกระหว่างขยาย Portfolio กับพัฒนา Property ที่มีอยู่</p></div>
     <div class="guide-card"><div class="guide-icon">🎯</div><b>Focus</b><p>ทรัพยากรสำหรับควบคุมผล Movement เช่นปรับตำแหน่งหรือ Reroll เพื่อช่วยให้ลง Property, Junction หรือ Tile สำคัญที่ต้องการได้แม่นขึ้น</p></div>
     <div class="guide-card"><div class="guide-icon">🧠</div><b>Skill Loadout</b><p>Character ไม่มี Skill Bonus โดยตรง ผู้เล่นจัด Skill 2 ช่องเองภายในงบ 6 SP แต่ละ Skill Slot ใช้ได้หนึ่งครั้งต่อเกม</p></div>
     <div class="guide-card"><div class="guide-icon">💼</div><b>Career Card</b><p>Equip ได้ 1 ใบเพื่อรับ Passive Advantage เล็กน้อย เช่น Token เริ่มต้น, ส่วนลด Upgrade แรก หรือข้อมูล Forecast เพิ่ม Career มีผลน้อยกว่า Skill อย่างชัดเจน</p></div>
-    <div class="guide-card"><div class="guide-icon">🤝</div><b>Trade Center</b><p>เมื่อเข้า Trade Hub สามารถซื้อหรือ Swap Property กับ AI ได้ • AI จะป้องกัน Core Asset • ระบบจะแนะนำเงินสำรองหลังดีล แต่ผู้เล่นตัดสินใจรับความเสี่ยงเองได้</p></div>
+    <div class="guide-card"><div class="guide-icon">🤝</div><b>Wanderer Market</b><p>เมื่อเข้า Wanderer Bazaar สามารถซื้อหรือ Swap Property กับ AI ได้ • AI จะป้องกัน Core Asset • ระบบจะแนะนำเงินสำรองหลังดีล แต่ผู้เล่นตัดสินใจรับความเสี่ยงเองได้</p></div>
     <div class="guide-card"><div class="guide-icon">🔨</div><b>Auction</b><p>Property ที่ไม่ได้ซื้อโดยตรงยังอาจถูกนำเข้าประมูล จึงมีโอกาสได้ Property ต่ำกว่าหรือสูงกว่า Base Price ตามการแข่งขัน</p></div>
-    <div class="guide-card"><div class="guide-icon">📈</div><b>City Market</b><p>Market Effect เกิดเป็นช่วง ๆ และมี Forecast ล่วงหน้า ใช้ข้อมูลนี้วางแผนซื้อ Upgrade หรือเน้น Property ประเภทที่กำลังได้ Bonus</p></div>
-     <div class="guide-card"><div class="guide-icon">🎴</div><b>Tactic Hub</b><p>แต่ละ Map มี Tactic Hub 1 ช่อง เมื่อลงช่องนี้จะสุ่ม Tactic Card 1 ใบ เช่น ถอยหลัง, ย้ายตำแหน่ง, สลับตำแหน่ง หรือปิด Focus จากนั้นกดใช้การ์ดและเลือกคู่แข่งเป็นเป้าหมาย ผู้ที่เพิ่งโดนจะได้รับ Tactic Protection จนจบเทิร์นถัดไปเพื่อป้องกันการโดนรุมซ้ำ</p></div>
+    <div class="guide-card"><div class="guide-icon">📈</div><b>World Market</b><p>World Effect เกิดเป็นช่วง ๆ และมี Forecast ล่วงหน้า ใช้ข้อมูลนี้วางแผนซื้อ Upgrade หรือเน้น Property ประเภทที่กำลังได้ Bonus</p></div>
+     <div class="guide-card"><div class="guide-icon">🎴</div><b>Oracle Camp</b><p>แต่ละ Map มี Oracle Camp 1 ช่อง เมื่อลงช่องนี้จะสุ่ม Tactic Card 1 ใบ เช่น ถอยหลัง, ย้ายตำแหน่ง, สลับตำแหน่ง หรือปิด Focus จากนั้นกดใช้การ์ดและเลือกคู่แข่งเป็นเป้าหมาย ผู้ที่เพิ่งโดนจะได้รับ Tactic Protection จนจบเทิร์นถัดไปเพื่อป้องกันการโดนรุมซ้ำ</p></div>
     <div class="guide-card"><div class="guide-icon">🎒</div><b>Home Bag</b><p>Item ที่สะสมจาก Shop, Tactic Tile และรางวัลจะรวมไว้ใน Bag หน้า Home แยก Consumable / Tactic Card และพกเข้า Match ถัดไปอัตโนมัติ</p></div>
     <div class="guide-card"><div class="guide-icon">📦</div><b>Fortune Chests</b><p>เล่นจบ Match เพื่อรับ Chest มี 3 Slots และเปิดได้พร้อมกัน 1 กล่อง • Reward หลักเป็น Consumable/Shard และมีโอกาสปลด Skill หรือ Career ใหม่ • Chest ไม่ขายด้วยเงินจริง</p></div>
    </div></div>
 
-   <div class="guide-section"><h3>🗺 3 Maps ต่างกันอย่างไร</h3><div class="guide-mini-table">
-    <div class="guide-row"><b>🌅 Sunrise City</b><span>Urban / Road • เหมาะกับผู้เล่นใหม่ มี Junction และ Tactic Hub สำหรับสุ่มการ์ดควบคุมคู่แข่ง</span></div>
-    <div class="guide-row"><b>🌙 Moonlight Bay</b><span>Canal / Mobility • ลง Transport Property ของตัวเองรับ Focus +1 • 🌑 Abyss Whirlpool เป็น Satan Zone • 🌫️ Fog Route เป็น Hazard แยกต่างหาก</span></div>
-    <div class="guide-row"><b>🏜 Golden Dunes</b><span>Railway / Shortcut • มีทางลัด เส้นทางเสี่ยง และ Tactic Caravan สำหรับสุ่มการ์ด</span></div>
+   <div class="guide-section"><h3>🗺 3 Realms ต่างกันอย่างไร</h3><div class="guide-mini-table">
+    <div class="guide-row"><b>🌅 Wonderhaven</b><span>Adventure / Road • Realm เริ่มต้นที่มี Junction, Bazaar และ Oracle Camp ให้เลือกเส้นทางเชิงกลยุทธ์</span></div>
+    <div class="guide-row"><b>🌙 Moonveil Lagoon</b><span>Mystic Canal / Mobility • ลง Travel Landmark ของตัวเองรับ Focus +1 • 🌑 Abyss Whirlpool เป็น Curse Zone • 🌫️ Fog Route เป็น Hazard</span></div>
+    <div class="guide-row"><b>🏜 Sunscar Frontier</b><span>Frontier Railway / Shortcut • มีทางลัด เส้นทางเสี่ยง และ Oracle Caravan สำหรับสุ่ม Fortune Tactic Card</span></div>
    </div></div>
 
    <div class="guide-section"><h3>🤖 ระดับ AI และรางวัล</h3><div class="guide-mini-table">
@@ -868,7 +887,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
 </div>
 
 <div class="app">
- <div class="topbar"><div class="brand"><div class="brand-row"><button class="back-btn" onclick="goHome()">← Back</button><h1>Fortune City <span style="color:#d985a6">V8.9.2.4</span></h1></div><p id="mapName" class="has-tip" data-tip-title="🗺️ ลูกเล่นแผนที่" data-tip-detail="">Sunrise City</p></div><div class="topbar-actions">
+ <div class="topbar"><div class="brand"><div class="brand-row"><button class="back-btn" onclick="goHome()">← Back</button><h1>Fortune City <span style="color:#d985a6">V8.9.2.10</span></h1></div><p id="mapName" class="has-tip" data-tip-title="🗺️ ลูกเล่นแผนที่" data-tip-detail="">Wonderhaven</p></div><div class="topbar-actions">
       <div class="badge">🏁 รอบ <b id="roundText">1</b>/<b id="roundMaxText">15</b> • ⭐ EXP หลังจบเกม</div>
       <div id="aiDifficultyBadge" class="badge ai-badge">🤖 Normal</div>
       <div class="badge">⏱️ ความเร็ว
@@ -883,7 +902,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
  <div class="layout">
   <aside class="control-sidebar">
    <div class="card game-control-card">
-    <div class="control-head"><div><h3>🎮 Game Control</h3><div id="turnText" class="control-turn">ถึงตาของคุณ</div></div><span class="chip">V8.9.2.4</span></div>
+    <div class="control-head"><div><h3>🎮 Game Control</h3><div id="turnText" class="control-turn">ถึงตาของคุณ</div></div><span class="chip">V8.9.2.10</span></div>
     <div class="side-dice"><div id="die1" class="die">⚀</div><div id="die2" class="die">⚀</div></div>
     <div class="side-controls">
      <button id="rollBtn" class="btn primary">🎲 ทอยเต๋า</button>
@@ -908,7 +927,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
       <div class="mobile-game-pill"><b id="mobileFocusInfo">2/3</b><span>Focus</span></div>
     </div>
    </div>
-   <div class="board-map-head"><div><div id="boardMapName" class="board-map-name">Sunrise City</div><div id="boardMapSub" class="board-map-sub">Adventure Map</div></div></div>
+   <div class="board-map-head"><div><div id="boardMapName" class="board-map-name">Wonderhaven</div><div id="boardMapSub" class="board-map-sub">Adventure Map</div></div></div>
    <div id="board" class="board">
     <div id="center" class="center day"></div>
     <div class="board-watermark">FORTUNE CITY<small id="boardThemeText">ADVENTURE MAP</small></div><div id="playerLegend" class="player-legend"></div>
@@ -927,7 +946,7 @@ body.desktop-fullscreen .control-sidebar{top:10px}
  </div>
 </div>
 
-<div id="modal" class="modal"><div class="dialog"><div class="modal-toolbar"><button id="genericModalMinBtn" class="toolbar-btn hidden" onclick="minimizeCurrentModal()" title="ซ่อนหน้าต่างนี้เพื่อดูกระดาน">👁️</button><button id="tradeMinBtn" class="toolbar-btn hidden" onclick="minimizeTradeCenter()" title="ซ่อน Trade Hub เพื่อดูกระดานและ Property">—</button><button id="modalMinBtn" class="toolbar-btn hidden" onclick="minimizeFocusPrompt()" title="ย่อหน้าต่าง Focus">—</button></div><div id="modalIcon" class="icon">✨</div><h2 id="modalTitle">Fortune City</h2><p id="modalText"></p><div id="modalExtra"></div><div id="modalChoices" class="choice-row"><button class="btn primary" onclick="closeModal()">ตกลง</button></div></div></div><button id="focusRestoreBtn" class="focus-restore hidden" onclick="restoreFocusPrompt()">🎯 เปิด Focus อีกครั้ง</button><button id="tradeRestoreBtn" class="focus-restore hidden" onclick="restoreTradeCenter()" style="bottom:76px">🤝 กลับ Trade Hub</button><button id="genericModalRestoreBtn" class="focus-restore hidden" onclick="restoreCurrentModal()" style="bottom:128px">👁️ กลับหน้าต่าง</button>
+<div id="modal" class="modal"><div class="dialog"><div class="modal-toolbar"><button id="genericModalMinBtn" class="toolbar-btn hidden" onclick="minimizeCurrentModal()" title="ซ่อนหน้าต่างนี้เพื่อดูกระดาน">👁️</button><button id="tradeMinBtn" class="toolbar-btn hidden" onclick="minimizeTradeCenter()" title="ซ่อน Wanderer Bazaar เพื่อดูกระดานและ Property">—</button><button id="modalMinBtn" class="toolbar-btn hidden" onclick="minimizeFocusPrompt()" title="ย่อหน้าต่าง Focus">—</button></div><div id="modalIcon" class="icon">✨</div><h2 id="modalTitle">Fortune City</h2><p id="modalText"></p><div id="modalExtra"></div><div id="modalChoices" class="choice-row"><button class="btn primary" onclick="closeModal()">ตกลง</button></div></div></div><button id="focusRestoreBtn" class="focus-restore hidden" onclick="restoreFocusPrompt()">🎯 เปิด Focus อีกครั้ง</button><button id="tradeRestoreBtn" class="focus-restore hidden" onclick="restoreTradeCenter()" style="bottom:76px">🤝 กลับ Wanderer Bazaar</button><button id="genericModalRestoreBtn" class="focus-restore hidden" onclick="restoreCurrentModal()" style="bottom:128px">👁️ กลับหน้าต่าง</button>
 <div id="toast" class="toast"></div><div id="turnBanner" class="turn-banner"></div><div id="effectFeed" class="effect-feed"></div><div id="tooltip" class="tooltip"></div>
 
 <script>
@@ -994,7 +1013,7 @@ const skillDefs=[
  {id:"route_planner",name:"Route Planner",icon:"🧭",category:"Mobility",cost:3,unlockLevel:2,summary:"เลือกเดิน +3 หรือเตรียม Roll -2 ฟรี",tip:"Skill 3 SP ที่ยืดหยุ่นทั้งเร่งและคุมตำแหน่ง",choices:[["route_move","🧭 เดินหน้า +3"],["route_control","🎯 เตรียม Roll -2 ฟรี"]]},
  {id:"smart_upgrade",name:"Smart Upgrade",icon:"🏗️",category:"Development",cost:3,unlockLevel:2,summary:"Upgrade ครั้งถัดไปลด 35%",tip:"เหมาะกับ Build ที่เน้นถือ Property และพัฒนาระยะกลาง"},
  {id:"investment_insight",name:"Investment Insight",icon:"💼",category:"Development",cost:3,unlockLevel:3,summary:"รับ Investment Token 160",tip:"ลดค่าซื้อหรือ Upgrade ครั้งถัดไปสูงสุด 160 • ใช้แล้วหมดทั้งก้อน เหมาะกับการลงทุนมูลค่าสูง"},
- {id:"broker_network",name:"Broker Network",icon:"🤝",category:"Commerce",cost:3,unlockLevel:3,summary:"เปิด Trade Center และลด Reserve 80 ครั้งนี้",tip:"ช่วยปิด Set ผ่านการ Trade แต่ต้องใช้จังหวะที่มี Property ของ AI"},
+ {id:"broker_network",name:"Broker Network",icon:"🤝",category:"Commerce",cost:3,unlockLevel:3,summary:"เปิด Wanderer Market และลด Reserve 80 ครั้งนี้",tip:"ช่วยปิด Set ผ่านการ Trade แต่ต้องใช้จังหวะที่มี Property ของ AI"},
  {id:"rapid_development",name:"Rapid Development",icon:"🏙️",category:"Development",cost:4,unlockLevel:4,summary:"Upgrade Property ที่มี Strategy Value สูงสุดฟรี 1 ระดับ",tip:"แรงกว่า Skill พื้นฐานแต่กิน SP สูง ทำให้ Loadout อีกช่องต้องเบาลง"},
  {id:"city_navigator",name:"City Navigator",icon:"🌐",category:"Strategy",cost:5,unlockLevel:5,summary:"เลือก +4 Movement + Token 50 หรือ Shield + Focus 2",tip:"Skill 5 SP เน้นความยืดหยุ่น ไม่ใช่ Stat Boost ตรง ๆ",choices:[["navigator_move","🌐 +4 และ Token 50"],["navigator_guard","🛡️ Shield + Focus 2"]]}
 ];
@@ -1212,19 +1231,19 @@ const chars=[
  {name:"Dark Hero",icon:"🦹",theme:"ซูเปอร์ฮีโร่",classId:2,unlock:5}
 ];
 const maps=[
- {name:"Sunrise City",cls:"day",routeStyle:"road",desc:"Sunrise Streets • เส้นทางถนนหลักของเมือง",gimmick:"Urban Choice: Junction ช่วยเลือกเส้นทาง Property • Downtown เน้น Set",specialType:"transport",route:[
+ {name:"Wonderhaven",cls:"day",routeStyle:"road",desc:"Wonder Roads • เส้นทางนักเดินทางผ่านดินแดนมหัศจรรย์",gimmick:"Adventure Choice: Junction ช่วยเลือกเส้นทาง Landmark • ใช้ Set/Synergy วางแผนสร้าง Network",specialType:"transport",route:[
   {x:12.8,y:84.2},{x:27.8,y:84.2},{x:42.8,y:84.2},{x:57.8,y:84.2},{x:72.8,y:84.2},{x:87.8,y:84.2},
   {x:87.8,y:61.6},{x:72.8,y:61.6},{x:57.8,y:61.6},{x:42.8,y:61.6},{x:27.8,y:61.6},{x:12.8,y:61.6},
   {x:12.8,y:39},{x:27.8,y:39},{x:42.8,y:39},{x:57.8,y:39},{x:72.8,y:39},{x:87.8,y:39},
   {x:87.8,y:16.4},{x:72.8,y:16.4},{x:57.8,y:16.4},{x:42.8,y:16.4},{x:27.8,y:16.4},{x:12.8,y:16.4}
  ]},
- {name:"Moonlight Bay",cls:"night",routeStyle:"river",desc:"Moon Canal • เส้นทางลำน้ำยามค่ำคืน",gimmick:"Bay Mobility: ลง Transport Property ของตัวเองรับ Focus +1 • Mobility Full Set ยัง Recharge Focus ทุก 2 รอบ",specialType:"event",route:[
+ {name:"Moonveil Lagoon",cls:"night",routeStyle:"river",desc:"Moonveil Canals • เส้นทางลำน้ำเรืองแสงยามค่ำคืน",gimmick:"Lagoon Mobility: ลง Travel Landmark ของตัวเองรับ Focus +1 • Wayfinder Full Set ยัง Recharge Focus ทุก 2 รอบ",specialType:"event",route:[
   {x:14,y:13.2},{x:14,y:28.6},{x:14,y:44},{x:14,y:59.4},{x:14,y:74.8},{x:14,y:90.2},
   {x:38,y:90.2},{x:38,y:74.8},{x:38,y:59.4},{x:38,y:44},{x:38,y:28.6},{x:38,y:13.2},
   {x:62,y:13.2},{x:62,y:28.6},{x:62,y:44},{x:62,y:59.4},{x:62,y:74.8},{x:62,y:90.2},
   {x:86,y:90.2},{x:86,y:74.8},{x:86,y:59.4},{x:86,y:44},{x:86,y:28.6},{x:86,y:13.2}
  ]},
- {name:"Golden Dunes",cls:"desert",routeStyle:"rail",desc:"Dune Railway • เส้นทางรางลัดผ่านทะเลทราย",gimmick:"Dune Routes: Junction / Tunnel ใช้ตัดสินใจระหว่างทางลัดกับ Property",specialType:"tax",route:[
+ {name:"Sunscar Frontier",cls:"desert",routeStyle:"rail",desc:"Sunscar Railway • เส้นทางรางลัดข้ามทะเลทรายมหัศจรรย์",gimmick:"Frontier Routes: Junction / Tunnel ใช้ตัดสินใจระหว่างทางลัดกับ Landmark",specialType:"tax",route:[
   {x:12.8,y:84.2},{x:27.8,y:84.2},{x:42.8,y:84.2},{x:57.8,y:84.2},{x:72.8,y:84.2},{x:87.8,y:84.2},
   {x:87.8,y:61.6},{x:72.8,y:61.6},{x:57.8,y:61.6},{x:42.8,y:61.6},{x:27.8,y:61.6},{x:12.8,y:61.6},
   {x:12.8,y:39},{x:27.8,y:39},{x:42.8,y:39},{x:57.8,y:39},{x:72.8,y:39},{x:87.8,y:39},
@@ -1233,27 +1252,27 @@ const maps=[
 ];
 
 const specialZones=[
- { // Sunrise City — strategic zones placed only on non-property tiles
-   2:{kind:"tactic",icon:"🎴",name:"Tactic Hub",desc:"สุ่ม City Tactic Card 1 ใบเพื่อใช้กับคู่แข่ง"},
-   5:{kind:"branch",icon:"🔀",name:"Sky Junction",desc:"เลือกย่าน Downtown หรือใช้ Sky Bridge ไปย่านถัดไป"},
-   11:{kind:"trade",icon:"🤝",name:"Trade Hub",desc:"ยืนที่นี่จึงจะเปิด Trade Center เพื่อซื้อหรือแลก Property ได้"},
-   17:{kind:"shortcut",icon:"🌉",name:"River Bridge",desc:"แลกโอกาสพลาดบางช่องกับทางลัด +4"},
-   23:{kind:"satan",icon:"😈",name:"Satan Clinic",desc:"พื้นที่ Debuff หลักของแผนที่ เพียงจุดเดียว"}
+ { // Wonderhaven — strategic zones placed only on non-property tiles
+   2:{kind:"tactic",icon:"🎴",name:"Oracle Camp",desc:"สุ่ม Fortune Tactic Card 1 ใบเพื่อใช้กับคู่แข่ง"},
+   5:{kind:"branch",icon:"🔀",name:"Cloudgate Junction",desc:"เลือกย่าน Downtown หรือใช้ Sky Bridge ไปย่านถัดไป"},
+   11:{kind:"trade",icon:"🤝",name:"Wanderer Bazaar",desc:"ยืนที่นี่จึงจะเปิด Wanderer Market เพื่อซื้อหรือแลก Property ได้"},
+   17:{kind:"shortcut",icon:"🌉",name:"Crystal Bridge",desc:"แลกโอกาสพลาดบางช่องกับทางลัด +4"},
+   23:{kind:"satan",icon:"😈",name:"Cursed Ruins",desc:"พื้นที่ Debuff หลักของแผนที่ เพียงจุดเดียว"}
  },
- { // Moonlight Bay — keeps Fog Route as a map hazard and adds one true Satan Zone
-   2:{kind:"satan",icon:"🌑",name:"Abyss Whirlpool",desc:"วังน้ำวนต้องสาปของ Moonlight Bay • สุ่มคำสาปซาตาน 1 อย่างและยังเล่นต่อได้"},
-   5:{kind:"warp",icon:"⛴️",name:"Moon Ferry",desc:"เรือข้ามอ่าวไปยังอีกฝั่งแบบกำหนดจุด"},
-   8:{kind:"tactic",icon:"🎴",name:"Tactic Dock",desc:"สุ่ม City Tactic Card 1 ใบเพื่อใช้กับคู่แข่ง"},
-   14:{kind:"trade",icon:"🤝",name:"Trade Pier",desc:"ท่าเรือเจรจา ใช้เปิด Trade Center เพื่อซื้อหรือแลก Property"},
-   17:{kind:"branch",icon:"🔀",name:"Tide Junction",desc:"เลือก Fast Tide หรือเส้นทาง Property ริมอ่าว"},
+ { // Moonveil Lagoon — keeps Fog Route as a map hazard and adds one true Satan Zone
+   2:{kind:"satan",icon:"🌑",name:"Abyss Whirlpool",desc:"วังน้ำวนต้องสาปของ Moonveil Lagoon • สุ่มคำสาปซาตาน 1 อย่างและยังเล่นต่อได้"},
+   5:{kind:"warp",icon:"⛴️",name:"Star Ferry",desc:"เรือข้ามอ่าวไปยังอีกฝั่งแบบกำหนดจุด"},
+   8:{kind:"tactic",icon:"🎴",name:"Oracle Dock",desc:"สุ่ม Fortune Tactic Card 1 ใบเพื่อใช้กับคู่แข่ง"},
+   14:{kind:"trade",icon:"🤝",name:"Moon Bazaar",desc:"ท่าเรือเจรจา ใช้เปิด Wanderer Market เพื่อซื้อหรือแลก Property"},
+   17:{kind:"branch",icon:"🔀",name:"Tidegate Junction",desc:"เลือก Fast Tide หรือเส้นทาง Property ริมอ่าว"},
    23:{kind:"trap",icon:"🌫️",name:"Fog Route",desc:"เส้นทางเสี่ยง ถอย 3 ช่อง แต่ไม่เสียเทิร์น"}
  },
- { // Golden Dunes
+ { // Sunscar Frontier
    5:{kind:"satan",icon:"🔥",name:"Demon Quicksand",desc:"พื้นที่ Debuff หลักของทะเลทราย เพียงจุดเดียว"},
-   11:{kind:"branch",icon:"🔀",name:"Dune Junction",desc:"เลือกอุโมงค์ลัด หรือวิ่งผ่านย่าน Oasis Properties"},
+   11:{kind:"branch",icon:"🔀",name:"Sunscar Junction",desc:"เลือกอุโมงค์ลัด หรือวิ่งผ่านย่าน Oasis Properties"},
    17:{kind:"shortcut",icon:"🌉",name:"Canyon Bridge",desc:"ข้ามหุบเขา +5 ช่อง"},
-   20:{kind:"trade",icon:"🤝",name:"Caravan Market",desc:"ตลาดคาราวานสำหรับเจรจาแลกหรือซื้อ Property"},
-   23:{kind:"tactic",icon:"🎴",name:"Tactic Caravan",desc:"สุ่ม City Tactic Card 1 ใบเพื่อใช้กับคู่แข่ง"}
+   20:{kind:"trade",icon:"🤝",name:"Nomad Bazaar",desc:"ตลาดคาราวานสำหรับเจรจาแลกหรือซื้อ Property"},
+   23:{kind:"tactic",icon:"🎴",name:"Oracle Caravan",desc:"สุ่ม Fortune Tactic Card 1 ใบเพื่อใช้กับคู่แข่ง"}
  }
 ];
 function zoneAt(i){return (specialZones[selectedMap]||{})[i]||null}
@@ -1266,7 +1285,7 @@ function zoneMeta(zone){
  const metaMap={
   hospital:"😈 เปลี่ยนเป็นคำสาปซาตาน",
   casino:"เดิมพัน 80 • ลุ้นรางวัล",
-  trade:"เปิด Trade Center เมื่อยืนอยู่ช่องนี้",
+  trade:"เปิด Wanderer Market เมื่อยืนอยู่ช่องนี้",
   olympic:"กิจกรรมรับรางวัล",
   island:"😈 เปลี่ยนเป็นคำสาปซาตาน",
   warp:"วาร์ปไปอีกจุดบนแผนที่",
@@ -1283,14 +1302,14 @@ function zoneMeta(zone){
 function getRenderTile(i){
  const base=tiles[i];
  const zone=zoneAt(i);
- if(!zone) return {base,view:base,isZone:false,zone:null,styleClass:base.type,tip:(base.type==="land"?`ราคา ${base.price} • ${base.catLabel||"Property"} • ${base.district||""} • Set: ${base.set||"-"} • ค่าเช่าปัจจุบัน ${propertyRent(i)} • Set และ District Control เพิ่มค่าเช่าได้`:base.type==="event"?"Strategic Event: เลือกลงทุนหรือรับเงินสด":base.type==="income"?"City Income: เลือก Cash +100 หรือ Investment Token 150 สำหรับลดค่าซื้อ/Upgrade ครั้งถัดไป":base.type==="spirit"?"มีโอกาสได้รับเทพหรือภูตที่ให้เอฟเฟกต์หลายเทิร์น":base.type==="tax"?`ต้องจ่าย ${base.amount} เหรียญ`:base.type==="transport"?(selectedMap===0?"แผนที่นี้ ช่องขนส่งพุ่ง 5 ช่อง":"เดินหน้าเพิ่ม 3 ช่อง"):base.type==="start"?"เมื่อเดินผ่าน รับโบนัสเงิน":"")};
+ if(!zone) return {base,view:base,isZone:false,zone:null,styleClass:base.type,tip:(base.type==="land"?`ราคา ${base.price} • ${base.catLabel||"Property"} • ${base.district||""} • Set: ${base.set||"-"} • ค่าเช่าปัจจุบัน ${propertyRent(i)} • Set และ District Control เพิ่มค่าเช่าได้`:base.type==="event"?"Strategic Event: เลือกลงทุนหรือรับเงินสด":base.type==="income"?"Expedition Income: เลือก Cash +100 หรือ Investment Token 150 สำหรับลดค่าซื้อ/Upgrade ครั้งถัดไป":base.type==="spirit"?"มีโอกาสได้รับเทพหรือภูตที่ให้เอฟเฟกต์หลายเทิร์น":base.type==="tax"?`ต้องจ่าย ${base.amount} เหรียญ`:base.type==="transport"?(selectedMap===0?"แผนที่นี้ ช่องขนส่งพุ่ง 5 ช่อง":"เดินหน้าเพิ่ม 3 ช่อง"):base.type==="start"?"เมื่อเดินผ่าน รับโบนัสเงิน":"")};
  const view={name:zone.name,icon:zone.icon,type:zoneStyleClass(zone.kind),meta:zoneMeta(zone)};
  return {base,view,isZone:true,zone,styleClass:view.type,tip:zone.desc};
 }
 
 const tacticDefs={
  roadblock:{name:"Road Block",icon:"🚧",desc:"เลือกคู่แข่งให้ถอยหลัง 3 ช่อง • ไม่ Trigger ช่องปลายทาง",kind:"tactic",shop:false},
- transit_order:{name:"Transit Order",icon:"🚕",desc:"เลือกคู่แข่งแล้วย้ายไป Transit Plaza • ไม่ Trigger ช่องปลายทาง",kind:"tactic",shop:false},
+ transit_order:{name:"Transit Order",icon:"🚕",desc:"เลือกคู่แข่งแล้วย้ายไป Skyway Portal • ไม่ Trigger ช่องปลายทาง",kind:"tactic",shop:false},
  devil_detour:{name:"Devil Detour",icon:"😈",desc:"ส่งคู่แข่งไป Hazard Zone ของ Map และรับผล Hazard ทันที",kind:"tactic",shop:false},
  position_swap:{name:"Position Swap",icon:"🔄",desc:"สลับตำแหน่งบนกระดานกับคู่แข่งที่เลือก • ไม่ Trigger ช่องปลายทาง",kind:"tactic",shop:false},
  focus_jam:{name:"Focus Jam",icon:"📵",desc:"คู่แข่งใช้ Focus Control ไม่ได้ในเทิร์นถัดไป",kind:"tactic",shop:false}
@@ -1441,43 +1460,67 @@ function syncMobileControlState(){
  document.body.classList.toggle("modal-open",modalOpen);
 }
 let currentModalMode="";
-const modalMinimizeState={active:false,label:"หน้าต่างนี้"};
+const modalMinimizeState={active:false,label:"หน้าต่างนี้",snapshot:null};
+function syncMinimizedRestoreButton(){
+ if(!window.genericModalRestoreBtn)return;
+ const shouldShow=modalMinimizeState.active && !modal.classList.contains("show");
+ genericModalRestoreBtn.classList.toggle("hidden",!shouldShow);
+ if(shouldShow)genericModalRestoreBtn.textContent=`👁️ กลับ ${modalMinimizeState.label}`;
+}
 function syncModalToolbar(){
  const hasTradeMin=window.tradeMinBtn && !tradeMinBtn.classList.contains("hidden");
  const hasFocusMin=window.modalMinBtn && !modalMinBtn.classList.contains("hidden");
- const showGeneric=!hasTradeMin && !hasFocusMin && modal.classList.contains("show");
+ // Generic minimize is reserved for true decision popups only. Synergy/strategy is view-only and never minimizes.
+ const genericAllowed=currentModalMode==="decision";
+ const showGeneric=genericAllowed && !hasTradeMin && !hasFocusMin && modal.classList.contains("show");
  if(window.genericModalMinBtn) genericModalMinBtn.classList.toggle("hidden",!showGeneric);
+}
+function captureCurrentModalSnapshot(){
+ return {mode:currentModalMode||"",icon:modalIcon.textContent,title:modalTitle.textContent,text:modalText.innerHTML,extra:modalExtra.innerHTML,choices:modalChoices.innerHTML};
+}
+function applyModalSnapshot(s){
+ if(!s)return;
+ modalIcon.textContent=s.icon||"✨";
+ modalTitle.textContent=s.title||"Fortune City";
+ modalText.innerHTML=s.text||"";
+ modalExtra.innerHTML=s.extra||"";
+ modalChoices.innerHTML=s.choices||"";
 }
 function openGameModal(mode=""){
  currentModalMode=mode||"";
- if(window.genericModalRestoreBtn)genericModalRestoreBtn.classList.add("hidden");
  modal.classList.remove("tile-sheet","strategy-mode");
  if(mode==="tile") modal.classList.add("tile-sheet");
  if(mode==="strategy") modal.classList.add("strategy-mode");
  modal.classList.add("show");
  syncModalToolbar();
+ syncMinimizedRestoreButton();
  syncMobileControlState();
 }
-function hideGameModal(){modal.classList.remove("show","tile-sheet","strategy-mode");if(window.genericModalMinBtn)genericModalMinBtn.classList.add("hidden");syncMobileControlState()}
+function hideGameModal(){
+ modal.classList.remove("show","tile-sheet","strategy-mode");
+ if(window.genericModalMinBtn)genericModalMinBtn.classList.add("hidden");
+ syncMinimizedRestoreButton();
+ syncMobileControlState();
+}
 function minimizeCurrentModal(){
- if(!modal.classList.contains("show"))return;
+ if(!modal.classList.contains("show")||currentModalMode!=="decision")return;
  modalMinimizeState.active=true;
- modalMinimizeState.label=modalTitle?.textContent||"หน้าต่างนี้";
+ modalMinimizeState.label=modalTitle?.textContent||"Action";
+ modalMinimizeState.snapshot=captureCurrentModalSnapshot();
  hideGameModal();
- if(window.genericModalRestoreBtn){
-  genericModalRestoreBtn.textContent=`👁️ กลับ ${modalMinimizeState.label}`;
-  genericModalRestoreBtn.classList.remove("hidden");
- }
- toastMsg("ซ่อนหน้าต่างแล้ว • เปิดแผนที่และ Property ได้");
+ toastMsg("ซ่อน Action แล้ว • ดูแผนที่ / Synergy ได้ แล้วกลับมาทำต่อ");
 }
 function restoreCurrentModal(){
- if(!modalMinimizeState.active)return;
+ if(!modalMinimizeState.active||!modalMinimizeState.snapshot)return;
+ const s=modalMinimizeState.snapshot;
  modalMinimizeState.active=false;
- if(window.genericModalRestoreBtn)genericModalRestoreBtn.classList.add("hidden");
- openGameModal(currentModalMode);
+ modalMinimizeState.snapshot=null;
+ applyModalSnapshot(s);
+ openGameModal(s.mode||"decision");
 }
 function clearGenericModalRestore(){
  modalMinimizeState.active=false;
+ modalMinimizeState.snapshot=null;
  if(window.genericModalRestoreBtn)genericModalRestoreBtn.classList.add("hidden");
 }
 function goHome(){homeScreen.classList.remove("hidden");syncMobileControlState();setMobilePanel("players");window.scrollTo({top:0,behavior:"smooth"})}
@@ -1597,36 +1640,36 @@ function claimDaily(){claimDailyLogin()}
 
 const diceFaces=["⚀","⚁","⚂","⚃","⚄","⚅"];
 const tiles=[
-{name:"Central Gate",type:"start",icon:"🚩"},
-{name:"Riverside Homes",type:"land",price:150,rent:30,category:"residential",catLabel:"Residential",catIcon:"🏠",district:"Riverside",set:"River Living"},
-{name:"Market Opportunity",type:"event",icon:"📈"},
-{name:"Maple Apartments",type:"land",price:165,rent:34,category:"residential",catLabel:"Residential",catIcon:"🏠",district:"Riverside",set:"River Living"},
-{name:"Artisan Walk",type:"land",price:185,rent:39,category:"shopping",catLabel:"Shopping",catIcon:"🛍️",district:"Riverside",set:"Lifestyle"},
-{name:"Transit Plaza",type:"transport",icon:"🚆"},
-{name:"Metro Exchange",type:"land",price:205,rent:44,category:"transportprop",catLabel:"Transport",catIcon:"🚉",district:"Downtown",set:"Mobility"},
-{name:"Sky Junction Offices",type:"land",price:225,rent:49,category:"commercial",catLabel:"Commercial",catIcon:"🏢",district:"Downtown",set:"City Core"},
-{name:"City Service Fee",type:"tax",amount:70,icon:"🧾"},
-{name:"Grand Mall",type:"land",price:245,rent:54,category:"shopping",catLabel:"Shopping",catIcon:"🛍️",district:"Downtown",set:"Lifestyle"},
-{name:"Fortune Tower",type:"land",price:270,rent:61,category:"commercial",catLabel:"Commercial",catIcon:"🏢",district:"Downtown",set:"City Core"},
-{name:"City Development",type:"event",icon:"🏗️"},
-{name:"Marina Residence",type:"land",price:290,rent:67,category:"residential",catLabel:"Residential",catIcon:"🏠",district:"Harbor",set:"River Living"},
-{name:"Harbor Hotel",type:"land",price:310,rent:73,category:"hotel",catLabel:"Hotel",catIcon:"🏨",district:"Harbor",set:"Hospitality"},
-{name:"City Income",type:"income",icon:"💼"},
-{name:"Port Terminal",type:"land",price:330,rent:80,category:"transportprop",catLabel:"Transport",catIcon:"🚉",district:"Harbor",set:"Mobility"},
-{name:"Central Offices",type:"land",price:350,rent:87,category:"commercial",catLabel:"Commercial",catIcon:"🏢",district:"Innovation",set:"City Core"},
-{name:"Spirit Garden",type:"spirit",icon:"🧿"},
-{name:"Royal Suites",type:"land",price:370,rent:95,category:"hotel",catLabel:"Hotel",catIcon:"🏨",district:"Innovation",set:"Hospitality"},
-{name:"Luxury Avenue",type:"land",price:430,rent:116,category:"shopping",catLabel:"Shopping",catIcon:"🛍️",district:"Uptown",set:"Lifestyle"},
-{name:"Investment Office",type:"income",icon:"💼"},
-{name:"Grand Central Terminal",type:"land",price:480,rent:134,category:"transportprop",catLabel:"Transport",catIcon:"🚉",district:"Uptown",set:"Mobility"},
-{name:"Ocean Crown Resort",type:"land",price:540,rent:158,category:"hotel",catLabel:"Hotel",catIcon:"🏨",district:"Uptown",set:"Hospitality"},
-{name:"Renovation Grant",type:"event",icon:"🛠️"}
+{name:"Wayfarer Gate",type:"start",icon:"🚩"},
+{name:"Willow Haven",type:"land",price:150,rent:30,category:"residential",catLabel:"Sanctuary",catIcon:"🏠",district:"Riverside",set:"River Living"},
+{name:"Fortune Encounter",type:"event",icon:"📈"},
+{name:"Maple Sanctuary",type:"land",price:165,rent:34,category:"residential",catLabel:"Sanctuary",catIcon:"🏠",district:"Riverside",set:"River Living"},
+{name:"Artisan Bazaar",type:"land",price:185,rent:39,category:"shopping",catLabel:"Bazaar",catIcon:"🛍️",district:"Riverside",set:"Lifestyle"},
+{name:"Skyway Portal",type:"transport",icon:"🚆"},
+{name:"Cloudrail Exchange",type:"land",price:205,rent:44,category:"transportprop",catLabel:"Travel",catIcon:"🚉",district:"Downtown",set:"Mobility"},
+{name:"Cloudgate Junction Offices",type:"land",price:225,rent:49,category:"commercial",catLabel:"Guild",catIcon:"🏢",district:"Downtown",set:"City Core"},
+{name:"Realm Toll",type:"tax",amount:70,icon:"🧾"},
+{name:"Grand Bazaar",type:"land",price:245,rent:54,category:"shopping",catLabel:"Bazaar",catIcon:"🛍️",district:"Downtown",set:"Lifestyle"},
+{name:"Crystal Spire",type:"land",price:270,rent:61,category:"commercial",catLabel:"Guild",catIcon:"🏢",district:"Downtown",set:"City Core"},
+{name:"Wonderworks Project",type:"event",icon:"🏗️"},
+{name:"Coral Haven",type:"land",price:290,rent:67,category:"residential",catLabel:"Sanctuary",catIcon:"🏠",district:"Harbor",set:"River Living"},
+{name:"Seafarer Inn",type:"land",price:310,rent:73,category:"hotel",catLabel:"Lodge",catIcon:"🏨",district:"Harbor",set:"Hospitality"},
+{name:"Expedition Income",type:"income",icon:"💼"},
+{name:"Azure Port",type:"land",price:330,rent:80,category:"transportprop",catLabel:"Travel",catIcon:"🚉",district:"Harbor",set:"Mobility"},
+{name:"Explorer Guild",type:"land",price:350,rent:87,category:"commercial",catLabel:"Guild",catIcon:"🏢",district:"Innovation",set:"City Core"},
+{name:"Spirit Grove",type:"spirit",icon:"🧿"},
+{name:"Mooncrest Lodge",type:"land",price:370,rent:95,category:"hotel",catLabel:"Lodge",catIcon:"🏨",district:"Innovation",set:"Hospitality"},
+{name:"Festival Promenade",type:"land",price:430,rent:116,category:"shopping",catLabel:"Bazaar",catIcon:"🛍️",district:"Uptown",set:"Lifestyle"},
+{name:"Venture Camp",type:"income",icon:"💼"},
+{name:"Grand Waystation",type:"land",price:480,rent:134,category:"transportprop",catLabel:"Travel",catIcon:"🚉",district:"Uptown",set:"Mobility"},
+{name:"Crown Reef Resort",type:"land",price:540,rent:158,category:"hotel",catLabel:"Lodge",catIcon:"🏨",district:"Uptown",set:"Hospitality"},
+{name:"Restoration Grant",type:"event",icon:"🛠️"}
 ];
 const spirits=[{name:"เทพเหรียญทอง",icon:"🪙",turns:4,desc:"รับ +60 เมื่อเริ่มเทิร์น",income:60},{name:"เทพนายช่าง",icon:"🛠️",turns:4,desc:"ซื้อ/อัปเกรดถูกลง 25%",discount:.75},{name:"เทพคุ้มครอง",icon:"🛡️",turns:4,desc:"ค่าเช่าลด 50%",rentFactor:.5},{name:"เทพลาภลอย",icon:"🍀",turns:4,desc:"โบนัสเหตุการณ์ดี +50%",eventBonus:1.5},{name:"เทพพายุ",icon:"🌪️",turns:3,desc:"อาจเสีย 45 ต่อเทิร์น",badLoss:45}];
 const events=[
- {title:"City Development",icon:"🏗️",a:"ลงทุน 120 • District นี้ Rent +10%",b:"รับเงินสด 55",cost:120,reward:55},
- {title:"Market Opportunity",icon:"📈",a:"ลงทุน 100 • รับ Focus +2",b:"รับเงินสด 60",cost:100,reward:60},
- {title:"Renovation Grant",icon:"🛠️",a:"ลงทุน 90 • Upgrade ถัดไปลด 35%",b:"รับเงินสด 50",cost:90,reward:50}
+ {title:"Wonderworks Project",icon:"🏗️",a:"ลงทุน 120 • District นี้ Rent +10%",b:"รับเงินสด 55",cost:120,reward:55},
+ {title:"Fortune Encounter",icon:"📈",a:"ลงทุน 100 • รับ Focus +2",b:"รับเงินสด 60",cost:100,reward:60},
+ {title:"Restoration Grant",icon:"🛠️",a:"ลงทุน 90 • Upgrade ถัดไปลด 35%",b:"รับเงินสด 50",cost:90,reward:50}
 ];
 function activeMap(){return maps[selectedMap]}
 function activeRoute(){return activeMap().route}
@@ -1774,26 +1817,52 @@ function startGame(){
  ];
  if(window.aiDifficultyBadge){aiDifficultyBadge.textContent=`${diff.icon} ${diff.label}`;aiDifficultyBadge.className=`badge ai-badge ${diff.id}`;}
  syncMobileControlState();
- persist();synergyStateCache={};owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;skillUsedSlots=[];turnEpoch=0;endedEpoch=-1;clearNextTurnTimer();setTurnState(TURN_STATE.BOOT,"new-game");log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V8.9.2.4: Synergy Rework • Trade Hub UX Hotfix • Modal UX Hotfix • Net Worth Clarity • Strategy Clarity Pass • Core Gameplay Lock retained • Balance Telemetry • State Machine Hardening • Turn Guard • Duplicate Action Protection • Automated QA Simulator • Wandering Spirit Hotfix • Mobile-first UX • AI ${diff.label} • EXP ×${diff.xpMult} • Player ${eco.startMoney} / AI ${aiStartMoney} • Start +${eco.startBonus}`,"gold");const career=currentCareer();if(career){addLog(`${career.icon} Career: ${career.name} • ${career.summary}`,"gold");showEffect(`${career.icon} ${career.name}`,career.summary,"gold",3600)}
+ persist();synergyStateCache={};owners=Array(tiles.length).fill(-1);levels=Array(tiles.length).fill(0);developments=Array(tiles.length).fill("");districtBoost={};current=0;round=1;gameOver=false;resetSetTelemetry();skillUsedSlots=[];turnEpoch=0;endedEpoch=-1;clearNextTurnTimer();setTurnState(TURN_STATE.BOOT,"new-game");log.innerHTML="";addLog(`เริ่มเกมบน ${maps[selectedMap].name}`,"gold");addLog(`ลูกเล่นแผนที่: ${maps[selectedMap].gimmick}`,"gold");addLog(`V8.9.2.10: World of Wonders Theme Prototype • Gameplay/Balance unchanged • Minimized Action State Hotfix • Mobile Modal UX Hotfix • Synergy Balance Lock retained • Full Set +200 • Synergy Rework • Wanderer Bazaar UX Hotfix • Modal UX Hotfix • Net Worth Clarity • Strategy Clarity Pass • Full Set Telemetry & Reward Review • Simulator Scoring Validation • Core Gameplay Lock retained • Balance Telemetry • State Machine Hardening • Turn Guard • Duplicate Action Protection • Automated QA Simulator • Wandering Spirit Hotfix • Mobile-first UX • AI ${diff.label} • EXP ×${diff.xpMult} • Player ${eco.startMoney} / AI ${aiStartMoney} • Start +${eco.startBonus}`,"gold");const career=currentCareer();if(career){addLog(`${career.icon} Career: ${career.name} • ${career.summary}`,"gold");showEffect(`${career.icon} ${career.name}`,career.summary,"gold",3600)}
  if(save.equippedCareer==="analyst"){const m1=nextMarketForRound(1),m2={round:m1.round+3,market:marketDefs[(marketDefs.indexOf(m1.market)+1)%marketDefs.length]};addLog(`📊 Analyst Forecast • รอบ ${m1.round}: ${m1.market.name} • รอบ ${m2.round}: ${m2.market.name}`,"info");}
  showEffect("⚖️ Economy Rebalance",`${maps[selectedMap].name} • 15 Property • 5 Sets × 3 • ซื้อและพัฒนาได้สมดุลขึ้น`,"gold",5200);renderAll();startTurn();
 }
 
 function propertyIndices(){return tiles.map((t,i)=>t.type==="land"?i:-1).filter(i=>i>=0)}
+const setTelemetry={events:[],active:{},uniqueCompleted:[new Set(),new Set(),new Set(),new Set()],firstSetRound:[null,null,null,null],tradeClosures:0,brokenSets:0};
+function resetSetTelemetry(){setTelemetry.events=[];setTelemetry.active={};setTelemetry.uniqueCompleted=[new Set(),new Set(),new Set(),new Set()];setTelemetry.firstSetRound=[null,null,null,null];setTelemetry.tradeClosures=0;setTelemetry.brokenSets=0;syncSetTelemetry("start",false)}
+function syncSetTelemetry(source="state",announce=false){
+ if(!players?.length||!tiles?.length)return;
+ const sets=[...new Set(propertyIndices().map(i=>tiles[i].set).filter(Boolean))];
+ players.forEach((p,pi)=>sets.forEach(st=>{
+  const key=`${pi}|${st}`,now=setTotal(st)>0&&setOwnedCount(pi,st)>=setTotal(st),was=!!setTelemetry.active[key];
+  if(now&&!was){
+   setTelemetry.active[key]=true;setTelemetry.uniqueCompleted[pi].add(st);
+   if(setTelemetry.firstSetRound[pi]==null)setTelemetry.firstSetRound[pi]=round;
+   setTelemetry.events.push({type:"complete",player:pi,set:st,round,source});
+   if(pi===0&&source.startsWith("trade"))setTelemetry.tradeClosures++;
+   if(announce&&pi===0)addLog(`📈 Telemetry: ปิด ${synergyDef(st).name} รอบ ${round} • ${source}`,"info");
+  }else if(!now&&was){
+   setTelemetry.active[key]=false;setTelemetry.events.push({type:"break",player:pi,set:st,round,source});setTelemetry.brokenSets++;
+  }else setTelemetry.active[key]=now;
+ }))
+}
+function liveSetTelemetrySummary(idx=0){
+ const sets=[...new Set(propertyIndices().map(i=>tiles[i].set).filter(Boolean))];
+ const currentFull=sets.filter(st=>setOwnedCount(idx,st)>=setTotal(st));
+ const near=sets.filter(st=>{const n=setOwnedCount(idx,st),tot=setTotal(st);return tot>1&&n===tot-1});
+ const unique=[...setTelemetry.uniqueCompleted[idx]];
+ return {currentFull,near,unique,firstRound:setTelemetry.firstSetRound[idx],tradeClosures:setTelemetry.tradeClosures,brokenSets:setTelemetry.brokenSets};
+}
 function ownedIndices(idx){return propertyIndices().filter(i=>owners[i]===idx)}
 function setOwnedCount(idx,setName){return ownedIndices(idx).filter(i=>tiles[i].set===setName).length}
 function setTotal(setName){return propertyIndices().filter(i=>tiles[i].set===setName).length}
+const FULL_SET_NET_WORTH_BONUS=200;
 function setBonus(idx,i){const t=tiles[i];if(!t?.set)return 1;const n=setOwnedCount(idx,t.set),total=setTotal(t.set);return n>=total?1.30:n>=2?1.15:1}
 // V8.9.2 — Synergy Rework: names, progress and activation feedback only. Core effects remain unchanged.
 const synergyDefs={
- "Mobility":{icon:"🚆",name:"Mobility Network",effect:"2/3: Rent +15% • 3/3: Rent +30% + Focus Recharge ตามกติกาเดิม",fits:["tactician","collector"]},
- "River Living":{icon:"🌊",name:"River Living",effect:"2/3: Rent +15% • 3/3: Rent +30% + Start Bonus ตามกติกาเดิม",fits:["collector","investor"]},
- "Hospitality":{icon:"🏨",name:"Hospitality Empire",effect:"2/3: Rent +15% • 3/3: Rent +30% + Lv.3+ Hospitality Boost เดิม",fits:["tycoon","collector"]},
- "Lifestyle":{icon:"🛍️",name:"Lifestyle Circuit",effect:"2/3: Rent +15% • 3/3: Rent +30%",fits:["collector","opportunist"]},
- "City Core":{icon:"🏙️",name:"City Core Alliance",effect:"2/3: Rent +15% • 3/3: Rent +30%",fits:["tycoon","collector"]}
+ "Mobility":{icon:"🚆",name:"Wayfinder Network",effect:"2/3: Rent +15% • 3/3: Rent +30% + 200 Net Worth + Focus Recharge ตามกติกาเดิม",fits:["tactician","collector"]},
+ "River Living":{icon:"🌊",name:"Wildwater Circle",effect:"2/3: Rent +15% • 3/3: Rent +30% + 200 Net Worth + Start Bonus ตามกติกาเดิม",fits:["collector","investor"]},
+ "Hospitality":{icon:"🏨",name:"Sanctuary Guild",effect:"2/3: Rent +15% • 3/3: Rent +30% + 200 Net Worth + Lv.3+ Hospitality Boost เดิม",fits:["tycoon","collector"]},
+ "Lifestyle":{icon:"🛍️",name:"Bazaar Circuit",effect:"2/3: Rent +15% • 3/3: Rent +30% + 200 Net Worth",fits:["collector","opportunist"]},
+ "City Core":{icon:"🏙️",name:"Ancient Nexus",effect:"2/3: Rent +15% • 3/3: Rent +30% + 200 Net Worth",fits:["tycoon","collector"]}
 };
 let synergyStateCache={};
-function synergyDef(st){return synergyDefs[st]||{icon:"🧩",name:st,effect:"2/3: Rent +15% • 3/3: Rent +30%",fits:["collector"]}}
+function synergyDef(st){return synergyDefs[st]||{icon:"🧩",name:st,effect:"2/3: Rent +15% • 3/3: Rent +30% + 200 Net Worth",fits:["collector"]}}
 function synergyKey(idx,st){return `${idx}:${st}`}
 function synergyBuildFit(st){const b=(typeof currentBuildIdentity==="function"?currentBuildIdentity():null),d=synergyDef(st);return b&&d.fits.includes(b.id)?`${b.icon} ${b.name} Fit`:""}
 function activeSynergies(idx){return [...new Set(propertyIndices().map(i=>tiles[i].set))].filter(st=>setTotal(st)>0&&setOwnedCount(idx,st)>=setTotal(st))}
@@ -1805,8 +1874,8 @@ function setNextStepText(idx,st){const n=setOwnedCount(idx,st),total=setTotal(st
 function synergyCardHTML(idx,st){const n=setOwnedCount(idx,st),total=setTotal(st),d=synergyDef(st),pct=total?Math.min(100,Math.round(n/total*100)):0,state=n>=total?"active":n===total-1?"near":"",stateText=n>=total?"✓ ACTIVATED":n===total-1?"1 TO ACTIVATE":`${n}/${total} PROGRESS`,fit=idx===0?synergyBuildFit(st):"";return `<div class="strategy-card"><b>${d.icon} ${d.name}${fit?`<span class="synergy-fit">${fit}</span>`:""}</b><small>${n}/${total} Property • ${d.effect}</small><div class="synergy-progress"><i style="width:${pct}%"></i></div><span class="synergy-state ${state}">${stateText}</span><div class="strategy-impact ${n>=total?"gold":n===total-1?"good":""}">${setNextStepText(idx,st)}</div>${idx===0?`<div class="set-piece-list">${setPieceStatusHTML(idx,st)}</div>`:""}</div>`}
 
 function projectedDistrictLeaderAfterBuy(idx,i){const d=tiles[i].district;if(owners[i]>=0)return districtLeader(d);const scores=players.map((p,pidx)=>p.bankrupt?-1:districtScore(pidx,d)+(pidx===idx?tiles[i].price+tiles[i].price*.35:0));const max=Math.max(...scores),hits=scores.filter(v=>v===max&&v>0).length;return hits===1?scores.indexOf(max):-1}
-function purchaseImpact(i,idx=0){const p=players[idx],t=tiles[i],cost=buyCost(i,p),before=setOwnedCount(idx,t.set),total=setTotal(t.set),after=Math.min(total,before+1),cashAfter=p.money-cost,fullNow=before>=total,fullAfter=after>=total,setBonusGain=!fullNow&&fullAfter?120:0,leaderNow=districtLeader(t.district)===idx,leaderAfter=projectedDistrictLeaderAfterBuy(idx,i)===idx,districtGain=!leaderNow&&leaderAfter?80:0,nwDelta=t.price-cost+setBonusGain+districtGain;return {cost,before,after,total,cashAfter,setBonusGain,districtGain,nwDelta,fullAfter,nearAfter:after===total-1&&!fullAfter}}
-function purchaseImpactText(i,idx=0){const x=purchaseImpact(i,idx),t=tiles[i],d=synergyDef(t.set);const setText=x.fullAfter?`🧩 ${d.name}: ${x.before}/${x.total} → ${x.after}/${x.total} • SYNERGY ACTIVATED +120 Net Worth`:x.nearAfter?`🧩 ${d.name}: ${x.before}/${x.total} → ${x.after}/${x.total} • เหลืออีก 1 ชิ้นเพื่อ Activate`:`🧩 ${d.name}: ${x.before}/${x.total} → ${x.after}/${x.total}`;const districtText=x.districtGain?` • 👑 ซื้อแล้วขึ้น District Leader +80 Net Worth`:"";return `ซื้อ ${t.name} ${x.cost} • เงินเหลือ ${x.cashAfter} • Property Value +${t.price} • Net Worth ทันที ${x.nwDelta>=0?"+":""}${x.nwDelta}${districtText}<br>${setText}`}
+function purchaseImpact(i,idx=0){const p=players[idx],t=tiles[i],cost=buyCost(i,p),before=setOwnedCount(idx,t.set),total=setTotal(t.set),after=Math.min(total,before+1),cashAfter=p.money-cost,fullNow=before>=total,fullAfter=after>=total,setBonusGain=!fullNow&&fullAfter?FULL_SET_NET_WORTH_BONUS:0,leaderNow=districtLeader(t.district)===idx,leaderAfter=projectedDistrictLeaderAfterBuy(idx,i)===idx,districtGain=!leaderNow&&leaderAfter?80:0,nwDelta=t.price-cost+setBonusGain+districtGain;return {cost,before,after,total,cashAfter,setBonusGain,districtGain,nwDelta,fullAfter,nearAfter:after===total-1&&!fullAfter}}
+function purchaseImpactText(i,idx=0){const x=purchaseImpact(i,idx),t=tiles[i],d=synergyDef(t.set);const setText=x.fullAfter?`🧩 ${d.name}: ${x.before}/${x.total} → ${x.after}/${x.total} • SYNERGY ACTIVATED +${FULL_SET_NET_WORTH_BONUS} Net Worth`:x.nearAfter?`🧩 ${d.name}: ${x.before}/${x.total} → ${x.after}/${x.total} • เหลืออีก 1 ชิ้นเพื่อ Activate`:`🧩 ${d.name}: ${x.before}/${x.total} → ${x.after}/${x.total}`;const districtText=x.districtGain?` • 👑 ซื้อแล้วขึ้น District Leader +80 Net Worth`:"";return `ซื้อ ${t.name} ${x.cost} • เงินเหลือ ${x.cashAfter} • Property Value +${t.price} • Net Worth ทันที ${x.nwDelta>=0?"+":""}${x.nwDelta}${districtText}<br>${setText}`}
 function projectedPropertyRent(i,idx,level,dev){const t=tiles[i];let r=t.rent*(1+Math.max(0,level-1)*.62);let cat=1;if(t.category==="hotel"&&level>=3)cat*=1.12;if(t.category==="commercial")cat*=1.05;if(t.set==="Hospitality"&&setOwnedCount(idx,"Hospitality")>=setTotal("Hospitality")&&level>=3)cat*=1.10;const m=marketForRound();if(m?.kind==="tourism"&&t.category==="hotel")cat*=1.20;r*=cat;r*=dev==="rent"?1.22:dev==="income"?1.06:1;r*=setBonus(idx,i)*districtBonus(idx,i);r*=1+(districtBoost[t.district]||0);return Math.round(r)}
 function upgradeImpact(i,c,dev){const t=tiles[i],p=players[0],nextLevel=Math.min(4,levels[i]+1),rentBefore=propertyRent(i),rentAfter=projectedPropertyRent(i,0,nextLevel,dev),cashReturn=dev==="income"?35:0,assetGain=Math.round(t.price*.6),cashAfter=p.money-c+cashReturn,nwDelta=assetGain-c+cashReturn;return {nextLevel,rentBefore,rentAfter,cashReturn,assetGain,cashAfter,nwDelta}}
 function districtScore(idx,d){return ownedIndices(idx).filter(i=>tiles[i].district===d).reduce((sum,i)=>sum+tiles[i].price+levels[i]*tiles[i].price*.35,0)}
@@ -1830,7 +1899,7 @@ function isTradeZonePos(pos){const z=zoneAt(pos);return !!(z&&z.kind==="trade")}
 function canPlayerTrade(idx=0){return !gameOver && current===idx && !!players[idx] && !tradeAlreadyUsed() && propertyIndices().some(i=>owners[i]>0) && isTradeZonePos(players[idx].pos)}
 function updateStrategyHUD(){if(window.focusValue&&players[current])focusValue.textContent=focusLabel(players[current]);if(window.tradeBtn)tradeBtn.disabled=!canPlayerTrade(0)}
 function liquidateProperty(i){
- if(owners[i]!==0)return;const p=players[0],refund=Math.round(tiles[i].price*.70);p.money+=refund;owners[i]=-1;levels[i]=0;developments[i]="";p.lands=Math.max(0,p.lands-1);announceMoney(p.name,refund,`ขายคืน ${tiles[i].name}`);announceStatus(p.name,"🏦","Liquidate Property",`${tiles[i].name} • รับคืน ${refund} (70%)`,"info");renderAll();openStrategyPanel();
+ if(owners[i]!==0)return;const p=players[0],refund=Math.round(tiles[i].price*.70);p.money+=refund;owners[i]=-1;levels[i]=0;developments[i]="";p.lands=Math.max(0,p.lands-1);syncSetTelemetry("liquidate",true);announceMoney(p.name,refund,`ขายคืน ${tiles[i].name}`);announceStatus(p.name,"🏦","Liquidate Property",`${tiles[i].name} • รับคืน ${refund} (70%)`,"info");renderAll();openStrategyPanel();
 }
 function openTileInfo(i){
  const t=tiles[i], rt=getRenderTile(i), v=rt.view;
@@ -1848,7 +1917,7 @@ function openTileInfo(i){
  openGameModal("tile");
 }
 
-function openStrategyPanel(){if(!players.length)return;const districts=[...new Set(propertyIndices().map(i=>tiles[i].district))];const sets=[...new Set(propertyIndices().map(i=>tiles[i].set))];const mine=ownedIndices(0),active=currentBuildIdentity();modalIcon.textContent="🧩";modalTitle.textContent="Synergy & Strategy";modalText.textContent=`${active.icon} ${active.name} • ปิด Set เพื่อสร้าง Synergy • สูตร Rent/Effect ใช้ Core Balance เดิม`;modalExtra.innerHTML=`<div class="strategy-grid"><div class="synergy-section-title">🧩 PROPERTY SYNERGIES</div>${sets.map(st=>synergyCardHTML(0,st)).join("")}<div class="synergy-section-title">📍 DISTRICT CONTROL</div>${districts.map(d=>{const l=districtLeader(d);return `<div class="strategy-card"><b>📍 ${d}</b><small>${l>=0?`👑 Leader: ${players[l].name}`:`ยังไม่มี District Leader`}<br>ของคุณ: ${ownedIndices(0).filter(i=>tiles[i].district===d).length} แห่ง</small></div>`}).join("")}</div>${mine.length?`<div class="strategy-liquidate"><b>🏦 Liquidate Property</b><br>${mine.map(i=>`<button class="mini-btn" style="margin:5px 4px" onclick="liquidateProperty(${i})">ขาย ${tiles[i].name} • +${Math.round(tiles[i].price*.7)}</button>`).join("")}</div>`:""}`;modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ปิด</button>`;openGameModal("strategy")}
+function openStrategyPanel(){if(!players.length)return;const districts=[...new Set(propertyIndices().map(i=>tiles[i].district))];const sets=[...new Set(propertyIndices().map(i=>tiles[i].set))];const mine=ownedIndices(0),active=currentBuildIdentity(),peekOnly=modalMinimizeState.active;modalIcon.textContent="🧩";modalTitle.textContent="Synergy & Strategy";modalText.textContent=peekOnly?`👁️ ดูข้อมูลระหว่างพัก Action • ปิดหน้านี้แล้วกลับไปทำ ${modalMinimizeState.label} ต่อ`:`${active.icon} ${active.name} • ปิด Set เพื่อสร้าง Synergy • สูตร Rent/Effect ใช้ Core Balance เดิม`;modalExtra.innerHTML=`<div class="strategy-grid"><div class="synergy-section-title">🧩 PROPERTY SYNERGIES</div>${sets.map(st=>synergyCardHTML(0,st)).join("")}<div class="synergy-section-title">📍 DISTRICT CONTROL</div>${districts.map(d=>{const l=districtLeader(d);return `<div class="strategy-card"><b>📍 ${d}</b><small>${l>=0?`👑 Leader: ${players[l].name}`:`ยังไม่มี District Leader`}<br>ของคุณ: ${ownedIndices(0).filter(i=>tiles[i].district===d).length} แห่ง</small></div>`}).join("")}</div>${mine.length&&!peekOnly?`<div class="strategy-liquidate"><b>🏦 Liquidate Property</b><br>${mine.map(i=>`<button class="mini-btn" style="margin:5px 4px" onclick="liquidateProperty(${i})">ขาย ${tiles[i].name} • +${Math.round(tiles[i].price*.7)}</button>`).join("")}</div>`:peekOnly?`<div class="choice-note"><b>🔒 View only</b><br>ระหว่างพัก Action จะดู Synergy ได้ แต่ยังไม่สามารถขาย Property หรือเริ่ม Action ใหม่</div>`:""}`;modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ปิด</button>`;openGameModal("strategy")}
 let tradeContext="button";
 let tradeMinimized=false;
 function closeTradeCenter(endTurn=false){
@@ -1876,8 +1945,8 @@ function minimizeTradeCenter(){
  tradeMinimized=true;
  if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");
  hideGameModal();
- if(window.tradeRestoreBtn){tradeRestoreBtn.textContent="🤝 กลับ Trade Hub";tradeRestoreBtn.classList.remove("hidden")}
- toastMsg("ซ่อน Trade Hub แล้ว • แตะ Property หรือเปิด Synergy เพื่อดูข้อมูลได้")
+ if(window.tradeRestoreBtn){tradeRestoreBtn.textContent="🤝 กลับ Wanderer Bazaar";tradeRestoreBtn.classList.remove("hidden")}
+ toastMsg("ซ่อน Wanderer Bazaar แล้ว • แตะ Property หรือเปิด Synergy เพื่อดูข้อมูลได้")
 }
 function restoreTradeCenter(){
  if(!tradeMinimized)return;
@@ -1888,20 +1957,20 @@ function restoreTradeCenter(){
 }
 function openTradeCenter(source="button"){
  if(current!==0)return;
- if(source==="button"&&!canPlayerTrade(0))return toastMsg(tradeAlreadyUsed()?"Trade Hub นี้ใช้สิทธิ์ไปแล้ว":"Trade ใช้ได้เมื่อยืนบน Trade Hub เท่านั้น");
+ if(source==="button"&&!canPlayerTrade(0))return toastMsg(tradeAlreadyUsed()?"Wanderer Bazaar นี้ใช้สิทธิ์ไปแล้ว":"Trade ใช้ได้เมื่อยืนบน Wanderer Bazaar เท่านั้น");
  if(source==="zone"&&tradeAlreadyUsed())return afterAction(0);
  tradeContext=source;
  const candidates=propertyIndices().filter(i=>owners[i]>0);
  if(!candidates.length){if(source==="skill"&&players[0])players[0].tradeReserveDiscount=0;if(source==="zone")return closeTradeCenter(true);return toastMsg("ยังไม่มี Property ของคู่แข่งให้ Trade")}
- modalIcon.textContent="🤝";modalTitle.textContent=source==="zone"?"Trade Hub • 1 Deal":"Trade Center";
+ modalIcon.textContent="🤝";modalTitle.textContent=source==="zone"?"Wanderer Bazaar • 1 Deal":"Wanderer Market";
  modalText.textContent=`เลือกได้ 1 รายการ • เงินสำรอง ${tradeReserve(0)} เป็นระดับที่แนะนำ ไม่ใช่ข้อบังคับ • AI ยังปกป้อง Property สำคัญต่อ Set / District`;
  if(window.tradeMinBtn)tradeMinBtn.classList.remove("hidden");
  if(window.tradeRestoreBtn)tradeRestoreBtn.classList.add("hidden");
  modalExtra.innerHTML=`<div class="strategy-grid">${candidates.slice(0,10).map(i=>{const o=owners[i],q=tradeQuote(i),mine=ownedIndices(0).sort((a,b)=>Math.abs(strategyValue(o,a)-strategyValue(o,i)) - Math.abs(strategyValue(o,b)-strategyValue(o,i)))[0];const sellerNeed=strategyValue(o,i);const mineSellerValue=mine===undefined?0:strategyValue(o,mine);const topup=mine===undefined?0:Math.max(0,Math.round((sellerNeed-mineSellerValue)*1.05));const reserve=tradeReserve(0);const cashOK=!q.core&&players[0].money>=q.price;const riskyCash=cashOK&&(players[0].money-q.price<reserve);const swapValueOK=mine!==undefined&&(mineSellerValue+topup>=sellerNeed*.95);const swapOK=mine!==undefined&&!q.core&&swapValueOK&&players[0].money>=topup;const riskySwap=swapOK&&(players[0].money-topup<reserve);const setBefore=setOwnedCount(0,tiles[i].set),setTotalN=setTotal(tiles[i].set),setAfter=Math.min(setTotalN,setBefore+1),impact=setAfter>=setTotalN?`🧩 ${synergyDef(tiles[i].set).name}: ${setBefore}/${setTotalN} → ${setAfter}/${setTotalN} • <b>ปิด Set ทันที</b>`:setAfter===setTotalN-1?`🧩 ${synergyDef(tiles[i].set).name}: ${setBefore}/${setTotalN} → ${setAfter}/${setTotalN} • <b>เหลืออีก 1 ชิ้น</b>`:`🧩 ${synergyDef(tiles[i].set).name}: ${setBefore}/${setTotalN} → ${setAfter}/${setTotalN}`;return `<div class="strategy-card"><b>${tiles[i].catIcon} ${tiles[i].name}</b><small>${tiles[i].district} • ${tiles[i].set}<br>เจ้าของ: ${players[o].name}<br>${tradeReason(i)}${q.core?"":`<br>ราคาเสนอขาย: ${q.price}<br>เงินคุณ: ${players[0].money} • เงินสำรองแนะนำ ${reserve}${cashOK?`<br>${riskyCash?"⚠️ ซื้อได้ แต่เงินจะต่ำกว่าระดับสำรองที่แนะนำ":"✅ ซื้อได้"} • เหลือ ${players[0].money-q.price}`:`<br>❌ เงินสดไม่พอ • ขาด ${Math.max(0,q.price-players[0].money)}`}`}</small><div class="strategy-impact ${setAfter>=setTotalN?"gold":setAfter===setTotalN-1?"good":""}">${impact}</div>${q.core?`<button class="mini-btn" disabled style="margin-top:7px">🔒 ไม่ขาย</button>`:`<button class="mini-btn" ${cashOK?"":"disabled"} style="margin-top:7px" onclick="tradeBuy(${i},${q.price})">${cashOK?`${riskyCash?"⚠️":"💰"} ซื้อ ${q.price}`:`💰 เงินไม่พอ • ${q.price}`}</button>${mine!==undefined?`<button class="mini-btn" ${swapOK?"":"disabled"} style="margin-top:5px" onclick="tradeSwap(${i},${mine},${topup})">🔄 ${tiles[mine].name}${topup?` + ${topup}`:""}${riskySwap?" • ⚠️ เสี่ยง":""}</button>`:""}`}</div>`}).join("")}</div>`;
- modalChoices.innerHTML=source==="zone"?`<button class="btn blue" onclick="minimizeTradeCenter()">👁️ ซ่อนเพื่อดู Property</button><button class="btn gray" onclick="closeTradeCenter(true)">ผ่าน Trade Hub</button>`:`<button class="btn blue" onclick="minimizeTradeCenter()">👁️ ซ่อนเพื่อดู Property</button><button class="btn gray" onclick="closeTradeCenter(false)">ปิด</button>`;openGameModal()
+ modalChoices.innerHTML=source==="zone"?`<button class="btn blue" onclick="minimizeTradeCenter()">👁️ ซ่อนเพื่อดู Property</button><button class="btn gray" onclick="closeTradeCenter(true)">ผ่าน Wanderer Bazaar</button>`:`<button class="btn blue" onclick="minimizeTradeCenter()">👁️ ซ่อนเพื่อดู Property</button><button class="btn gray" onclick="closeTradeCenter(false)">ปิด</button>`;openGameModal()
 }
-function tradeBuy(i,price){const buyer=players[0],q=tradeQuote(i);if(!q||q.core)return toastMsg("🔒 AI ไม่ขาย Property สำคัญนี้");if(buyer.money<price)return toastMsg(`💰 เงินไม่พอ • มี ${buyer.money} • ราคา ${price}`);const reserve=tradeReserve(0),risky=buyer.money-price<reserve;const seller=players[q.sellerIdx];buyer.money-=price;seller.money+=price;buyer.tradeReserveDiscount=0;owners[i]=0;buyer.lands++;seller.lands=Math.max(0,seller.lands-1);addLog(`🤝 ${buyer.name} ซื้อ ${tiles[i].name} จาก ${seller.name} ราคา ${price}`,"gold");announceStatus(buyer.name,"🤝","Trade สำเร็จ",`${tiles[i].name} • ราคา ${price} • เหลือเงิน ${buyer.money}${risky?" • ⚠️ ต่ำกว่าเงินสำรองที่แนะนำ":""}`,"gold");bumpStat("tradesCompleted");bumpStat("propertiesBought");finishTradeCenter()}
-function tradeSwap(target,mine,topup){const buyer=players[0],sellerIdx=owners[target],seller=players[sellerIdx],q=tradeQuote(target);if(!q||q.core)return toastMsg("AI ไม่ยอมแลก Core Asset นี้");if(owners[mine]!==0||sellerIdx<=0)return toastMsg("Trade นี้ใช้ไม่ได้แล้ว");const giveValue=strategyValue(sellerIdx,mine)+topup,need=strategyValue(sellerIdx,target);if(giveValue<need*.95)return toastMsg("AI มองว่าข้อเสนอมีมูลค่าต่ำเกินไป");if(buyer.money<topup)return toastMsg(`💰 เงินไม่พอสำหรับ Swap • ต้องจ่ายเพิ่ม ${topup}`);buyer.money-=topup;seller.money+=topup;buyer.tradeReserveDiscount=0;owners[target]=0;owners[mine]=sellerIdx;announceStatus(buyer.name,"🔄","Property Swap",`${tiles[mine].name} ↔ ${tiles[target].name}${topup?` • เพิ่มเงิน ${topup}`:""}`,"gold");addLog(`🔄 ${buyer.name} แลก ${tiles[mine].name} กับ ${seller.name} เพื่อรับ ${tiles[target].name}`,"gold");bumpStat("tradesCompleted");finishTradeCenter()}
+function tradeBuy(i,price){const buyer=players[0],q=tradeQuote(i);if(!q||q.core)return toastMsg("🔒 AI ไม่ขาย Property สำคัญนี้");if(buyer.money<price)return toastMsg(`💰 เงินไม่พอ • มี ${buyer.money} • ราคา ${price}`);const reserve=tradeReserve(0),risky=buyer.money-price<reserve;const seller=players[q.sellerIdx];buyer.money-=price;seller.money+=price;buyer.tradeReserveDiscount=0;owners[i]=0;buyer.lands++;seller.lands=Math.max(0,seller.lands-1);syncSetTelemetry("trade-buy",true);addLog(`🤝 ${buyer.name} ซื้อ ${tiles[i].name} จาก ${seller.name} ราคา ${price}`,"gold");announceStatus(buyer.name,"🤝","Trade สำเร็จ",`${tiles[i].name} • ราคา ${price} • เหลือเงิน ${buyer.money}${risky?" • ⚠️ ต่ำกว่าเงินสำรองที่แนะนำ":""}`,"gold");bumpStat("tradesCompleted");bumpStat("propertiesBought");finishTradeCenter()}
+function tradeSwap(target,mine,topup){const buyer=players[0],sellerIdx=owners[target],seller=players[sellerIdx],q=tradeQuote(target);if(!q||q.core)return toastMsg("AI ไม่ยอมแลก Core Asset นี้");if(owners[mine]!==0||sellerIdx<=0)return toastMsg("Trade นี้ใช้ไม่ได้แล้ว");const giveValue=strategyValue(sellerIdx,mine)+topup,need=strategyValue(sellerIdx,target);if(giveValue<need*.95)return toastMsg("AI มองว่าข้อเสนอมีมูลค่าต่ำเกินไป");if(buyer.money<topup)return toastMsg(`💰 เงินไม่พอสำหรับ Swap • ต้องจ่ายเพิ่ม ${topup}`);buyer.money-=topup;seller.money+=topup;buyer.tradeReserveDiscount=0;owners[target]=0;owners[mine]=sellerIdx;syncSetTelemetry("trade-swap",true);announceStatus(buyer.name,"🔄","Property Swap",`${tiles[mine].name} ↔ ${tiles[target].name}${topup?` • เพิ่มเงิน ${topup}`:""}`,"gold");addLog(`🔄 ${buyer.name} แลก ${tiles[mine].name} กับ ${seller.name} เพื่อรับ ${tiles[target].name}`,"gold");bumpStat("tradesCompleted");finishTradeCenter()}
 function renderPlayerLegend(){if(!window.playerLegend)return;playerLegend.innerHTML=players.map((p,i)=>`<div class="legend-player ${i===current&&!gameOver?"current":""}"><span class="legend-dot" style="background:${p.color}"></span><span class="legend-name">${p.name}</span></div>`).join("")}
 function renderAll(){
  syncSynergyProgress();
@@ -1937,7 +2006,7 @@ function attachCoreTips(){
  attachTip(cardBtn,"🎴 ใช้การ์ด","ใช้ไอเทมหรือการ์ดจากกระเป๋า");
  if(window.statusBtn) attachTip(statusBtn,"📊 Buff / Debuff Status","ดูภาพรวม Buff, Debuff และจำนวนเทิร์นคงเหลือของผู้เล่นทุกคน");
  if(window.strategyBtn) attachTip(strategyBtn,"🏙️ Strategy","ดู Property Set, District Leader และโบนัสเชิงกลยุทธ์");
- if(window.tradeBtn) attachTip(tradeBtn,"🤝 Trade Center","ใช้ได้เมื่อยืนบน Trade Hub เท่านั้น • 1 Deal ต่อครั้ง • AI อาจไม่ขาย Property สำคัญ • เงินสำรองเป็นเพียงคำแนะนำสำหรับผู้เล่น");
+ if(window.tradeBtn) attachTip(tradeBtn,"🤝 Wanderer Market","ใช้ได้เมื่อยืนบน Wanderer Bazaar เท่านั้น • 1 Deal ต่อครั้ง • AI อาจไม่ขาย Property สำคัญ • เงินสำรองเป็นเพียงคำแนะนำสำหรับผู้เล่น");
  attachTip(skipBtn,"➡️ ผ่าน","ไม่ซื้อหรืออัปเกรดในช่องนี้ แล้วจบเทิร์น");
  attachTip(die1,"🎲 ลูกเต๋า","ผลลูกเต๋าลูกที่ 1");
  attachTip(die2,"🎲 ลูกเต๋า","ผลลูกเต๋าลูกที่ 2");
@@ -2022,11 +2091,11 @@ function netWorthBreakdown(idx){
  owners.forEach((o,i)=>{if(o===idx){property+=tiles[i].price;upgrade+=Math.max(0,levels[i]-1)*Math.round(tiles[i].price*.6)}});
  const completedSets=[...new Set(ownedIndices(idx).map(i=>tiles[i].set))].filter(st=>setOwnedCount(idx,st)>=setTotal(st));
  const ledDistricts=[...new Set(ownedIndices(idx).map(i=>tiles[i].district))].filter(d=>districtLeader(d)===idx);
- const fullSet=completedSets.length*120,district=ledDistricts.length*80;
+ const fullSet=completedSets.length*FULL_SET_NET_WORTH_BONUS,district=ledDistricts.length*80;
  const total=Math.max(0,Math.round(cash+property+upgrade+fullSet+district));
  return {cash,property,upgrade,fullSet,district,total,completedSets,ledDistricts};
 }
-function netWorthTip(idx){const b=netWorthBreakdown(idx);return `Cash ${b.cash} + Property ${b.property} + Upgrade ${b.upgrade} + Full Set ${b.fullSet} + District ${b.district} = ${b.total} • Property 100% ราคาพื้นฐาน • Upgrade +60% ราคาพื้นฐานต่อ Level หลัง Lv.1 • Full Set +120/Set • District Leader +80/District`}
+function netWorthTip(idx){const b=netWorthBreakdown(idx);return `Cash ${b.cash} + Property ${b.property} + Upgrade ${b.upgrade} + Full Set ${b.fullSet} + District ${b.district} = ${b.total} • Property 100% ราคาพื้นฐาน • Upgrade +60% ราคาพื้นฐานต่อ Level หลัง Lv.1 • Full Set +${FULL_SET_NET_WORTH_BONUS}/Set • District Leader +80/District`}
 function renderPlayers(){const ranking=liveRankingData();playersEl.innerHTML="";ranking.forEach((row,pos)=>{const {p,i,w}=row;const d=document.createElement("div");const isLeader=pos===0;d.className="player"+(i===current&&!gameOver?" current":"");d.style.borderColor=i===current&&!gameOver?"#ffbd4a":`${p.color}88`;d.style.boxShadow=`inset 8px 0 0 ${p.color}`;const rankBadge=isLeader?`<span class="has-tip" data-tip-title="👑 ผู้นำคะแนน" data-tip-detail="ผู้เล่นนี้มี Net Worth สูงสุดในขณะนี้" style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(180deg,#fff6d8,#ffe18a);border:1px solid #efc35e;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:900;color:#946200;margin-right:6px">👑 #1</span>`:`<span class="has-tip" data-tip-title="🏁 อันดับปัจจุบัน" data-tip-detail="จัดอันดับแบบเรียลไทม์ตาม Net Worth" style="display:inline-flex;align-items:center;justify-content:center;background:#eef6ff;border:1px solid #bfd9ee;border-radius:999px;padding:2px 7px;font-size:11px;font-weight:900;color:#4a6d8d;margin-right:6px">#${pos+1}</span>`;d.innerHTML=`<div class="ph"><div class="pn"><div class="av" style="background:${p.color}33;border:2px solid ${p.color}">${avatarSVG(p.type,"small",p.skin||{})}</div><div class="labelwrap"><span class="player-name-line">${rankBadge}<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${p.color};margin-right:6px;vertical-align:middle;border:1px solid #fff"></span>${displayName(p)}${p.bankrupt?" ☠️":""}</span></div></div><div class="money has-tip" data-tip-title="🪙 เงินสด" data-tip-detail="เงินที่ใช้ซื้อพื้นที่ อัปเกรด และจ่ายค่าเช่า/ภาษี">${Math.max(0,p.money)} 🪙</div></div><div class="small"><span class="has-tip" data-tip-title="🏠 ทรัพย์สิน" data-tip-detail="จำนวนพื้นที่ที่ผู้เล่นเป็นเจ้าของ">🏠 ${p.lands}</span><span class="has-tip" data-tip-title="💎 มูลค่ารวม • ${w}" data-tip-detail="${netWorthTip(i)}">💎 ${w}</span>${p.investmentToken?`<span class="has-tip" data-tip-title="🎟️ Investment Token" data-tip-detail="ซื้อหรือ Upgrade ครั้งถัดไปลดสูงสุด ${p.investmentToken} • ใช้แล้วหมดทั้งก้อนและส่วนเกินไม่ทอน">🎟️ -${p.investmentToken}</span>`:""}<span class="has-tip" data-tip-title="📍 ตำแหน่ง" data-tip-detail="หมายเลขช่องปัจจุบันบนกระดาน">📍 ${p.pos+1}</span></div>${renderBuffLine(p)}${renderCurseLine(p)}${synergyPlayerHTML(i)}`;playersEl.appendChild(d)})}
 function renderInventory(){inventory.innerHTML="";const p=players[0];if(!p.items.length){inventory.innerHTML=`<span style="color:#72859c;font-size:12px">ไม่มีไอเทม</span>`;return}p.items.forEach((id,idx)=>{const it=itemDefs[id],b=document.createElement("button");b.className="item has-tip";b.innerHTML=`${it.icon} ${it.name}`;b.dataset.tipTitle=`${it.icon} ${it.name}`;b.dataset.tipDetail=it.desc;b.onclick=()=>useItem(idx);inventory.appendChild(b)})}
 function baseRent(i){return propertyRent(i)}
@@ -2068,8 +2137,15 @@ let focusPromptState={active:false,minimized:false,steps:0};
 function clearFocusPrompt(){focusPromptState={active:false,minimized:false,steps:0};if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.focusRestoreBtn)focusRestoreBtn.classList.add("hidden")}
 function minimizeFocusPrompt(){if(!focusPromptState.active)return;focusPromptState.minimized=true;hideGameModal();if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.focusRestoreBtn){focusRestoreBtn.textContent=`🎯 เปิด Focus (${focusPromptState.steps} ช่อง)`;focusRestoreBtn.classList.remove("hidden")}}
 function restoreFocusPrompt(){if(!focusPromptState.active)return;if(window.focusRestoreBtn)focusRestoreBtn.classList.add("hidden");offerFocusMove(focusPromptState.steps)}
-function closeModal(){if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");clearGenericModalRestore();hideGameModal()}
-function showModal(icon,title,text,extra=""){if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");clearGenericModalRestore();modalIcon.textContent=icon;modalTitle.textContent=title;modalText.textContent=text;modalExtra.innerHTML=extra;modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ตกลง</button>`;openGameModal()}
+function closeModal(){
+ if(window.modalMinBtn)modalMinBtn.classList.add("hidden");
+ if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");
+ // Closing a secondary viewer (Synergy/Status/info) must not destroy a minimized decision Action.
+ hideGameModal();
+ if(!modalMinimizeState.active)clearGenericModalRestore();
+ else syncMinimizedRestoreButton();
+}
+function showModal(icon,title,text,extra=""){if(window.modalMinBtn)modalMinBtn.classList.add("hidden");if(window.tradeMinBtn)tradeMinBtn.classList.add("hidden");modalIcon.textContent=icon;modalTitle.textContent=title;modalText.textContent=text;modalExtra.innerHTML=extra;modalChoices.innerHTML=`<button class="btn primary" onclick="closeModal()">ตกลง</button>`;openGameModal()}
 function startTurn(){
  clearNextTurnTimer();turnEpoch++;endedEpoch=-1;setTurnState(TURN_STATE.TURN_START,`P${current} epoch ${turnEpoch}`);
  validateGameState("startTurn");
@@ -2078,7 +2154,7 @@ function startTurn(){
  if(p.bankrupt){nextTurn();return}
  if((p.satanDrainTurns||0)>0){const loss=Math.min(25,p.money);p.money-=loss;p.satanDrainTurns--;addLog(`🩸 Soul Drain: ${p.name} -${loss}`,"bad");announceMoney(p.name,-loss,"Soul Drain");if(p.satanDrainTurns===0)announceStatus(p.name,"✨","คำสาปสิ้นสุด","Soul Drain หมดผลแล้ว","info");}
  const incomeProps=ownedIndices(current).filter(i=>developments[i]==="income");if(incomeProps.length){const inc=incomeProps.length*15;p.money+=inc;addLog(`💰 Income Build: ${p.name} +${inc}`,"good");}
- const mobilityOwned=setOwnedCount(current,"Mobility"),mobilityTotal=setTotal("Mobility");if(mobilityTotal>0&&mobilityOwned>=mobilityTotal&&round%2===0){const before=p.focus;p.focus=Math.min(p.maxFocus,p.focus+1);if(p.focus>before){addLog(`🎯 Mobility Full Set: ${p.name} Focus +1`,"good");announceStatus(p.name,"🎯","Mobility Full Set","ครบ Mobility Set • Recharge Focus +1 ทุก 2 รอบ","good");}}
+ const mobilityOwned=setOwnedCount(current,"Mobility"),mobilityTotal=setTotal("Mobility");if(mobilityTotal>0&&mobilityOwned>=mobilityTotal&&round%2===0){const before=p.focus;p.focus=Math.min(p.maxFocus,p.focus+1);if(p.focus>before){addLog(`🎯 Wayfinder Full Set: ${p.name} Focus +1`,"good");announceStatus(p.name,"🎯","Wayfinder Full Set","ครบ Mobility Set • Recharge Focus +1 ทุก 2 รอบ","good");}}
  if(p.spirit){if(p.spirit.income){
  p.money+=p.spirit.income;
  addLog(`${p.spirit.icon} ${p.spirit.name}: +${p.spirit.income}`,"good");
@@ -2186,7 +2262,7 @@ function showBranchChoice(idx,zone){
  modalText.textContent="เลือกเส้นทางที่ต้องการ";
  modalExtra.innerHTML="";
  modalChoices.innerHTML=`<button class="btn purple" onclick="chooseBranch(true)">${cfg.shortcutText}</button><button class="btn blue" onclick="chooseBranch(false)">${cfg.normalText}</button>`;
- openGameModal();
+ openGameModal("decision");
  window.pendingBranch={idx,pos:p.pos};
 }
 function chooseBranch(shortcut){
@@ -2198,11 +2274,11 @@ function tacticTargetCandidates(actorIdx){return players.map((x,i)=>({x,i})).fil
 function mapHazardTarget(){const zones=specialZones[selectedMap]||{};const satan=Object.entries(zones).find(([i,z])=>z.kind==="satan");if(satan)return {pos:Number(satan[0]),zone:satan[1]};const trap=Object.entries(zones).find(([i,z])=>z.kind==="trap");return trap?{pos:Number(trap[0]),zone:trap[1]}:null}
 function drawTacticCard(idx,zone){const p=players[idx],ids=Object.keys(tacticDefs),id=ids[Math.floor(Math.random()*ids.length)],it=tacticDefs[id];p.items.push(id);if(idx===0)bumpStat("tacticCardsDrawn");addLog(`🎴 ${p.name} ได้ ${it.name} จาก ${zone.name}`,"gold");announceStatus(p.name,it.icon,"ได้รับ Tactic Card",`${it.name} • ${it.desc}`,"gold");renderAll();if(idx===0)return afterAction(idx);setTimeout(()=>aiUseTacticCard(idx,id),Math.round(speedCfg[GAME_SPEED].after*.5));return true}
 function aiUseTacticCard(actorIdx,id){const actor=players[actorIdx],itemIndex=actor.items.indexOf(id),cands=tacticTargetCandidates(actorIdx);if(itemIndex<0||!cands.length)return afterAction(actorIdx);const diff=currentDifficulty();let target;if(diff.id!=="normal"&&cands.some(a=>a.i===0))target=cands.find(a=>a.i===0);else target=cands[Math.floor(Math.random()*cands.length)];applyTacticEffect(id,actorIdx,target.i,itemIndex,true);afterAction(actorIdx)}
-function openTacticTarget(id,index){const targets=tacticTargetCandidates(0);if(!targets.length)return toastMsg("ยังไม่มีเป้าหมายที่ใช้ Tactic ได้ • ทุกคนอาจอยู่ใน Protection");const it=tacticDefs[id];modalIcon.textContent=it.icon;modalTitle.textContent=it.name;modalText.textContent="เลือกคู่แข่ง • ผู้ที่โดนจะได้รับ Tactic Protection จนจบเทิร์นถัดไป";modalExtra.innerHTML=`<div class="target-grid">${targets.map(a=>`<div class="target" onclick="applyTacticFromPlayer('${id}',${index},${a.i})">${avatarSVG(a.x.type)}<b>${a.x.name}</b><small>${a.x.tacticProtectionTurns?"🫧 Protected":"พร้อมเป็นเป้าหมาย"}</small></div>`).join("")}</div>`;modalChoices.innerHTML=`<button class="btn gray" onclick="closeModal()">ยกเลิก</button>`;openGameModal()}
+function openTacticTarget(id,index){const targets=tacticTargetCandidates(0);if(!targets.length)return toastMsg("ยังไม่มีเป้าหมายที่ใช้ Tactic ได้ • ทุกคนอาจอยู่ใน Protection");const it=tacticDefs[id];modalIcon.textContent=it.icon;modalTitle.textContent=it.name;modalText.textContent="เลือกคู่แข่ง • ผู้ที่โดนจะได้รับ Tactic Protection จนจบเทิร์นถัดไป";modalExtra.innerHTML=`<div class="target-grid">${targets.map(a=>`<div class="target" onclick="applyTacticFromPlayer('${id}',${index},${a.i})">${avatarSVG(a.x.type)}<b>${a.x.name}</b><small>${a.x.tacticProtectionTurns?"🫧 Protected":"พร้อมเป็นเป้าหมาย"}</small></div>`).join("")}</div>`;modalChoices.innerHTML=`<button class="btn gray" onclick="closeModal()">ยกเลิก</button>`;openGameModal("decision")}
 function applyTacticFromPlayer(id,index,targetIdx){if(current!==0)return;closeModal();applyTacticEffect(id,0,targetIdx,index,false);renderAll()}
 function applyTacticEffect(id,actorIdx,targetIdx,itemIndex,isAI=false){const actor=players[actorIdx],target=players[targetIdx],it=tacticDefs[id];if(!it||!target||target.bankrupt)return false;if((target.tacticProtectionTurns||0)>0){if(!isAI)toastMsg("🫧 เป้าหมายอยู่ใน Tactic Protection");return false}if(itemIndex>=0&&actor.items[itemIndex]===id)actor.items.splice(itemIndex,1);else{const k=actor.items.indexOf(id);if(k>=0)actor.items.splice(k,1)}target.tacticProtectionTurns=1;if(actorIdx===0)bumpStat("tacticCardsUsed");
  if(id==="roadblock"){target.pos=(target.pos-3+tiles.length)%tiles.length;announceStatus(target.name,"🚧","Road Block",`${actor.name} บังคับให้ถอย 3 ช่อง • ช่องปลายทางไม่ Trigger`,"bad")}
- if(id==="transit_order"){const transit=tiles.findIndex(t=>t.type==="transport");if(transit>=0)target.pos=transit;announceStatus(target.name,"🚕","Transit Order",`${actor.name} ส่งไป Transit Plaza • ช่องปลายทางไม่ Trigger`,"bad")}
+ if(id==="transit_order"){const transit=tiles.findIndex(t=>t.type==="transport");if(transit>=0)target.pos=transit;announceStatus(target.name,"🚕","Transit Order",`${actor.name} ส่งไป Skyway Portal • ช่องปลายทางไม่ Trigger`,"bad")}
  if(id==="position_swap"){const old=actor.pos;actor.pos=target.pos;target.pos=old;announceStatus(target.name,"🔄","Position Swap",`${actor.name} สลับตำแหน่งกับ ${target.name} • ช่องปลายทางไม่ Trigger`,"bad")}
  if(id==="focus_jam"){target.focusJammedTurns=1;announceStatus(target.name,"📵","Focus Jam",`${actor.name} ปิด Focus Control ในเทิร์นถัดไป`,"bad")}
  if(id==="devil_detour"){const hz=mapHazardTarget();if(hz){target.pos=hz.pos;announceStatus(target.name,"😈","Devil Detour",`${actor.name} ส่งไป ${hz.zone.name}`,"bad");if(hz.zone.kind==="satan")applySatanCurse(targetIdx,hz.zone,false);else if(hz.zone.kind==="trap"){target.pos=(target.pos-3+tiles.length)%tiles.length;announceStatus(target.name,"🌫️",hz.zone.name,"Hazard ทำงานทันที • ถอย 3 ช่อง","bad")}}}
@@ -2282,7 +2358,7 @@ function resolveSpecialZone(idx){
    const target=randomWarpTarget(p.pos);
    jumpTo(idx,target,z.name,z.icon);return true;
  }
- if(z.kind==="casino"){if(idx===0){modalIcon.textContent="🎰";modalTitle.textContent=z.name;modalText.textContent="Casino เป็นพื้นที่ดวงที่เหลือไว้เพียงเล็กน้อย — คุณเลือกได้ว่าจะเล่นหรือไม่";modalExtra.innerHTML=`<div class="choice-note">เดิมพัน 80 • ชนะรับ 200 • หรือผ่านโดยไม่เสียอะไร</div>`;modalChoices.innerHTML=`<button class="btn purple" onclick="playCasino(0)">เดิมพัน 80</button><button class="btn gray" onclick="closeModal();afterAction(0)">ผ่าน</button>`;openGameModal();return true}const value=p.money>600;if(!value){afterAction(idx);return true}return playCasino(idx)}
+ if(z.kind==="casino"){if(idx===0){modalIcon.textContent="🎰";modalTitle.textContent=z.name;modalText.textContent="Casino เป็นพื้นที่ดวงที่เหลือไว้เพียงเล็กน้อย — คุณเลือกได้ว่าจะเล่นหรือไม่";modalExtra.innerHTML=`<div class="choice-note">เดิมพัน 80 • ชนะรับ 200 • หรือผ่านโดยไม่เสียอะไร</div>`;modalChoices.innerHTML=`<button class="btn purple" onclick="playCasino(0)">เดิมพัน 80</button><button class="btn gray" onclick="closeModal();afterAction(0)">ผ่าน</button>`;openGameModal("decision");return true}const value=p.money>600;if(!value){afterAction(idx);return true}return playCasino(idx)}
  if(z.kind==="olympic"){
    const roll=Math.random();
    let medal,reward;
@@ -2300,7 +2376,7 @@ function resolveSpecialZone(idx){
 
 function playCasino(idx){const p=players[idx],z=zoneAt(p.pos);if(idx===0)closeModal();const bet=Math.min(80,p.money);if(bet<=0)return afterAction(idx);p.money-=bet;const win=Math.random()<.48;if(win){p.money+=200;announceMoney(p.name,120,`${z.name}: ชนะเดิมพัน`)}else announceMoney(p.name,-bet,`${z.name}: แพ้เดิมพัน`);announceStatus(p.name,"🎰",z.name,win?"ชนะสุทธิ +120":"เสีย 80",win?"good":"bad");afterAction(idx);return true}
 
-function grantSpiritToPlayer(idx,sourceLabel="Spirit Garden",useModal=false){
+function grantSpiritToPlayer(idx,sourceLabel="Spirit Grove",useModal=false){
  const p=players[idx];
  const s={...spirits[Math.floor(Math.random()*spirits.length)]};
  p.spirit=s;
@@ -2337,7 +2413,7 @@ function resolveTile(idx,transported=false,skipZone=false){setTurnState(TURN_STA
   announceMoney(p.name,-rent,`ค่าเช่าให้ ${players[o].name}`);
   showEffect("🏠 เจ้าของได้รับค่าเช่า",`${players[o].name} ได้รับ +${rent} เหรียญ จาก ${p.name}`,"good");
  }
-}}else if(t.type==="income"){return resolveCityIncome(idx);}else if(t.type==="event"){return resolveChoiceEvent(idx);}else if(t.type==="spirit"){grantSpiritToPlayer(idx,t.name||"Spirit Garden",idx===0);
+}}else if(t.type==="income"){return resolveCityIncome(idx);}else if(t.type==="event"){return resolveChoiceEvent(idx);}else if(t.type==="spirit"){grantSpiritToPlayer(idx,t.name||"Spirit Grove",idx===0);
  const spiritStops=[4,10,18];wanderSpirit=spiritStops[Math.floor(Math.random()*spiritStops.length)]}else if(t.type==="tax"){
  p.money-=t.amount;
  addLog(`${p.name} จ่าย ${t.name} ${t.amount}`,"bad");
@@ -2352,10 +2428,10 @@ function resolveTile(idx,transported=false,skipZone=false){setTurnState(TURN_STA
 if(handleMapGimmick(idx,t)) return;
 afterAction(idx)}
 
-function resolveCityIncome(idx){const p=players[idx];if(idx!==0){const hasStrongToken=(p.investmentToken||0)>=150;if(p.money<500||hasStrongToken){p.money+=100;announceMoney(p.name,100,"City Income");return afterAction(idx)}p.investmentToken=Math.max(p.investmentToken||0,150);announceStatus(p.name,"💼","Investment Token","ซื้อ/Upgrade ครั้งถัดไปลดสูงสุด 150 • ใช้แล้วหมดทั้งก้อน","good");return afterAction(idx)}modalIcon.textContent="💼";modalTitle.textContent="City Income";modalText.textContent="เลือก Cash ที่ยืดหยุ่นกว่า หรือ Investment Token ที่มีมูลค่าสูงกว่าแต่ใช้ได้เฉพาะการลงทุนครั้งถัดไป";const currentToken=p.investmentToken||0;modalExtra.innerHTML=`<div class="choice-note">💰 <b>Cash +100</b>: ใช้ซื้อ / Upgrade / Auction / Trade / จ่ายค่าใช้จ่ายได้ทันที<br>🎟️ <b>Investment Token 150</b>: ลดค่าซื้อ Property หรือ Upgrade ครั้งถัดไปสูงสุด 150 • ใช้แล้วหมดทั้งก้อนและส่วนเกินไม่ทอน${currentToken?`<br>ℹ️ ตอนนี้คุณมี Token ${currentToken} อยู่แล้ว • ระบบจะเก็บค่าที่สูงกว่า ไม่ลด Token เดิม`:""}</div>`;modalChoices.innerHTML=`<button class="btn green" onclick="chooseCityIncome('cash')">💰 รับ Cash +100</button><button class="btn blue" onclick="chooseCityIncome('token')">🎟️ รับ Token 150</button>`;openGameModal()}
-function chooseCityIncome(choice){const p=players[0];closeModal();if(choice==="cash"){p.money+=100;announceMoney(p.name,100,"City Income")}else{p.investmentToken=Math.max(p.investmentToken||0,150);announceStatus(p.name,"🎟️","Investment Token","ซื้อ/Upgrade ครั้งถัดไปลดสูงสุด 150 • ใช้แล้วหมดทั้งก้อน","good")}afterAction(0)}
-function resolveChoiceEvent(idx){const p=players[idx],e=events[(round+idx)%events.length];if(idx!==0){const invest=p.money>e.cost+300;if(invest)return applyEventChoice(idx,e,true);return applyEventChoice(idx,e,false)}modalIcon.textContent=e.icon;modalTitle.textContent=e.title;modalText.textContent="เลือกผลลัพธ์ด้วยตัวเอง แทนการสุ่มได้เงินหรือเสียเงิน";modalExtra.innerHTML=`<div class="choice-note">A: ${e.a}<br>B: ${e.b}</div>`;modalChoices.innerHTML=`<button class="btn green" ${p.money<e.cost?"disabled":""} onclick="applyEventChoice(0,events[${events.indexOf(e)}],true)">${e.a}</button><button class="btn blue" onclick="applyEventChoice(0,events[${events.indexOf(e)}],false)">${e.b}</button>`;openGameModal()}
-function applyEventChoice(idx,e,invest){const p=players[idx];if(idx===0)closeModal();if(!invest){const reward=Math.round(e.reward*(p.spirit?.eventBonus||1));p.money+=reward;announceMoney(p.name,reward,e.title);announceStatus(p.name,e.icon,e.title,`เลือกเงินสด +${reward}${p.spirit?.eventBonus?" • โบนัสเทพลาภลอย +50%":""}`,"good");return afterAction(idx)}p.money-=e.cost;announceMoney(p.name,-e.cost,e.title);if(e.title==="City Development"){const d=tiles[p.pos]?.district||"Downtown";districtBoost[d]=(districtBoost[d]||0)+.10;announceStatus(p.name,"🏗️","City Development",`${d} Rent +10% ตลอดเกม`,"gold")}else if(e.title==="Market Opportunity"){p.focus=Math.min(p.maxFocus,p.focus+2);announceStatus(p.name,"🎯","Market Opportunity","Focus +2","gold")}else{p.nextUpgradeDiscount=.35;announceStatus(p.name,"🛠️","Renovation Grant","Upgrade ถัดไปลด 35%","gold")}afterAction(idx)}
+function resolveCityIncome(idx){const p=players[idx];if(idx!==0){const hasStrongToken=(p.investmentToken||0)>=150;if(p.money<500||hasStrongToken){p.money+=100;announceMoney(p.name,100,"Expedition Income");return afterAction(idx)}p.investmentToken=Math.max(p.investmentToken||0,150);announceStatus(p.name,"💼","Investment Token","ซื้อ/Upgrade ครั้งถัดไปลดสูงสุด 150 • ใช้แล้วหมดทั้งก้อน","good");return afterAction(idx)}modalIcon.textContent="💼";modalTitle.textContent="Expedition Income";modalText.textContent="เลือก Cash ที่ยืดหยุ่นกว่า หรือ Investment Token ที่มีมูลค่าสูงกว่าแต่ใช้ได้เฉพาะการลงทุนครั้งถัดไป";const currentToken=p.investmentToken||0;modalExtra.innerHTML=`<div class="choice-note">💰 <b>Cash +100</b>: ใช้ซื้อ / Upgrade / Auction / Trade / จ่ายค่าใช้จ่ายได้ทันที<br>🎟️ <b>Investment Token 150</b>: ลดค่าซื้อ Property หรือ Upgrade ครั้งถัดไปสูงสุด 150 • ใช้แล้วหมดทั้งก้อนและส่วนเกินไม่ทอน${currentToken?`<br>ℹ️ ตอนนี้คุณมี Token ${currentToken} อยู่แล้ว • ระบบจะเก็บค่าที่สูงกว่า ไม่ลด Token เดิม`:""}</div>`;modalChoices.innerHTML=`<button class="btn green" onclick="chooseCityIncome('cash')">💰 รับ Cash +100</button><button class="btn blue" onclick="chooseCityIncome('token')">🎟️ รับ Token 150</button>`;openGameModal()}
+function chooseCityIncome(choice){const p=players[0];closeModal();if(choice==="cash"){p.money+=100;announceMoney(p.name,100,"Expedition Income")}else{p.investmentToken=Math.max(p.investmentToken||0,150);announceStatus(p.name,"🎟️","Investment Token","ซื้อ/Upgrade ครั้งถัดไปลดสูงสุด 150 • ใช้แล้วหมดทั้งก้อน","good")}afterAction(0)}
+function resolveChoiceEvent(idx){const p=players[idx],e=events[(round+idx)%events.length];if(idx!==0){const invest=p.money>e.cost+300;if(invest)return applyEventChoice(idx,e,true);return applyEventChoice(idx,e,false)}modalIcon.textContent=e.icon;modalTitle.textContent=e.title;modalText.textContent="เลือกผลลัพธ์ด้วยตัวเอง แทนการสุ่มได้เงินหรือเสียเงิน";modalExtra.innerHTML=`<div class="choice-note">A: ${e.a}<br>B: ${e.b}</div>`;modalChoices.innerHTML=`<button class="btn green" ${p.money<e.cost?"disabled":""} onclick="applyEventChoice(0,events[${events.indexOf(e)}],true)">${e.a}</button><button class="btn blue" onclick="applyEventChoice(0,events[${events.indexOf(e)}],false)">${e.b}</button>`;openGameModal("decision")}
+function applyEventChoice(idx,e,invest){const p=players[idx];if(idx===0)closeModal();if(!invest){const reward=Math.round(e.reward*(p.spirit?.eventBonus||1));p.money+=reward;announceMoney(p.name,reward,e.title);announceStatus(p.name,e.icon,e.title,`เลือกเงินสด +${reward}${p.spirit?.eventBonus?" • โบนัสเทพลาภลอย +50%":""}`,"good");return afterAction(idx)}p.money-=e.cost;announceMoney(p.name,-e.cost,e.title);if(e.title==="Wonderworks Project"){const d=tiles[p.pos]?.district||"Downtown";districtBoost[d]=(districtBoost[d]||0)+.10;announceStatus(p.name,"🏗️","Wonderworks Project",`${d} Rent +10% ตลอดเกม`,"gold")}else if(e.title==="Fortune Encounter"){p.focus=Math.min(p.maxFocus,p.focus+2);announceStatus(p.name,"🎯","Fortune Encounter","Focus +2","gold")}else{p.nextUpgradeDiscount=.35;announceStatus(p.name,"🛠️","Restoration Grant","Upgrade ถัดไปลด 35%","gold")}afterAction(idx)}
 
 function handleMapGimmick(idx,t){
  const p=players[idx];
@@ -2365,18 +2441,18 @@ function handleMapGimmick(idx,t){
 
  return false;
 }
-function buyCurrent(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"buy");const p=players[0],i=p.pos,c=buyCost(i,p);if(owners[i]<0&&p.money>=c){p.money-=c;p.investmentToken=0;p.nextBuyDiscount=0;owners[i]=0;levels[i]=1;p.lands++;bumpStat("propertiesBought");addLog(`คุณซื้อ ${tiles[i].name} ราคา ${c}`,"good");announceMoney(p.name,-c,`ซื้อ ${tiles[i].name}`);announceStatus(p.name,tiles[i].catIcon||"🏠","ซื้อ Property",`${tiles[i].name} • ${tiles[i].district} • Set ${tiles[i].set}`,"good")}afterAction(0)}
+function buyCurrent(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"buy");const p=players[0],i=p.pos,c=buyCost(i,p);if(owners[i]<0&&p.money>=c){p.money-=c;p.investmentToken=0;p.nextBuyDiscount=0;owners[i]=0;levels[i]=1;p.lands++;syncSetTelemetry("buy",true);bumpStat("propertiesBought");addLog(`คุณซื้อ ${tiles[i].name} ราคา ${c}`,"good");announceMoney(p.name,-c,`ซื้อ ${tiles[i].name}`);announceStatus(p.name,tiles[i].catIcon||"🏠","ซื้อ Property",`${tiles[i].name} • ${tiles[i].district} • Set ${tiles[i].set}`,"good")}afterAction(0)}
 function upgradeCurrent(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"upgrade");const p=players[0],i=p.pos,c=upgradeCost(i,p);if(owners[i]!==0||levels[i]>=4||p.money<c)return afterAction(0);if(levels[i]===1&&!developments[i])return openDevelopmentChoice(i,c);applyUpgrade(0,i,c,developments[i]||"rent")}
-function openDevelopmentChoice(i,c){const t=tiles[i],owned=setOwnedCount(0,t.set),total=setTotal(t.set),districtLead=districtLeader(t.district)===0,afterCash=Math.max(0,players[0].money-c),earlyRound=round<=Math.ceil(MAX_ROUNDS*.45),lateRound=round>=Math.ceil(MAX_ROUNDS*.6),inc=upgradeImpact(i,c,"income"),rent=upgradeImpact(i,c,"rent");const incomeTips=[];const rentTips=[];if(owned<total-1)incomeTips.push("ยังไม่ใกล้ปิด Set จึงเน้นกระแสเงินสดได้คุ้มกว่า");if(afterCash<300)incomeTips.push(`เงินสดไม่สูงมาก • Income Build คืน 35 ช่วยพยุงสภาพคล่อง`);if(earlyRound)incomeTips.push("ช่วงต้น-กลางเกม เหมาะกับการคืนทุนและเก็บเงินไปขยายต่อ");if(owned>=total-1)rentTips.push(`คุณมี ${owned}/${total} ใน Set นี้แล้ว • Rent Build จะกดดันคู่แข่งได้แรงกว่า`);if(districtLead)rentTips.push(`คุณเป็น District Leader ของ ${t.district} อยู่แล้ว • เหมาะกับการทบความได้เปรียบ`);if(lateRound)rentTips.push("ช่วงกลาง-ท้ายเกม ควรเร่งค่าเช่าเพื่อปิดเกม");if(!incomeTips.length)incomeTips.push("เหมาะเมื่ออยากเล่นแผนปลอดภัย มีเงินไว้ซื้อ/Trade/จ่ายค่าใช้จ่าย");if(!rentTips.length)rentTips.push("เหมาะเมื่อมั่นใจว่าจะมีคนเหยียบช่องนี้บ่อย หรือกำลังไล่แผน Set / District");modalIcon.textContent="🏗️";modalTitle.textContent=`เลือกแนวพัฒนา • ${t.name}`;modalText.textContent="เลือกสไตล์อัปเกรดของ Property นี้ครั้งเดียว • ตารางด้านล่างแสดงผลจริงของการอัปเกรดรอบนี้";modalExtra.innerHTML=`<div class="strategy-grid"><div class="strategy-card"><b>💰 Income Build</b><small>Rent ${inc.rentBefore} → <b>${inc.rentAfter}</b><br>รับ Cash คืน +35 • เงินหลังทำ <b>${inc.cashAfter}</b><br>Upgrade Asset +${inc.assetGain} • Net Worth ทันที <b>${inc.nwDelta>=0?"+":""}${inc.nwDelta}</b><br><br><b>เหมาะเมื่อ:</b><br>• ${incomeTips.join("<br>• ")}</small></div><div class="strategy-card"><b>🏙️ Rent Build</b><small>Rent ${rent.rentBefore} → <b>${rent.rentAfter}</b><br>เงินหลังทำ <b>${rent.cashAfter}</b><br>Upgrade Asset +${rent.assetGain} • Net Worth ทันที <b>${rent.nwDelta>=0?"+":""}${rent.nwDelta}</b><br><br><b>เหมาะเมื่อ:</b><br>• ${rentTips.join("<br>• ")}</small></div><div class="strategy-card"><b>📊 สถานะตอนนี้</b><small>Set: ${t.set} • ของคุณ ${owned}/${total}<br>District: ${t.district} • ${districtLead?"คุณเป็น Leader":"ยังไม่ได้เป็น Leader"}<br>ค่าอัปเกรดรอบนี้: ${c}<br>Property: Lv.${levels[i]} → Lv.${Math.min(4,levels[i]+1)}</small></div><div class="strategy-card"><b>💡 อ่านตัวเลขอย่างไร</b><small><b>Rent</b> = เงินที่คู่แข่งจ่ายเมื่อเหยียบ<br><b>Cash หลังทำ</b> = สภาพคล่องที่เหลือ<br><b>Net Worth ทันที</b> = ผลต่อคะแนนรวมจาก Cash + มูลค่า Upgrade ในจังหวะนี้<br><br>Income = ปลอดภัย/คล่องตัว • Rent = กดดัน/เร่งปิดเกม</small></div></div>`;modalChoices.innerHTML=`<button class="btn green" onclick="chooseDevelopment(${i},${c},'income')">💰 Income Build • Rent ${inc.rentAfter}</button><button class="btn purple" onclick="chooseDevelopment(${i},${c},'rent')">🏙️ Rent Build • Rent ${rent.rentAfter}</button>`;openGameModal()}
+function openDevelopmentChoice(i,c){const t=tiles[i],owned=setOwnedCount(0,t.set),total=setTotal(t.set),districtLead=districtLeader(t.district)===0,afterCash=Math.max(0,players[0].money-c),earlyRound=round<=Math.ceil(MAX_ROUNDS*.45),lateRound=round>=Math.ceil(MAX_ROUNDS*.6),inc=upgradeImpact(i,c,"income"),rent=upgradeImpact(i,c,"rent");const incomeTips=[];const rentTips=[];if(owned<total-1)incomeTips.push("ยังไม่ใกล้ปิด Set จึงเน้นกระแสเงินสดได้คุ้มกว่า");if(afterCash<300)incomeTips.push(`เงินสดไม่สูงมาก • Income Build คืน 35 ช่วยพยุงสภาพคล่อง`);if(earlyRound)incomeTips.push("ช่วงต้น-กลางเกม เหมาะกับการคืนทุนและเก็บเงินไปขยายต่อ");if(owned>=total-1)rentTips.push(`คุณมี ${owned}/${total} ใน Set นี้แล้ว • Rent Build จะกดดันคู่แข่งได้แรงกว่า`);if(districtLead)rentTips.push(`คุณเป็น District Leader ของ ${t.district} อยู่แล้ว • เหมาะกับการทบความได้เปรียบ`);if(lateRound)rentTips.push("ช่วงกลาง-ท้ายเกม ควรเร่งค่าเช่าเพื่อปิดเกม");if(!incomeTips.length)incomeTips.push("เหมาะเมื่ออยากเล่นแผนปลอดภัย มีเงินไว้ซื้อ/Trade/จ่ายค่าใช้จ่าย");if(!rentTips.length)rentTips.push("เหมาะเมื่อมั่นใจว่าจะมีคนเหยียบช่องนี้บ่อย หรือกำลังไล่แผน Set / District");modalIcon.textContent="🏗️";modalTitle.textContent=`เลือกแนวพัฒนา • ${t.name}`;modalText.textContent="เลือกสไตล์อัปเกรดของ Property นี้ครั้งเดียว • ตารางด้านล่างแสดงผลจริงของการอัปเกรดรอบนี้";modalExtra.innerHTML=`<div class="strategy-grid"><div class="strategy-card"><b>💰 Income Build</b><small>Rent ${inc.rentBefore} → <b>${inc.rentAfter}</b><br>รับ Cash คืน +35 • เงินหลังทำ <b>${inc.cashAfter}</b><br>Upgrade Asset +${inc.assetGain} • Net Worth ทันที <b>${inc.nwDelta>=0?"+":""}${inc.nwDelta}</b><br><br><b>เหมาะเมื่อ:</b><br>• ${incomeTips.join("<br>• ")}</small></div><div class="strategy-card"><b>🏙️ Rent Build</b><small>Rent ${rent.rentBefore} → <b>${rent.rentAfter}</b><br>เงินหลังทำ <b>${rent.cashAfter}</b><br>Upgrade Asset +${rent.assetGain} • Net Worth ทันที <b>${rent.nwDelta>=0?"+":""}${rent.nwDelta}</b><br><br><b>เหมาะเมื่อ:</b><br>• ${rentTips.join("<br>• ")}</small></div><div class="strategy-card"><b>📊 สถานะตอนนี้</b><small>Set: ${t.set} • ของคุณ ${owned}/${total}<br>District: ${t.district} • ${districtLead?"คุณเป็น Leader":"ยังไม่ได้เป็น Leader"}<br>ค่าอัปเกรดรอบนี้: ${c}<br>Property: Lv.${levels[i]} → Lv.${Math.min(4,levels[i]+1)}</small></div><div class="strategy-card"><b>💡 อ่านตัวเลขอย่างไร</b><small><b>Rent</b> = เงินที่คู่แข่งจ่ายเมื่อเหยียบ<br><b>Cash หลังทำ</b> = สภาพคล่องที่เหลือ<br><b>Net Worth ทันที</b> = ผลต่อคะแนนรวมจาก Cash + มูลค่า Upgrade ในจังหวะนี้<br><br>Income = ปลอดภัย/คล่องตัว • Rent = กดดัน/เร่งปิดเกม</small></div></div>`;modalChoices.innerHTML=`<button class="btn green" onclick="chooseDevelopment(${i},${c},'income')">💰 Income Build • Rent ${inc.rentAfter}</button><button class="btn purple" onclick="chooseDevelopment(${i},${c},'rent')">🏙️ Rent Build • Rent ${rent.rentAfter}</button>`;openGameModal("decision")}
 function chooseDevelopment(i,c,dev){closeModal();developments[i]=dev;applyUpgrade(0,i,c,dev)}
 function applyUpgrade(idx,i,c,dev){const p=players[idx];if(p.money<c)return afterAction(idx);p.money-=c;p.investmentToken=0;levels[i]++;if(!developments[i])developments[i]=dev||"rent";if(idx===0)bumpStat("upgrades");if(developments[i]==="income"){p.money+=35;announceMoney(p.name,35,"Income Build")};p.nextUpgradeDiscount=0;p.careerUpgradeDiscount=0;addLog(`${p.name} อัปเกรด ${tiles[i].name} → Lv.${levels[i]} • ${developments[i]}`,"good");announceMoney(p.name,-c,`อัปเกรด ${tiles[i].name}`);announceStatus(p.name,"⬆️","Property Development",`${tiles[i].name} → Lv.${levels[i]} • ${developments[i]==="rent"?"Rent Build":"Income Build"}`,"good");afterAction(idx)}
-function aiBuy(idx){const p=players[idx],i=p.pos,c=buyCost(i,p),diff=currentDifficulty(),value=aiStrategyValue(idx,i),reserve=diff.buyReserve+round*(diff.id==="normal"?8:6);const ratio=diff.id==="normal"?.92:diff.id==="hard"?.86:.80;const should=p.money-c>reserve && value>=c*ratio;if(should){p.money-=c;p.investmentToken=0;owners[i]=idx;levels[i]=1;p.lands++;addLog(`${p.name} ซื้อ ${tiles[i].name} • ${diff.label} Value ${value}`,"good");announceStatus(p.name,tiles[i].catIcon||"🏠",`AI ${diff.label} ลงทุน`,`${tiles[i].set} • ${tiles[i].district}`,"good");afterAction(idx)}else{addLog(`${p.name} ผ่าน ${tiles[i].name} • รักษา Reserve ${reserve}`,"info");runAuction(i,idx)}}
+function aiBuy(idx){const p=players[idx],i=p.pos,c=buyCost(i,p),diff=currentDifficulty(),value=aiStrategyValue(idx,i),reserve=diff.buyReserve+round*(diff.id==="normal"?8:6);const ratio=diff.id==="normal"?.92:diff.id==="hard"?.86:.80;const should=p.money-c>reserve && value>=c*ratio;if(should){p.money-=c;p.investmentToken=0;owners[i]=idx;levels[i]=1;p.lands++;syncSetTelemetry("ai-buy",false);addLog(`${p.name} ซื้อ ${tiles[i].name} • ${diff.label} Value ${value}`,"good");announceStatus(p.name,tiles[i].catIcon||"🏠",`AI ${diff.label} ลงทุน`,`${tiles[i].set} • ${tiles[i].district}`,"good");afterAction(idx)}else{addLog(`${p.name} ผ่าน ${tiles[i].name} • รักษา Reserve ${reserve}`,"info");runAuction(i,idx)}}
 function aiUpgrade(idx){const p=players[idx],i=p.pos,c=upgradeCost(i,p),diff=currentDifficulty(),potential=propertyRent(i),setN=setOwnedCount(idx,tiles[i].set),full=setN>=setTotal(tiles[i].set);const roi=diff.id==="normal"?.22:diff.id==="hard"?.18:.15;const strategic=full||(diff.id!=="normal"&&districtLeader(tiles[i].district)===idx);if(p.money-c>diff.upgradeReserve && (potential>c*roi||strategic)){const dev=(diff.id==="hell"&&tiles[i].category!=="industrial")?"rent":((tiles[i].category==="industrial"||tiles[i].category==="residential")?"income":"rent");if(!developments[i])developments[i]=dev;return applyUpgrade(idx,i,c,dev)}addLog(`${p.name} ยังไม่ Upgrade ${tiles[i].name} • ${diff.label} ประเมิน ROI`,"info");afterAction(idx)}
 function skipAction(){if(!humanCanDecide())return;setTurnState(TURN_STATE.ACTION_RESOLVING,"skip");const i=players[0].pos;if(tiles[i].type==="land"&&owners[i]<0){addLog(`${players[0].name} ไม่ซื้อ • เปิด Auction ${tiles[i].name}`,"gold");return runAuction(i,0)}addLog(`${players[0].name} เลือกผ่าน`,"info");afterAction(0)}
-function runAuction(i,starter){const diff=currentDifficulty();const bidders=players.map((p,idx)=>({p,idx,max:Math.min(p.money-(idx===0?180:(diff.id==="normal"?180:diff.id==="hard"?155:135)),Math.round((idx===0?strategyValue(idx,i):aiStrategyValue(idx,i))*(idx===0?1.05:diff.auctionMult)))})).filter(x=>!x.p.bankrupt&&x.max>=Math.round(tiles[i].price*.65));if(!bidders.length)return afterAction(starter);let price=Math.round(tiles[i].price*.65),active=bidders.slice();while(active.length>1){price+=20;active=active.filter(x=>x.max>=price);if(price>tiles[i].price*1.35)break}const winner=(active[0]||bidders.sort((a,b)=>b.max-a.max)[0]);price=Math.min(price,winner.max);if(winner.idx===0){modalIcon.textContent="🔨";modalTitle.textContent=`Auction • ${tiles[i].name}`;modalText.textContent=`คุณชนะสิทธิ์ประมูลที่ ${price} เหรียญ`;modalExtra.innerHTML=`<div class="choice-note">Strategy Value ของคุณ: ${strategyValue(0,i)} • ราคาปกติ ${tiles[i].price}</div>`;modalChoices.innerHTML=`<button class="btn green" ${players[0].money<price?"disabled":""} onclick="acceptAuction(${i},${price},${starter})">ซื้อ ${price}</button><button class="btn gray" onclick="declineAuction(${i},${starter})">ถอนตัว</button>`;openGameModal()}else{completeAuction(i,winner.idx,price);afterAction(starter)}}
+function runAuction(i,starter){const diff=currentDifficulty();const bidders=players.map((p,idx)=>({p,idx,max:Math.min(p.money-(idx===0?180:(diff.id==="normal"?180:diff.id==="hard"?155:135)),Math.round((idx===0?strategyValue(idx,i):aiStrategyValue(idx,i))*(idx===0?1.05:diff.auctionMult)))})).filter(x=>!x.p.bankrupt&&x.max>=Math.round(tiles[i].price*.65));if(!bidders.length)return afterAction(starter);let price=Math.round(tiles[i].price*.65),active=bidders.slice();while(active.length>1){price+=20;active=active.filter(x=>x.max>=price);if(price>tiles[i].price*1.35)break}const winner=(active[0]||bidders.sort((a,b)=>b.max-a.max)[0]);price=Math.min(price,winner.max);if(winner.idx===0){modalIcon.textContent="🔨";modalTitle.textContent=`Auction • ${tiles[i].name}`;modalText.textContent=`คุณชนะสิทธิ์ประมูลที่ ${price} เหรียญ`;modalExtra.innerHTML=`<div class="choice-note">Strategy Value ของคุณ: ${strategyValue(0,i)} • ราคาปกติ ${tiles[i].price}</div>`;modalChoices.innerHTML=`<button class="btn green" ${players[0].money<price?"disabled":""} onclick="acceptAuction(${i},${price},${starter})">ซื้อ ${price}</button><button class="btn gray" onclick="declineAuction(${i},${starter})">ถอนตัว</button>`;openGameModal("decision")}else{completeAuction(i,winner.idx,price);afterAction(starter)}}
 function acceptAuction(i,price,starter){closeModal();completeAuction(i,0,price);afterAction(starter)}
 function declineAuction(i,starter){closeModal();const diff=currentDifficulty();const others=players.map((p,idx)=>({p,idx,max:idx===0?-1:Math.min(p.money-(diff.id==="normal"?180:diff.id==="hard"?155:135),Math.round(aiStrategyValue(idx,i)*diff.auctionMult))})).filter(x=>x.max>=tiles[i].price*.65).sort((a,b)=>b.max-a.max);if(others.length)completeAuction(i,others[0].idx,Math.round(tiles[i].price*.72));afterAction(starter)}
-function completeAuction(i,idx,price){const p=players[idx];if(p.money<price)return;p.money-=price;owners[i]=idx;levels[i]=1;p.lands++;if(idx===0){bumpStat("auctionsWon");bumpStat("propertiesBought")}announceStatus(p.name,"🔨","ชนะ Auction",`${tiles[i].name} • ${price} เหรียญ`,"gold");addLog(`🔨 ${p.name} ได้ ${tiles[i].name} ราคา ${price}`,"gold")}
+function completeAuction(i,idx,price){const p=players[idx];if(p.money<price)return;p.money-=price;owners[i]=idx;levels[i]=1;p.lands++;syncSetTelemetry("auction",idx===0);if(idx===0){bumpStat("auctionsWon");bumpStat("propertiesBought")}announceStatus(p.name,"🔨","ชนะ Auction",`${tiles[i].name} • ${price} เหรียญ`,"gold");addLog(`🔨 ${p.name} ได้ ${tiles[i].name} ราคา ${price}`,"gold")}
 function useItem(index){
  if(current!==0)return;
  const p=players[0],id=p.items[index];
@@ -2421,7 +2497,7 @@ function afterAction(idx){
  validateGameState("afterAction-pre");tickEndTurnStatuses(idx);renderAll();validateGameState("afterAction-post");if(players[idx].money<0)bankrupt(idx);
  if(!gameOver){clearNextTurnTimer();const wait=idx===0?speedCfg[GAME_SPEED].after:Math.round(speedCfg[GAME_SPEED].after*1.25);nextTurnTimer=setTimeout(()=>{nextTurnTimer=null;if(!gameOver&&turnEpoch===epoch&&turnState===TURN_STATE.END_TURN)nextTurn();},wait)}
 }
-function bankrupt(idx){const p=players[idx];p.bankrupt=true;p.money=0;owners.forEach((o,i)=>{if(o===idx){owners[i]=-1;levels[i]=0}});p.lands=0;addLog(`${p.name} ล้มละลาย ทรัพย์สินถูกคืน`,"bad");announceStatus(p.name,"☠️","ล้มละลาย","เงินหมดและทรัพย์สินทั้งหมดถูกคืนสู่เมือง","bad");if(players.filter(x=>!x.bankrupt).length<=1)finishGame("เหลือผู้เล่นเพียงคนเดียว")}
+function bankrupt(idx){const p=players[idx];p.bankrupt=true;p.money=0;owners.forEach((o,i)=>{if(o===idx){owners[i]=-1;levels[i]=0}});p.lands=0;syncSetTelemetry("bankruptcy",false);addLog(`${p.name} ล้มละลาย ทรัพย์สินถูกคืน`,"bad");announceStatus(p.name,"☠️","ล้มละลาย","เงินหมดและทรัพย์สินทั้งหมดถูกคืนสู่เมือง","bad");if(players.filter(x=>!x.bankrupt).length<=1)finishGame("เหลือผู้เล่นเพียงคนเดียว")}
 function nextTurn(){if(gameOver)return;clearNextTurnTimer();do{current=(current+1)%players.length}while(players[current].bankrupt);if(current===0){round++;if(round>MAX_ROUNDS)return finishGame(`ครบ ${MAX_ROUNDS} รอบ`);announceMarketRound()}renderAll();startTurn()}
 function finishGame(reason){
  gameOver=true;clearNextTurnTimer();setTurnState(TURN_STATE.GAME_OVER,reason);syncMobileControlState();setButtons(false,false,false,false,false,false);
@@ -2430,6 +2506,7 @@ function finishGame(reason){
  const xpCalc=gameXPByRank(playerRank),xp=xpCalc.total,coins=win?80:40;
  const fullSetsThisGame=[...new Set(propertyIndices().map(i=>tiles[i].set))].filter(st=>setOwnedCount(0,st)>=setTotal(st)).length;
  const districtsThisGame=[...new Set(propertyIndices().map(i=>tiles[i].district))].filter(d=>districtLeader(d)===0).length;
+ const setTel=liveSetTelemetrySummary(0);
  save.stats.gamesPlayed++; if(win)save.stats.wins++;
  const diff=currentDifficulty(); if(diff.id==="normal")save.stats.normalGames++; else if(diff.id==="hard")save.stats.hardGames++; else save.stats.hellGames++;
  if(win&&diff.id==="hard")save.stats.hardWins++; if(win&&diff.id==="hell"){save.stats.hellWins++;if(MAX_ROUNDS>=15)save.stats.hellStandardWins++;}
@@ -2445,7 +2522,7 @@ function finishGame(reason){
  modalText.textContent=`${reason} • ${xpCalc.label} • ${xpCalc.difficulty.icon} ${xpCalc.difficulty.label} • อันดับ ${playerRank} • ได้ ${xp} EXP + ${coins} Coins${win?" + 2 Gems":""} • ${chestReward.text}`;
  const xpBreak=`<div class="choice-note" style="margin-bottom:10px"><b>⭐ EXP Reward</b><br>Base ${xpCalc.base} × Game Length ${Math.round(xpCalc.mult*100)}% × ${xpCalc.difficulty.icon} ${xpCalc.difficulty.label} ${xpCalc.diffMult} = <b>${xp} EXP</b><br>Difficulty Bonus: Normal ×1.0 • Hard ×1.25 • Hell ×1.60</div>`;
  const achHtml=newly.length?`<div class="choice-note" style="margin-bottom:10px"><b>🏆 Achievement Unlocked</b><br>${newly.map(a=>`${a.icon} ${a.name} • ${achievementRewardText(a.reward)}`).join("<br>")}</div>`:"";const chestHtml=`<div class="choice-note" style="margin-bottom:10px"><b>📦 Chest Reward</b><br>${chestReward.text}</div>`;
- modalExtra.innerHTML=xpBreak+chestHtml+achHtml+`<div class="rank">${ranking.map((r,k)=>`<div class="rankrow"><span>${["🥇","🥈","🥉","4️⃣"][k]} ${r.n}</span><b>${r.w} 💎</b></div>`).join("")}</div><div class="choice-note" style="margin-top:10px">🏠 Property Tycoon: ${players[propKing.i].name} • 👑 District Master: ${players[districtKing.i].name}<br>🧩 Full Set ของคุณเกมนี้: ${fullSetsThisGame} • 👑 District Control: ${districtsThisGame}</div>`;
+ modalExtra.innerHTML=xpBreak+chestHtml+achHtml+`<div class="rank">${ranking.map((r,k)=>`<div class="rankrow"><span>${["🥇","🥈","🥉","4️⃣"][k]} ${r.n}</span><b>${r.w} 💎</b></div>`).join("")}</div><div class="choice-note" style="margin-top:10px">🏠 Property Tycoon: ${players[propKing.i].name} • 👑 District Master: ${players[districtKing.i].name}<br>🧩 Full Set ของคุณเกมนี้: ${fullSetsThisGame} • 👑 District Control: ${districtsThisGame}</div><div class="choice-note" style="margin-top:10px;text-align:left"><b>📈 Full Set Telemetry</b><br>เคยปิด Set ระหว่างเกม: <b>${setTel.unique.length}</b> • Set ที่ยังครบตอนจบ: <b>${setTel.currentFull.length}</b><br>รอบแรกที่ปิด Set: <b>${setTel.firstRound??"—"}</b> • Near Set (ขาด 1): <b>${setTel.near.length}</b><br>Trade ช่วยปิด Set: <b>${setTel.tradeClosures}</b> ครั้ง • Set ถูกทำลาย/เสียชิ้น: <b>${setTel.brokenSets}</b> ครั้ง</div>`;
  modalChoices.innerHTML=`<button class="btn primary" onclick="location.reload()">กลับหน้าหลัก</button>`;openGameModal()
 }
 
@@ -2504,10 +2581,42 @@ function qaSetProgress(os,pi){
  names.forEach(name=>{const idx=tiles.map((t,i)=>t.type==="land"&&t.set===name?i:-1).filter(i=>i>=0);if(idx.length<2)return;const own=idx.filter(i=>os[i]===pi).length;if(own===idx.length)completed++;else if(own===idx.length-1)near++;});
  return {completed,near};
 }
+function qaSetNames(){return [...new Set(tiles.filter(t=>t.type==="land"&&t.set).map(t=>t.set))]}
+function qaCompletedSetNames(os,pi){return qaSetNames().filter(name=>{const idx=tiles.map((t,i)=>t.type==="land"&&t.set===name?i:-1).filter(i=>i>=0);return idx.length>1&&idx.every(i=>os[i]===pi)})}
+function qaDistrictLeaders(os,ls){
+ const districts=[...new Set(tiles.filter(t=>t.type==="land"&&t.district).map(t=>t.district))],leaders={};
+ districts.forEach(d=>{let best=-1,bestScore=0,tie=false;for(let pi=0;pi<4;pi++){let score=0;tiles.forEach((tile,i)=>{if(tile.type==="land"&&tile.district===d&&os[i]===pi)score+=(Number(tile.price)||0)+Math.max(0,ls[i])*(Number(tile.price)||0)*.35});if(score>bestScore){best=pi;bestScore=score;tie=false}else if(score>0&&score===bestScore)tie=true}leaders[d]=tie?-1:best});return leaders
+}
+function qaLiveWorthComponents(ps,os,ls,pi,setReward=FULL_SET_NET_WORTH_BONUS){
+ const cash=Math.max(0,Math.round(ps[pi]?.money||0));
+ let property=0,upgrade=0;
+ os.forEach((o,i)=>{if(o===pi){const price=Number(tiles[i].price)||0;property+=price;upgrade+=Math.max(0,ls[i]-1)*Math.round(price*.6)}});
+ const completedSets=qaCompletedSetNames(os,pi);
+ const leaders=qaDistrictLeaders(os,ls),ledDistricts=Object.entries(leaders).filter(([,leader])=>leader===pi).map(([d])=>d);
+ const fullSet=completedSets.length*setReward,district=ledDistricts.length*80;
+ const total=Math.max(0,Math.round(cash+property+upgrade+fullSet+district));
+ return {cash,property,upgrade,fullSet,district,total,completedSets,ledDistricts};
+}
+function qaLiveWorthReplica(ps,os,ls,pi){
+ // Independent replica of live netWorthBreakdown(): Cash + Property + Upgrade + Full Set(+200) + District(+80).
+ const cash=Math.max(0,Math.round(ps[pi]?.money||0));
+ let property=0,upgrade=0;
+ os.forEach((o,i)=>{if(o===pi){const price=Number(tiles[i].price)||0;property+=price;upgrade+=Math.max(0,ls[i]-1)*Math.round(price*.6)}});
+ const setNames=qaSetNames(),fullSet=setNames.filter(st=>{const idx=tiles.map((t,i)=>t.type==="land"&&t.set===st?i:-1).filter(i=>i>=0);return idx.length>0&&idx.every(i=>os[i]===pi)}).length*FULL_SET_NET_WORTH_BONUS;
+ const leaders=qaDistrictLeaders(os,ls),district=Object.values(leaders).filter(x=>x===pi).length*80;
+ return Math.max(0,Math.round(cash+property+upgrade+fullSet+district));
+}
+function qaCandidateWorth(ps,os,ls,pi,setReward){return qaLiveWorthComponents(ps,os,ls,pi,setReward).total}
+function qaScoringParity(ps,os,ls){
+ const live=ps.map((_,pi)=>qaLiveWorthReplica(ps,os,ls,pi));
+ const candidateLocked=ps.map((_,pi)=>qaCandidateWorth(ps,os,ls,pi,FULL_SET_NET_WORTH_BONUS));
+ const exact=live.every((v,i)=>v===candidateLocked[i]);
+ return {exact,live,candidateLocked,maxDelta:Math.max(...live.map((v,i)=>Math.abs(v-candidateLocked[i])))};
+}
 function qaSimOne(matchNo,difficultyId="normal"){
  const diff=difficultyDefs[difficultyId]||difficultyDefs.normal,eco=gameEconomy(),n=4,L=tiles.length,maxR=Math.max(5,Number(MAX_ROUNDS)||15);
  const ps=Array.from({length:n},(_,i)=>({money:i===0?eco.startMoney:Math.round(eco.startMoney*diff.moneyMult),pos:0,lands:0,bankrupt:false}));
- const os=Array(L).fill(-1),ls=Array(L).fill(0);let actions=0,turns=0,errors=[],purchases=0,upgrades=0,rentEvents=0,midWorth=null,bankruptcyEvents=0;
+ const os=Array(L).fill(-1),ls=Array(L).fill(0);let actions=0,turns=0,errors=[],purchases=0,upgrades=0,rentEvents=0,midWorth=null,bankruptcyEvents=0;const firstSetRound=[null,null,null,null],everSets=Array.from({length:n},()=>new Set());
  const err=m=>errors.push(`M${matchNo}: ${m}`);
  // Rotate initiative each match so AI1/AI2/AI3 are not rewarded simply for acting earlier.
  const initiative=matchNo%n;
@@ -2546,6 +2655,7 @@ function qaSimOne(matchNo,difficultyId="normal"){
    if(ls.some(x=>!Number.isInteger(x)||x<0||x>4))err("property level invariant failed");
    if(os.some(x=>!Number.isInteger(x)||x<-1||x>=n))err("property owner invariant failed");
   }
+  for(let pi=0;pi<n;pi++){const names=qaCompletedSetNames(os,pi);names.forEach(st=>everSets[pi].add(st));if(names.length&&firstSetRound[pi]==null)firstSetRound[pi]=r}
   if(r===Math.ceil(maxR/2))midWorth=ps.map((_,pi)=>qaSimWorth(ps,os,ls,pi));
   if(ps.filter(p=>!p.bankrupt).length<=1)break;
  }
@@ -2553,14 +2663,19 @@ function qaSimOne(matchNo,difficultyId="normal"){
  const sorted=[...worth].sort((a,b)=>b-a),winner=worth.indexOf(sorted[0]);
  const midRank=midWorth?[...midWorth].map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v).findIndex(x=>x.i===winner)+1:1;
  const setProgress=ps.map((_,pi)=>qaSetProgress(os,pi));
- return {errors,turns,actions,winner,worth,bankrupt:bankruptcyEvents,purchases,upgrades,rentEvents,completedSets:setProgress.map(x=>x.completed),nearSets:setProgress.map(x=>x.near),margin:sorted[0]-sorted[1],comeback:midRank>=3};
+ const liveWorth=ps.map((_,pi)=>qaLiveWorthReplica(ps,os,ls,pi)),liveMax=Math.max(...liveWorth),liveWinner=liveWorth.indexOf(liveMax);
+ const candidateScores={};[120,180].forEach(b=>{const vals=ps.map((_,pi)=>qaCandidateWorth(ps,os,ls,pi,b)),mx=Math.max(...vals);candidateScores[b]={worth:vals,winner:vals.indexOf(mx)}});
+ const parity=qaScoringParity(ps,os,ls);
+ if(!parity.exact)err(`scoring parity failed • max delta ${parity.maxDelta}`);
+ const endSetNames=ps.map((_,pi)=>qaCompletedSetNames(os,pi));
+ return {errors,turns,actions,winner,worth,legacyWinner:winner,liveWorth,liveWinner,candidateScores,parity,bankrupt:bankruptcyEvents,purchases,upgrades,rentEvents,completedSets:setProgress.map(x=>x.completed),nearSets:setProgress.map(x=>x.near),margin:sorted[0]-sorted[1],comeback:midRank>=3,firstSetRound,everSets:everSets.map(s=>s.size),endSetNames};
 }
 function qaAggregate(count=1000,difficultyId="normal"){
  count=Math.max(10,Math.min(10000,Number(count)||1000));
- const t0=performance.now(),agg={matches:count,difficultyId,errors:[],turns:0,actions:0,wins:[0,0,0,0],bankrupt:0,minWorth:Infinity,maxWorth:0,sumWorth:[0,0,0,0],margin:0,comebacks:0,purchases:0,upgrades:0,rentEvents:0,sets:[0,0,0,0],nearSets:[0,0,0,0]};
+ const t0=performance.now(),agg={matches:count,difficultyId,errors:[],turns:0,actions:0,wins:[0,0,0,0],liveWins:[0,0,0,0],bankrupt:0,minWorth:Infinity,maxWorth:0,sumWorth:[0,0,0,0],liveSumWorth:[0,0,0,0],margin:0,comebacks:0,purchases:0,upgrades:0,rentEvents:0,sets:[0,0,0,0],nearSets:[0,0,0,0],firstSetRoundSum:[0,0,0,0],firstSetRoundCount:[0,0,0,0],everSets:[0,0,0,0],candidateWins:{120:[0,0,0,0],180:[0,0,0,0]},legacyVsLiveFlip:0,candidateFlipVsLive:{120:0,180:0},winnerWithSetLive:0,winnerWithSetCandidate:{120:0,180:0},parityChecks:0,parityFailures:0,maxParityDelta:0,setNameEnd:{}};
  for(let i=1;i<=count;i++){
   const r=qaSimOne(i,difficultyId);agg.errors.push(...r.errors.slice(0,3));agg.turns+=r.turns;agg.actions+=r.actions;agg.wins[r.winner]++;agg.bankrupt+=r.bankrupt;agg.margin+=r.margin;if(r.comeback)agg.comebacks++;agg.purchases+=r.purchases;agg.upgrades+=r.upgrades;agg.rentEvents+=r.rentEvents;
-  r.worth.forEach((v,j)=>{agg.sumWorth[j]+=v;agg.minWorth=Math.min(agg.minWorth,v);agg.maxWorth=Math.max(agg.maxWorth,v)});r.completedSets.forEach((v,j)=>agg.sets[j]+=v);r.nearSets.forEach((v,j)=>agg.nearSets[j]+=v);
+  r.worth.forEach((v,j)=>{agg.sumWorth[j]+=v;agg.minWorth=Math.min(agg.minWorth,v);agg.maxWorth=Math.max(agg.maxWorth,v)});r.liveWorth.forEach((v,j)=>agg.liveSumWorth[j]+=v);agg.liveWins[r.liveWinner]++;if(r.liveWinner!==r.legacyWinner)agg.legacyVsLiveFlip++;if(r.endSetNames[r.liveWinner]?.length)agg.winnerWithSetLive++;agg.parityChecks++;if(!r.parity.exact)agg.parityFailures++;agg.maxParityDelta=Math.max(agg.maxParityDelta,r.parity.maxDelta);r.completedSets.forEach((v,j)=>agg.sets[j]+=v);r.nearSets.forEach((v,j)=>agg.nearSets[j]+=v);r.everSets.forEach((v,j)=>agg.everSets[j]+=v);r.firstSetRound.forEach((v,j)=>{if(v!=null){agg.firstSetRoundSum[j]+=v;agg.firstSetRoundCount[j]++}});[120,180].forEach(b=>{const cw=r.candidateScores[b].winner;agg.candidateWins[b][cw]++;if(cw!==r.liveWinner)agg.candidateFlipVsLive[b]++;if(r.endSetNames[cw]?.length)agg.winnerWithSetCandidate[b]++});r.endSetNames.flat().forEach(st=>agg.setNameEnd[st]=(agg.setNameEnd[st]||0)+1);
   if(agg.errors.length>60)break;
  }
  agg.ms=Math.round(performance.now()-t0);return agg;
@@ -2569,6 +2684,8 @@ function qaMetricRows(agg){
  const c=agg.matches,diff=difficultyDefs[agg.difficultyId]||difficultyDefs.normal;
  const rate=i=>((agg.wins[i]/c)*100).toFixed(1),avgWorth=i=>Math.round(agg.sumWorth[i]/c),avgSet=i=>(agg.sets[i]/c).toFixed(2),avgNear=i=>(agg.nearSets[i]/c).toFixed(2);
  const aiRates=[1,2,3].map(i=>Number(rate(i))),aiSpread=(Math.max(...aiRates)-Math.min(...aiRates)).toFixed(1);
+ const avgFirst=i=>agg.firstSetRoundCount[i]?(agg.firstSetRoundSum[i]/agg.firstSetRoundCount[i]).toFixed(1):"—",ever=i=>(agg.everSets[i]/c).toFixed(2),legacyLiveFlip=()=>((agg.legacyVsLiveFlip/c)*100).toFixed(1),candidateFlip=b=>((agg.candidateFlipVsLive[b]/c)*100).toFixed(1),liveSetWin=()=>((agg.winnerWithSetLive/c)*100).toFixed(1),candidateSetWin=b=>((agg.winnerWithSetCandidate[b]/c)*100).toFixed(1),parityRate=()=>(((agg.parityChecks-agg.parityFailures)/Math.max(1,agg.parityChecks))*100).toFixed(1);
+ const setFreq=Object.entries(agg.setNameEnd).sort((a,b)=>b[1]-a[1]).map(([st,n])=>`${synergyDef(st).icon} ${synergyDef(st).name} ${(n/c).toFixed(2)}/match`).join(" • ")||"ยังไม่มี Full Set";
  return `<div class="choice-note" style="text-align:left;line-height:1.65"><b>${diff.icon} ${diff.label} • Win Rate</b><br>
  👤 Player <b>${rate(0)}%</b> • 🤖 AI 1 ${rate(1)}% • 🤖 AI 2 ${rate(2)}% • 🤖 AI 3 ${rate(3)}%<br>
  <span style="opacity:.8">Fair-share baseline: 25.0% ต่อฝ่าย • AI seat spread ${aiSpread} pt (initiative rotated)</span></div>
@@ -2580,7 +2697,7 @@ function qaMetricRows(agg){
  Properties bought: <b>${(agg.purchases/c).toFixed(1)}</b> • Upgrades: <b>${(agg.upgrades/c).toFixed(1)}</b> • Rent events: <b>${(agg.rentEvents/c).toFixed(1)}</b><br>
  Raw Completed Sets: Player <b>${avgSet(0)}</b> • AI ${avgSet(1)} / ${avgSet(2)} / ${avgSet(3)}<br>
  Near Sets (2/3): Player <b>${avgNear(0)}</b> • AI ${avgNear(1)} / ${avgNear(2)} / ${avgNear(3)}<br>
- <span style="opacity:.8">หมายเหตุ: Simulator ยังไม่จำลอง Trade Center เต็มรูปแบบ จึงใช้ Near Set เพื่ออ่าน Synergy potential</span><br>Avg actions: <b>${(agg.actions/c).toFixed(1)}</b></div>`;
+ <span style="opacity:.8">หมายเหตุ: Simulator ยังไม่จำลอง Wanderer Market เต็มรูปแบบ จึงใช้ Near Set เพื่ออ่าน Synergy potential</span><br>Avg actions: <b>${(agg.actions/c).toFixed(1)}</b></div><div class="choice-note" style="margin-top:8px;text-align:left;line-height:1.65"><b>🧩 Full Set Telemetry</b><br>Ever completed / Match: Player <b>${ever(0)}</b> • AI ${ever(1)} / ${ever(2)} / ${ever(3)}<br>First Set Round (when achieved): Player <b>${avgFirst(0)}</b> • AI ${avgFirst(1)} / ${avgFirst(2)} / ${avgFirst(3)}<br>Set frequency at finish: ${setFreq}</div><div class="choice-note" style="margin-top:8px;text-align:left;line-height:1.65"><b>✅ Scoring Parity Validation</b><br>Live Game Replica (+200 Set / +80 District) parity: <b>${agg.parityFailures===0?"PASS":"FAIL"}</b> • Exact matches <b>${parityRate()}%</b> • Max delta <b>${agg.maxParityDelta}</b><br>Legacy → Live Replica winner difference: <b>${legacyLiveFlip()}%</b> <span style="opacity:.8">(expected: Legacy omits Full Set / District end-score bonuses)</span></div><div class="choice-note" style="margin-top:8px;text-align:left;line-height:1.65"><b>🔒 Full Set Reward Lock — Live +200</b><br>Locked Live +200/Set: Winner has Full Set <b>${liveSetWin()}%</b><br>Old +120/Set: winner changes vs Live +200 <b>${candidateFlip(120)}%</b> • Winner has Full Set <b>${candidateSetWin(120)}%</b><br>Alternative +180/Set: winner changes vs Live +200 <b>${candidateFlip(180)}%</b> • Winner has Full Set <b>${candidateSetWin(180)}%</b><br><span style="opacity:.8">Rent Synergy ยังคง 2/3 = +15% และ 3/3 = +30% • เปลี่ยนเฉพาะ Full Set end-score เป็น +200 • Trade ยังไม่ถูกจำลอง</span></div>`;
 }
 function runBalanceSimulator(count=1000,difficultyId="normal"){
  const agg=qaAggregate(count,difficultyId),passed=agg.errors.length===0,diff=difficultyDefs[difficultyId]||difficultyDefs.normal;
@@ -2592,7 +2709,7 @@ function runBalanceSimulator(count=1000,difficultyId="normal"){
 function runAllBalanceSimulators(count=1000){
  const rows=["normal","hard","hell"].map(id=>qaAggregate(count,id));const passed=rows.every(x=>x.errors.length===0);
  modalIcon.textContent=passed?"📊":"⚠️";modalTitle.textContent="Difficulty Balance Comparison";modalText.textContent=`${Number(count).toLocaleString()} Matches ต่อระดับ • รวม ${(Number(count)*3).toLocaleString()} Matches`;
- modalExtra.innerHTML=rows.map(a=>{const d=difficultyDefs[a.difficultyId],c=a.matches,wr=((a.wins[0]/c)*100).toFixed(1),margin=Math.round(a.margin/c),cb=((a.comebacks/c)*100).toFixed(1),bank=(a.bankrupt/c).toFixed(2),near=(a.nearSets[0]/c).toFixed(2);return `<div class="choice-note" style="margin-top:8px;text-align:left"><b>${d.icon} ${d.label}</b><br>👤 Player Win <b>${wr}%</b> • Victory Margin ${margin} • Comeback ${cb}% • Bankruptcy ${bank}/match<br>Properties ${(a.purchases/c).toFixed(1)} • Upgrades ${(a.upgrades/c).toFixed(1)} • Raw Sets ${(a.sets[0]/c).toFixed(2)} • Near Sets ${near}</div>`}).join("")+`<div class="choice-note" style="margin-top:8px;text-align:left"><b>🎯 Initial Balance Targets</b><br>Normal: Player 27–35% • Hard: 18–27% • Hell: 12–22%<br><span style="opacity:.8">V8.9 baseline accepted: initiative rotation + live bankruptcy semantics. Trade Center remains outside the simulator and will be validated in Human Beta.</span></div>`;
+ modalExtra.innerHTML=rows.map(a=>{const d=difficultyDefs[a.difficultyId],c=a.matches,wr=((a.wins[0]/c)*100).toFixed(1),margin=Math.round(a.margin/c),cb=((a.comebacks/c)*100).toFixed(1),bank=(a.bankrupt/c).toFixed(2),near=(a.nearSets[0]/c).toFixed(2);return `<div class="choice-note" style="margin-top:8px;text-align:left"><b>${d.icon} ${d.label}</b><br>👤 Player Win <b>${wr}%</b> • Victory Margin ${margin} • Comeback ${cb}% • Bankruptcy ${bank}/match<br>Properties ${(a.purchases/c).toFixed(1)} • Upgrades ${(a.upgrades/c).toFixed(1)} • Raw Sets ${(a.sets[0]/c).toFixed(2)} • Near Sets ${near}<br>First Set Round ${a.firstSetRoundCount[0]?(a.firstSetRoundSum[0]/a.firstSetRoundCount[0]).toFixed(1):"—"} • Parity ${a.parityFailures===0?"PASS":"FAIL"} • Legacy→Live flip ${((a.legacyVsLiveFlip/c)*100).toFixed(1)}% • Old +120 vs Live +200 flip ${((a.candidateFlipVsLive[120]/c)*100).toFixed(1)}% • +180 vs Live +200 flip ${((a.candidateFlipVsLive[180]/c)*100).toFixed(1)}%</div>`}).join("")+`<div class="choice-note" style="margin-top:8px;text-align:left"><b>🎯 Initial Balance Targets</b><br>Normal: Player 27–35% • Hard: 18–27% • Hell: 12–22%<br><span style="opacity:.8">V8.9 baseline accepted: initiative rotation + live bankruptcy semantics. Wanderer Market remains outside the simulator and will be validated in Human Beta.</span></div>`;
  modalChoices.innerHTML=`<button class="btn blue" onclick="runAllBalanceSimulators(${Math.min(5000,Number(count)*2)})">🧪 Run ${Math.min(5000,Number(count)*2).toLocaleString()} / Level</button><button class="btn gray" onclick="closeModal()">ปิด</button>`;openGameModal("qa");return rows;
 }
 function runQASimulator(count=1000){return runBalanceSimulator(count,"normal")}
@@ -2663,7 +2780,7 @@ function openCoreGameplayLockReport(){
       <b>✅ Lock decision</b><br>
       Difficulty ordering is clean, AI seat bias is controlled, bankruptcy is now reachable, and the simulator reports no invalid state. No live-game economy rebalance is justified before Human Beta telemetry.
     </div>
-    <div style="margin-top:12px;color:#59758a;line-height:1.65"><b>Next:</b> Synergy Rework → Onboarding → Save & Recovery. Trade Center completion rate will be validated separately because the simulator does not yet model full trading.</div>`;
+    <div style="margin-top:12px;color:#59758a;line-height:1.65"><b>Next:</b> Synergy Rework → Onboarding → Save & Recovery. Wanderer Market completion rate will be validated separately because the simulator does not yet model full trading.</div>`;
   if(typeof showModal==='function'){
     showModal(html,[{label:"ปิด",className:"dark",action:()=>closeModal()}]);
   }else if(typeof openModal==='function'){
@@ -2676,9 +2793,15 @@ function openCoreGameplayLockReport(){
 
 <!-- V8.9.2 Synergy Rework: activation UX, 2/3→3/3 progress, named synergies, Build Identity fit labels. V8.9 Core Economy/AI/Turn Balance unchanged. -->
 <!-- V8.8.11 Simulator Calibration retained: rotating initiative, actual bankruptcy semantics, near-set telemetry, per-player win rates + state-machine QA. -->
-<!-- V8.9.2.1 Trade Hub UX Hotfix: restore close/finish functions, add minimize/restore property inspection, player reserve becomes advisory while AI reserve remains intact. -->
+<!-- V8.9.2.1 Wanderer Bazaar UX Hotfix: restore close/finish functions, add minimize/restore property inspection, player reserve becomes advisory while AI reserve remains intact. -->
 <!-- V8.9.2.2 Modal UX Hotfix: all popup windows can be minimized/restored, Synergy modal is made responsive on normal desktop, and upgrade branch choices now explain recommended use-cases. -->
 <!-- V8.9.2.3 Net Worth Clarity: per-player breakdown tooltip/status and explicit win-score formula. No balance values changed. -->
 <!-- V8.9.2.4 Strategy Clarity Pass: purchase impact, missing Set pieces/owners, Trade Set impact, exact Upgrade Rent/Net Worth previews. Core Balance unchanged. -->
+<!-- V8.9.2.5 Full Set Telemetry & Reward Review: no live balance change. -->
+<!-- V8.9.2.6 Simulator Scoring Validation: Legacy score preserved; Live Replica matches Cash + Property + Upgrade + Full Set + District. -->
+<!-- V8.9.2.7 Synergy Balance Lock: Full Set end-score bonus locked at +200 Net Worth; Rent remains 2/3 +15% and 3/3 +30%; scoring parity and sensitivity retained against old +120 / alternative +180. -->
+<!-- V8.9.2.8 Mobile Modal UX Hotfix: info/tile popups no longer show minimize; decision popups retain map peek; mobile action buttons enlarged for reliable tapping. -->
+<!-- V8.9.2.9 Minimized Action State Hotfix: minimized decision modal content is snapshotted and survives opening Synergy/Status; Synergy no longer has minimize and becomes read-only while an Action is parked. -->
+<!-- V8.9.2.10 World of Wonders Theme Prototype: visual/naming A-B test only. No economy, AI, Rent, Set, Net Worth, turn or simulator balance values changed. -->
 </body>
 </html>
